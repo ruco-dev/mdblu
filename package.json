@@ -1,7 +1,8 @@
 {
-  "name": "@ruco-ai/mdblu",
-  "version": "1.0.0",
+  "name": "mdblu",
+  "version": "1.1.0",
   "description": "CLI tool to list and download mdblu markdown templates into your project",
+  "homepage": "https://mdblu.ruco.dev",
   "main": "bin/mdblu.js",
   "bin": {
     "mdblu": "bin/mdblu.js"

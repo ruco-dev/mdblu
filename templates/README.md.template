@@ -146,14 +146,14 @@ Running any `get` command (or interactive mode) creates:
 
 ## MCP Server
 
-mdblu runs as an MCP server at `https://mdblu.fly.dev/mcp`, so any MCP-compatible AI tool can pull templates on demand.
+mdblu runs as an MCP server at `https://mdblu.ruco.dev/mcp`, so any MCP-compatible AI tool can pull templates on demand.
 
 The server reads templates and `CLAUDE.md` directly from this repository at request time — no redeploy needed when templates change. Responses are cached for 5 minutes.
 
 ### Add to Claude Code
 
 ```bash
-claude mcp add --transport http mdblu https://mdblu.fly.dev/mcp
+claude mcp add --transport http mdblu https://mdblu.ruco.dev/mcp
 ```
 
 ### Add to Claude Desktop
@@ -165,7 +165,7 @@ In your `claude_desktop_config.json`:
   "mcpServers": {
     "mdblu": {
       "type": "http",
-      "url": "https://mdblu.fly.dev/mcp"
+      "url": "https://mdblu.ruco.dev/mcp"
     }
   }
 }
@@ -176,7 +176,7 @@ In your `claude_desktop_config.json`:
 Point your client at:
 
 ```
-https://mdblu.fly.dev/mcp
+https://mdblu.ruco.dev/mcp
 ```
 
 with transport `http`. No auth required.

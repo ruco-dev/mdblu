@@ -78,9 +78,9 @@ mdblu ships as an npm package with a CLI for scaffolding templates directly into
 ### Install
 
 ```bash
-npm install -g @ruco-ai/mdblu
+npm install -g mdblu
 # or use without installing:
-npx @ruco-ai/mdblu
+npx mdblu
 ```
 
 ### Commands
@@ -115,14 +115,14 @@ mdblu update
 
 ## MCP Server
 
-mdblu runs as an MCP server at `https://mdblu.fly.dev/mcp`, so any MCP-compatible AI tool can pull templates on demand.
+mdblu runs as an MCP server at `https://mdblu.ruco.dev/mcp`, so any MCP-compatible AI tool can pull templates on demand.
 
 The server reads templates and `CLAUDE.md` directly from this repository at request time — no redeploy needed when templates change.
 
 ### Add to Claude Code
 
 ```bash
-claude mcp add --transport http @ruco-ai/mdblu https://mdblu.fly.dev/mcp
+claude mcp add --transport http mdblu https://mdblu.ruco.dev/mcp
 ```
 
 ### Add to Claude Desktop
@@ -132,7 +132,7 @@ claude mcp add --transport http @ruco-ai/mdblu https://mdblu.fly.dev/mcp
   "mcpServers": {
     "mdblu": {
       "type": "http",
-      "url": "https://mdblu.fly.dev/mcp"
+      "url": "https://mdblu.ruco.dev/mcp"
     }
   }
 }

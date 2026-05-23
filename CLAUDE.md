@@ -2,7 +2,7 @@
 
 This repo is a collection of markdown templates for AI-assisted software development workflows. Each template is filled by the AI from a prompt and output as a structured document.
 
-The repo also ships as an npm package (`@ruco-ai/mdblu`) with a CLI that lets users scaffold a `.mdblu/` directory containing downloaded templates and a `CLAUDE.md` stub.
+The repo also ships as an npm package (`mdblu`) with a CLI that lets users scaffold a `.mdblu/` directory containing downloaded templates and a `CLAUDE.md` stub.
 
 ---
 
