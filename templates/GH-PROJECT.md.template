@@ -1,0 +1,78 @@
+---
+title: "GitHub Project"
+type: planning
+tags: [task-management, planning, metadata]
+---
+
+# GitHub Project: {{PROJECT_NAME}}
+
+**Date:** {{DATE}}
+**Author:** {{AUTHOR}}
+
+---
+
+<!--
+INSTRUCTIONS FOR THE MODEL:
+Your output must be this document with every section filled in. Do not write prose, summaries, or commentary outside the template structure.
+The prompt below describes a project, team, or workflow. Use it to define a GitHub Project with real GitHub issues organised as parent issues and sub-issues.
+
+Rules:
+- Project: fill title, owner (GitHub username or org), repo (owner/repo where new issues will be created), visibility (public or private), and a short description.
+- Fields: optional custom fields beyond the built-in Status. Do NOT include Status — it is always present in GitHub Projects and cannot be redefined. Leave the table empty if no extra fields are needed.
+  - Field types: TEXT | NUMBER | DATE | SINGLE_SELECT | ITERATION
+  - For SINGLE_SELECT, list options comma-separated in the Options column. Leave Options blank for all other types.
+- Items: all items are real GitHub issues (type ISSUE).
+  - Organise work as parent issues (one per area or epic) with sub-issues for individual tasks.
+  - Parent issues: leave parent blank.
+  - Sub-issues: set parent to the exact title of the parent issue.
+  - assignee: GitHub username with @ prefix, or leave blank.
+  - status: Todo | In Progress | In Review | Done.
+  - To reference an existing issue or PR instead of creating a new one, add repo (owner/repo) and number columns and fill those instead of title/body/parent.
+- Remove HTML comments from the final output.
+- Do not add, remove, or reorder sections.
+- Do not leave placeholder text or empty required cells.
+- The JS script that consumes this file is strict about table column order — do not reorder columns.
+-->
+
+## Prompt
+
+> {{PROMPT}}
+
+---
+
+## Project
+
+| Field | Value |
+|-------|-------|
+| title | {{PROJECT_NAME}} |
+| owner | <!-- GitHub username or org --> |
+| repo | <!-- owner/repo where new issues will be created --> |
+| visibility | <!-- public or private --> |
+| description | <!-- One-sentence summary of the project's purpose --> |
+
+---
+
+## Fields
+
+<!-- Optional extra fields. Do NOT add Status — it is built-in. Leave the table body empty if none are needed. -->
+
+| name | type | options |
+|------|------|---------|
+
+---
+
+## Items
+
+<!-- All items are real GitHub issues (type ISSUE). Parent issues have no parent value. Sub-issues reference their parent by exact title. -->
+
+| type | title | body | parent | assignee | status |
+|------|-------|------|--------|----------|--------|
+| ISSUE | <!-- parent issue title --> |  |  | <!-- @username --> | Todo |
+| ISSUE | <!-- sub-issue title --> |  | <!-- exact parent title --> | <!-- @username --> | Todo |
+
+---
+
+*Provided by [mdblu](https://github.com/ruco-ai/mdblu)*
+
+---
+*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/GH-PROJECT.md.template`*
