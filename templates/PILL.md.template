@@ -1,0 +1,97 @@
+---
+title: "MCP Server Pill"
+type: specification
+tags: [planning, specification, ai-workflow]
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+FOR THE AGENT — read this before doing anything else
+═══════════════════════════════════════════════════════════════
+
+You are building an mcpill MCP server from this document.
+Follow the steps in pill-agent-guide.md.
+
+If pill-agent-guide.md is not present, run `mcpill init` first
+or find the guide at https://github.com/ruco-dev/mcpill.
+
+════════════════════════════════════════════════════════════════ -->
+
+# Pill: {{SERVER_NAME}}
+
+**Date:** {{DATE}}
+**Author:** {{AUTHOR}}
+
+---
+
+## Server
+
+name: {{server-name}}
+description: {{One sentence describing what this server does.}}
+transport: stdio
+
+---
+
+## Tool: {{tool-name}}
+
+<!--
+Repeat this section for each tool.
+The heading suffix becomes the tool identifier — use kebab-case.
+-->
+
+description: {{What this tool does in one sentence.}}
+inputs:
+  - {{param}} ({{string|number|boolean}}): {{What this parameter represents.}}
+output: {{What the tool returns when it succeeds.}}
+behavior: |
+  {{
+    Describe the logic in plain English or pseudocode.
+    Cover: which inputs are used, what happens, what is returned.
+    The agent translates this into a working JS handler.
+  }}
+
+---
+
+## Resource: {{resource-name}}
+
+<!--
+Optional. Repeat for each static resource.
+A resource is read-only content exposed at a URI (config, docs, status, etc.).
+-->
+
+uri: {{scheme://path}}
+description: {{What this resource contains.}}
+content: |
+  {{Static text content.}}
+
+---
+
+## Prompt: {{prompt-name}}
+
+<!--
+Optional. Repeat for each prompt template.
+A prompt is a named, parameterised message template the client can invoke.
+-->
+
+description: {{When and why a client would use this prompt.}}
+args:
+  - {{arg}} ({{string|number|boolean}}): {{What this argument represents.}}
+message: |
+  {{Prompt text. Reference args as {{arg}}.}}
+
+---
+
+## Next Steps
+
+Fill the sections above, then tell Claude: **"Build this PILL.md"**
+
+After the source files are generated:
+
+- [ ] `mcpill compile`
+- [ ] `mcpill validate`
+- [ ] `mcpill run`
+- [ ] `mcpill pack`
+- [ ] `mcpill publish`
+
+---
+
+*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/PILL.md.template`*
