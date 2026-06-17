@@ -2,20 +2,29 @@
 
 ## BOT
 
-- [ ] Read `.crunchdeck/decisions/` to find the highest-numbered ADR. If none exist, start at `ADR-0001`.
+- [ ] Read `.crunchdeck/decisions/` to find the highest-numbered ADR. If none exist, start at `0001`.
 
-- [ ] Create `.crunchdeck/decisions/ADR-<number>.md` from `_energy-cards/ADR.md.template`, substituting:
-  - `{{PROJECT_NAME}}` — from the human-provided decision title
-  - `{{DATE}}` — today
-  - `{{AUTHOR}}` — from `git config user.name`
+- [ ] Create `.crunchdeck/decisions/ADR-<number>/ADR-<number>.md` from `_energy-cards/ADR.md.template` — substitute `{{PROJECT_NAME}}` from the human-provided title, `{{DATE}}` today, `{{AUTHOR}}` from `git config user.name`.
 
-- [ ] Fill in `## Context` from the human's description. Leave `## Decision`, `## Rationale`, `## Alternatives Considered`, and `## Consequences` for the human to complete — or draft them if enough context is provided.
+- [ ] Create `.crunchdeck/decisions/ADR-<number>/TODO.md`:
+  ```
+  # ADR-<number>
+
+  ## BOT
+
+  - [ ] Read `ADR-<number>.md` and fill in any incomplete sections using the decision context from `## HUMAN`.
+  - [ ] If the decision affects PROFILE, BACKLOG, or ROADMAP, note the impact under `## HUMAN`.
+
+  ## HUMAN
+
+  #### COMMENTS
+  ```
 
 - [ ] Commit: `git add .crunchdeck/decisions/ && git commit -m "deck: adr <number> — <title>"`.
 
 ## HUMAN
 
-- [ ] What decision needs to be recorded? Describe the context, the options considered, and (if known) the chosen path.
+- [ ] What decision needs to be recorded? Describe the context and options considered.
   > _answer:_
 
 #### COMMENTS

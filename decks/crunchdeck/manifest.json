@@ -1,12 +1,8 @@
 {
   "name": "crunchdeck",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "blueprints": [
     "crunchdeck-init",
-    "crunchdeck-signal-email",
-    "crunchdeck-signal-web",
-    "crunchdeck-signal-github",
-    "crunchdeck-promote",
     "crunchdeck-adr"
   ],
   "energyCards": [
