@@ -1,0 +1,19 @@
+{
+  "name": "crunchdeck",
+  "version": "0.1.0",
+  "blueprints": [
+    "crunchdeck-init",
+    "crunchdeck-signal-email",
+    "crunchdeck-signal-web",
+    "crunchdeck-signal-github",
+    "crunchdeck-promote",
+    "crunchdeck-adr"
+  ],
+  "energyCards": [
+    "BACKLOG.md.template",
+    "PROFILE.md.template",
+    "ROADMAP.md.template",
+    "LAUNCH.md.template",
+    "ADR.md.template"
+  ]
+}
