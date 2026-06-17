@@ -143,8 +143,8 @@ vite.config.ts.timestamp-*
 .vite/
 
 .gitignore
-.claude
-.flowdeck
+.claude/
+.flowdeck/
 CLAUDE.md
 FLOWDECK.md
 package.json
