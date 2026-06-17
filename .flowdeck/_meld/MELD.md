@@ -1,4 +1,0 @@
-# Meld
-
-| Card | Melded | Summary |
-|------|--------|--------|

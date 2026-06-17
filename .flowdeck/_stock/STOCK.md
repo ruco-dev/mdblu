@@ -1,4 +1,0 @@
-# Stock
-
-| Card | Added | Description |
-|------|-------|-------------|
