@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0] — 2026-06-17
+
+### Added
+
+- **`decks/` distribution layer:** mdblu now distributes [flowdeck](https://github.com/ruco-dev/flowdeck) decks alongside templates. A deck is a named, installable collection of blueprints and energy cards for a specific domain — installed with `flowdeck install <name> --local`.
+- **`crunchdeck` deck:** first deck in the registry. Installs product management cards (PROFILE, BACKLOG, ROADMAP, ADR) under `.crunchdeck/` via two blueprints: `crunchdeck-init` and `crunchdeck-adr`.
+- **`decks/DECKS.md`:** index of available decks and instructions for contributing a new one.
+
 ## [1.1.0] — 2026-05-23
 
 ### Changed
