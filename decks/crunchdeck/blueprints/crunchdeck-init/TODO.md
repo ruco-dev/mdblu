@@ -4,13 +4,17 @@
 
 - [ ] Read `FLOWDECK.md` for product name and description. Fall back to `package.json` name/description if not found.
 
-- [ ] Check if `.crunchdeck/` already exists. If it does, stop and note under `## HUMAN` that crunchdeck is already initialized.
+- [ ] Check if `.flowdeck/.crunchdeck/` already exists. If it does, stop and note under `## HUMAN` that crunchdeck is already initialized.
 
-- [ ] Create `.crunchdeck/profile/`, `.crunchdeck/backlog/`, `.crunchdeck/roadmap/`, `.crunchdeck/decisions/`, `.crunchdeck/launches/`.
+- [ ] Create `.flowdeck/.crunchdeck/`, `.flowdeck/.crunchdeck/decisions/`, `.flowdeck/.crunchdeck/launches/`.
 
-- [ ] Scaffold `.crunchdeck/profile/PROFILE.md` from `_energy-cards/PROFILE.md.template` — substitute `{{PRODUCT_NAME}}`, `{{DATE}}`, and `{{PROMPT}}` from context.
+- [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.crunchdeck/` is excluded from `flowdeck turn`.
 
-- [ ] Create `.crunchdeck/profile/TODO.md`:
+- [ ] Scaffold `.flowdeck/.crunchdeck/README.md` from `_energy-cards/README.md.template` — substitute `{{PRODUCT_NAME}}` and `{{DATE}}` (today).
+
+- [ ] Scaffold `.flowdeck/.crunchdeck/profile/PROFILE.md` from `_energy-cards/PROFILE.md.template` — substitute `{{PRODUCT_NAME}}`, `{{DATE}}`, and `{{PROMPT}}` from context.
+
+- [ ] Create `.flowdeck/.crunchdeck/profile/TODO.md`:
   ```
   # profile
 
@@ -25,9 +29,9 @@
   #### COMMENTS
   ```
 
-- [ ] Scaffold `.crunchdeck/backlog/BACKLOG.md` from `_energy-cards/BACKLOG.md.template` — substitute `{{PRODUCT_NAME}}` and `{{DATE}}`.
+- [ ] Scaffold `.flowdeck/.crunchdeck/backlog/BACKLOG.md` from `_energy-cards/BACKLOG.md.template` — substitute `{{PRODUCT_NAME}}` and `{{DATE}}`.
 
-- [ ] Create `.crunchdeck/backlog/TODO.md`:
+- [ ] Create `.flowdeck/.crunchdeck/backlog/TODO.md`:
   ```
   # backlog
 
@@ -49,9 +53,9 @@
   #### COMMENTS
   ```
 
-- [ ] Scaffold `.crunchdeck/roadmap/ROADMAP.md` from `_energy-cards/ROADMAP.md.template` — substitute `{{PRODUCT_NAME}}`, `{{DATE}}`, and `{{OWNER}}` from `git config user.name`.
+- [ ] Scaffold `.flowdeck/.crunchdeck/roadmap/ROADMAP.md` from `_energy-cards/ROADMAP.md.template` — substitute `{{PRODUCT_NAME}}`, `{{DATE}}`, and `{{OWNER}}` from `git config user.name`.
 
-- [ ] Create `.crunchdeck/roadmap/TODO.md`:
+- [ ] Create `.flowdeck/.crunchdeck/roadmap/TODO.md`:
   ```
   # roadmap
 
@@ -66,8 +70,6 @@
 
   #### COMMENTS
   ```
-
-- [ ] Add `.crunchdeck/` to `.gitignore` if not already present.
 
 - [ ] Commit: `git add -A && git commit -m "deck: init crunchdeck"`.
 

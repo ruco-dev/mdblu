@@ -2,11 +2,11 @@
 
 ## BOT
 
-- [ ] Read `.crunchdeck/decisions/` to find the highest-numbered ADR. If none exist, start at `0001`.
+- [ ] Read `.flowdeck/.crunchdeck/decisions/` to find the highest-numbered ADR. If none exist, start at `0001`.
 
-- [ ] Create `.crunchdeck/decisions/ADR-<number>/ADR-<number>.md` from `_energy-cards/ADR.md.template` — substitute `{{PROJECT_NAME}}` from the human-provided title, `{{DATE}}` today, `{{AUTHOR}}` from `git config user.name`.
+- [ ] Create `.flowdeck/.crunchdeck/decisions/ADR-<number>/ADR-<number>.md` from `_energy-cards/ADR.md.template` — substitute `{{PROJECT_NAME}}` from the human-provided title, `{{DATE}}` today, `{{AUTHOR}}` from `git config user.name`.
 
-- [ ] Create `.crunchdeck/decisions/ADR-<number>/TODO.md`:
+- [ ] Create `.flowdeck/.crunchdeck/decisions/ADR-<number>/TODO.md`:
   ```
   # ADR-<number>
 
@@ -20,7 +20,7 @@
   #### COMMENTS
   ```
 
-- [ ] Commit: `git add .crunchdeck/decisions/ && git commit -m "deck: adr <number> — <title>"`.
+- [ ] Commit: `git add .flowdeck/.crunchdeck/decisions/ && git commit -m "deck: adr <number> — <title>"`.
 
 ## HUMAN
 

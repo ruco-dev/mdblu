@@ -1,0 +1,12 @@
+{
+  "name": "emaildeck",
+  "version": "0.1.0",
+  "blueprints": [
+    "emaildeck-init",
+    "emaildeck-add-filter"
+  ],
+  "energyCards": [
+    "FILTER.md.template",
+    "EMAIL.md.template"
+  ]
+}

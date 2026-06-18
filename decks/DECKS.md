@@ -12,7 +12,9 @@ flowdeck install <deck-name> --local
 
 | Deck | Description | Blueprints |
 |---|---|---|
-| [`crunchdeck`](crunchdeck/) | Product management — PROFILE, BACKLOG, ROADMAP, and ADR cards under `.crunchdeck/` | `crunchdeck-init`, `crunchdeck-adr` |
+| [`crunchdeck`](crunchdeck/) | Product management — PROFILE, BACKLOG, ROADMAP, and ADR cards under `.flowdeck/.crunchdeck/` | `crunchdeck-init`, `crunchdeck-adr`, `crunchdeck-promote`, `crunchdeck-signal-*` |
+| [`emaildeck`](emaildeck/) | Gmail filter rules as flowdeck cards — fetch, label, and create message cards under `.flowdeck/.emaildeck/` | `emaildeck-init`, `emaildeck-add-filter` |
+| [`notedeck`](notedeck/) | Freeform notes as flowdeck cards under `.flowdeck/.notedeck/` | `notedeck-init` |
 
 ## Contributing a Deck
 

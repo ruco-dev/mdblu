@@ -3,9 +3,14 @@
   "version": "0.2.0",
   "blueprints": [
     "crunchdeck-init",
-    "crunchdeck-adr"
+    "crunchdeck-adr",
+    "crunchdeck-promote",
+    "crunchdeck-signal-email",
+    "crunchdeck-signal-github",
+    "crunchdeck-signal-web"
   ],
   "energyCards": [
+    "README.md.template",
     "BACKLOG.md.template",
     "PROFILE.md.template",
     "ROADMAP.md.template",

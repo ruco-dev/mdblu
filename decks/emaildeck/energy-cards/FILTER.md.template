@@ -1,0 +1,28 @@
+# Filter: {{FILTER_NAME}}
+
+## Query
+
+```
+{{QUERY}}
+```
+
+## Label
+
+{{LABEL}}
+
+## Default Tasks
+
+> Tasks below are added to every message card this filter creates.
+> Prefix lines with `BOT:` or `HUMAN:` — or leave unprefixed for HUMAN by default.
+
+{{DEFAULT_TASKS}}
+
+## Date Range
+
+> Optional. Leave blank to default to the last 30 days.
+> Examples: `after:2024/01/01`, `newer_than:7d`
+
+## Run Log
+
+| Date | Threads found | Labeled | Cards created |
+|------|--------------|---------|---------------|
