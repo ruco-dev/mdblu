@@ -2,7 +2,7 @@
 
 ## BOT
 
-- [ ] For each of the following paths, create it only if it does not already exist:
+- [ ] This card is idempotent — do not stop early if `.flowdeck/.emaildeck/` already exists. For each path below, create it only if missing; skip silently if it already exists:
   - `.flowdeck/.emaildeck/`
   - `.flowdeck/.emaildeck/filters/`
   - `.flowdeck/.emaildeck/inbox/`
