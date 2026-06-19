@@ -2,13 +2,15 @@
 
 ## BOT
 
-- [ ] Check if `.flowdeck/.emaildeck/` already exists. If it does, stop and note under `## HUMAN` that emaildeck is already initialized.
-
-- [ ] Create `.flowdeck/.emaildeck/`, `.flowdeck/.emaildeck/filters/`, `.flowdeck/.emaildeck/inbox/`, and `.flowdeck/.emaildeck/drafts/`.
+- [ ] For each of the following paths, create it only if it does not already exist:
+  - `.flowdeck/.emaildeck/`
+  - `.flowdeck/.emaildeck/filters/`
+  - `.flowdeck/.emaildeck/inbox/`
+  - `.flowdeck/.emaildeck/drafts/`
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.emaildeck/` is excluded from `flowdeck turn`.
 
-- [ ] Scaffold `.flowdeck/.emaildeck/README.md`:
+- [ ] Scaffold `.flowdeck/.emaildeck/README.md` if it does not already exist:
   ```
   # emaildeck
 
@@ -35,7 +37,7 @@
   drafts/          — bot-generated reply drafts staged for human review
   ```
 
-- [ ] Scaffold `.flowdeck/.emaildeck/FILTERS.md`:
+- [ ] Scaffold `.flowdeck/.emaildeck/FILTERS.md` if it does not already exist:
   ```markdown
   # Email Filters
 
@@ -57,7 +59,7 @@
   ---
   ```
 
-- [ ] Scaffold `.flowdeck/.emaildeck/ACTIONS.md`:
+- [ ] Scaffold `.flowdeck/.emaildeck/ACTIONS.md` if it does not already exist:
   ```markdown
   # Email Actions
 
