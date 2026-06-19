@@ -25,16 +25,16 @@
   ## Structure
 
   FILTERS.md       — human-editable filter criteria (edit before playing a filter)
-  ACTIONS.md       — actions the bot can perform on emails; trigger via thread TODO.md
+  ACTIONS.md       — reference for all available email actions
   filters/<slug>/
     FILTER.md      — query, label, default task template
     TODO.md        — when played: fetch → label → create message cards
     messages/
       <date>-<slug>/
         EMAIL.md   — thread metadata
-        TODO.md    — populated from default tasks
-  inbox/           — raw fetched threads land here before being processed
-  drafts/          — bot-generated reply drafts staged for human review
+        TODO.md    — ## ACTIONS menu; move items to ## BOT or ## HUMAN to activate
+  inbox/           — fetched threads not yet routed to a filter
+  drafts/          — reply drafts staged for human review
   ```
 
 - [ ] Scaffold `.flowdeck/.emaildeck/FILTERS.md` if it does not already exist:
@@ -63,25 +63,8 @@
   ```markdown
   # Email Actions
 
-  Actions you can ask the bot to perform on emails in your inbox.
-  Trigger an action by adding it as a task in the thread's `TODO.md`.
-
-  ---
-
-  ## add-card
-
-  Create a flowdeck card for this email thread. The card captures subject, sender, date, and a brief summary.
-
-  **Trigger:** `- [ ] add-card`
-
-  ---
-
-  ## draft-reply
-
-  Compose a reply draft using Gmail MCP and save it to `drafts/`.
-  Provide context or instructions on what the reply should say.
-
-  **Trigger:** `- [ ] draft-reply — [your instructions here]`
+  Reference for all actions available on email cards.
+  To activate an action, move it from `## ACTIONS` in the card's `TODO.md` into `## BOT` (bot executes) or `## HUMAN` (you handle it).
 
   ---
 
@@ -93,11 +76,68 @@
 
   ---
 
+  ## draft-reply
+
+  Compose a reply draft using Gmail MCP and save it to `drafts/`.
+  Include instructions on what the reply should say.
+
+  **Trigger:** `- [ ] draft-reply — [your instructions here]`
+
+  ---
+
+  ## improve-language
+
+  Rewrite an existing draft in `drafts/` with improved clarity, tone, or style.
+
+  **Trigger:** `- [ ] improve-language — [target tone, e.g. "more concise" or "formal"]`
+
+  ---
+
+  ## create-card
+
+  Create a flowdeck card for this email thread as a work item to follow up on.
+
+  **Trigger:** `- [ ] create-card`
+
+  ---
+
+  ## extract-tasks
+
+  Extract action items from the email body and append them as tasks under `## HUMAN`.
+
+  **Trigger:** `- [ ] extract-tasks`
+
+  ---
+
   ## label
 
   Apply a Gmail label to the thread.
 
   **Trigger:** `- [ ] label — [label name]`
+
+  ---
+
+  ## forward
+
+  Forward the thread to another address with optional context.
+
+  **Trigger:** `- [ ] forward — [recipient and any context]`
+
+  ---
+
+  ## translate
+
+  Translate the email body into another language and append to `EMAIL.md`.
+
+  **Trigger:** `- [ ] translate — [target language]`
+
+  ---
+
+  ## snooze
+
+  Add a follow-up reminder as a `## HUMAN` task with a target date.
+
+  **Trigger:** `- [ ] snooze — [date or condition, e.g. "in 3 days" or "after reply"]`
 
   ---
 
@@ -133,19 +173,21 @@
   ```markdown
   # Email: [Subject here]
 
-  - **From**: sender@example.com
-  - **Date**: YYYY-MM-DD
-  - **Thread ID**: <!-- Gmail thread ID -->
-  - **Subject**: <!-- Subject line -->
-  - **Labels**: <!-- Applied labels -->
+  | Field | Value |
+  |-------|-------|
+  | From | sender@example.com |
+  | Date | YYYY-MM-DD |
+  | Thread ID | <!-- Gmail thread ID --> |
+  | Label applied | <!-- emaildeck/label --> |
+  | Filter | <!-- filter slug --> |
 
-  ## Summary
+  ## Snippet
 
-  <!-- One-paragraph summary of the thread -->
+  <!-- First lines of the thread -->
 
-  ## Body
+  ## Thread URL
 
-  <!-- Email body or most recent message -->
+  https://mail.google.com/mail/u/0/#inbox/THREAD_ID
   ```
 
 - [ ] Scaffold `.flowdeck/.emaildeck/drafts/mock-email-card/TODO.md` if it does not already exist:
@@ -154,7 +196,118 @@
 
   ## BOT
 
+  ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate -->
+
+  - [ ] summarize
   - [ ] draft-reply — [describe what the reply should say]
+  - [ ] improve-language — [target tone, e.g. "more concise" or "formal"]
+  - [ ] create-card
+  - [ ] extract-tasks
+  - [ ] label — [label name]
+  - [ ] forward — [recipient and context]
+  - [ ] translate — [target language]
+  - [ ] snooze — [date or condition]
+  - [ ] archive
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/inbox/mock-email-card/EMAIL.md` if it does not already exist — same structure as the drafts mock:
+  ```markdown
+  # Email: [Subject here]
+
+  | Field | Value |
+  |-------|-------|
+  | From | sender@example.com |
+  | Date | YYYY-MM-DD |
+  | Thread ID | <!-- Gmail thread ID --> |
+  | Label applied | <!-- emaildeck/label --> |
+  | Filter | <!-- filter slug --> |
+
+  ## Snippet
+
+  <!-- First lines of the thread -->
+
+  ## Thread URL
+
+  https://mail.google.com/mail/u/0/#inbox/THREAD_ID
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/inbox/mock-email-card/TODO.md` if it does not already exist — same structure as the drafts mock:
+  ```markdown
+  # [Subject here]
+
+  ## BOT
+
+  ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate -->
+
+  - [ ] summarize
+  - [ ] draft-reply — [describe what the reply should say]
+  - [ ] improve-language — [target tone, e.g. "more concise" or "formal"]
+  - [ ] create-card
+  - [ ] extract-tasks
+  - [ ] label — [label name]
+  - [ ] forward — [recipient and context]
+  - [ ] translate — [target language]
+  - [ ] snooze — [date or condition]
+  - [ ] archive
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/filters/mock-filter-card/FILTER.md` if it does not already exist:
+  ```markdown
+  # Filter: Example Filter
+
+  ## Query
+
+  ```
+  from:example@example.com
+  ```
+
+  ## Label
+
+  emaildeck/example
+
+  ## Default Tasks
+
+  > Tasks below are added to every message card this filter creates.
+  > Prefix with `BOT:` or `HUMAN:` — unprefixed defaults to HUMAN.
+
+  BOT: summarize
+
+  ## Date Range
+
+  ## Run Log
+
+  | Date | Threads found | Labeled | Cards created |
+  |------|--------------|---------|---------------|
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/filters/mock-filter-card/TODO.md` if it does not already exist:
+  ```markdown
+  # Example Filter
+
+  ## BOT
+
+  - [ ] Read `FILTER.md` for query, label, and default tasks.
+  - [ ] Search Gmail using the query. Default to the last 30 days unless `FILTER.md` specifies a `## Date Range`.
+  - [ ] Check if the label from `FILTER.md` exists; create it if not via `mcp__claude_ai_Gmail__create_label`.
+  - [ ] For each matching thread:
+    - Apply the label using `mcp__claude_ai_Gmail__label_thread`
+    - Create `messages/<YYYY-MM-DD>-<thread-slug>/` inside this filter folder
+    - Scaffold `EMAIL.md` from `_energy-cards/EMAIL.md.template` — substitute thread metadata
+    - Scaffold `TODO.md` using the `## ACTIONS` template — pre-populate `## BOT` from `## Default Tasks` in `FILTER.md`
+  - [ ] Append a run log entry to `FILTER.md` under `## Run Log`.
+  - [ ] If no threads matched, note under `## HUMAN` and stop.
 
   ## HUMAN
 
