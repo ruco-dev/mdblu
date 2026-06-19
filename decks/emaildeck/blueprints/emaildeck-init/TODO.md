@@ -263,6 +263,40 @@
   #### COMMENTS
   ```
 
+- [ ] Scaffold `.flowdeck/.emaildeck/inbox/TODO.md` if it does not already exist:
+  ```markdown
+  # Inbox
+
+  ## BOT
+
+  - [ ] Search Gmail for threads not yet labeled with any `emaildeck/*` label (query: `-label:emaildeck`). Default to the last 30 days.
+  - [ ] For each unrouted thread, create `inbox/<YYYY-MM-DD>-<thread-slug>/` with `EMAIL.md` (from `_energy-cards/EMAIL.md.template`) and `TODO.md` (using the `## ACTIONS` template).
+  - [ ] Check each new thread against defined filters in `filters/` — if it matches a filter's query, move the card there and apply the filter label.
+  - [ ] Report count of new threads and any routed ones under `## HUMAN`.
+
+  ## HUMAN
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/filters/TODO.md` if it does not already exist:
+  ```markdown
+  # Filters
+
+  ## BOT
+
+  - [ ] Read `FILTERS.md` for all defined filter blocks.
+  - [ ] For each filter with a `Slug` value, check if `filters/<slug>/` exists — if not, scaffold it from `emaildeck-add-filter` blueprint.
+  - [ ] List all filter cards under `filters/` and their last run date from each `FILTER.md`'s `## Run Log`.
+
+  ## HUMAN
+
+  - [ ] Add a new filter: `flowdeck blueprint use emaildeck-add-filter start`
+  - [ ] Edit `FILTERS.md` to define filter criteria, then run: `flowdeck play .emaildeck/filters/<slug>`
+
+  #### COMMENTS
+  ```
+
 - [ ] Scaffold `.flowdeck/.emaildeck/filters/mock-filter-card/FILTER.md` if it does not already exist:
   ```markdown
   # Filter: Example Filter
