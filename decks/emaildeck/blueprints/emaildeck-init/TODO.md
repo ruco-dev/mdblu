@@ -112,6 +112,55 @@
   <!-- Add your own actions below -->
   ```
 
+- [ ] Scaffold `.flowdeck/.emaildeck/drafts/TODO.md` if it does not already exist:
+  ```markdown
+  # Drafts
+
+  ## BOT
+
+  - [ ] List all draft cards in `drafts/` (subdirectories with a `TODO.md`).
+  - [ ] For each draft card that has a completed `draft-reply` task, read its `EMAIL.md` and the drafted reply, then create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`.
+  - [ ] Note each sent draft under `## HUMAN` with the Gmail draft ID.
+
+  ## HUMAN
+
+  Review drafts in Gmail and send when ready.
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/drafts/mock-email-card/EMAIL.md` if it does not already exist:
+  ```markdown
+  # Email: [Subject here]
+
+  - **From**: sender@example.com
+  - **Date**: YYYY-MM-DD
+  - **Thread ID**: <!-- Gmail thread ID -->
+  - **Subject**: <!-- Subject line -->
+  - **Labels**: <!-- Applied labels -->
+
+  ## Summary
+
+  <!-- One-paragraph summary of the thread -->
+
+  ## Body
+
+  <!-- Email body or most recent message -->
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/drafts/mock-email-card/TODO.md` if it does not already exist:
+  ```markdown
+  # [Subject here]
+
+  ## BOT
+
+  - [ ] draft-reply — [describe what the reply should say]
+
+  ## HUMAN
+
+  #### COMMENTS
+  ```
+
 - [ ] Commit: `git add .flowdeck/.emaildeck && git commit -m "deck: init emaildeck"`.
 
 ## HUMAN
