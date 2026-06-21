@@ -69,8 +69,10 @@ flowdeck install crunchdeck --local
 
 | Deck | What it sets up |
 |---|---|
-| [`crunchdeck`](decks/crunchdeck/) | Product management under `.crunchdeck/` — PROFILE, BACKLOG, ROADMAP, ADR cards |
-| [`emaildeck`](decks/emaildeck/) | Gmail filter rules as flowdeck cards — fetch, label, and create message cards under `.emaildeck/` |
+| [`crunchdeck`](decks/crunchdeck/) | Product management under `.crunchdeck/` — PROFILE, BACKLOG, ROADMAP, ADR, inbox |
+| [`emaildeck`](decks/emaildeck/) | Gmail filter rules as flowdeck cards — fetch, label, and route findings to crunchdeck |
+| [`gitdeck`](decks/gitdeck/) | GitHub repo vigilance — watches owned, competitor, provider, consumer, and benchmark repos; routes findings to crunchdeck |
+| [`webdeck`](decks/webdeck/) | Web search signals — runs configured queries and routes findings to crunchdeck |
 | [`notedeck`](decks/notedeck/) | Freeform notes as flowdeck cards under `.notedeck/` |
 
 See [`decks/DECKS.md`](decks/DECKS.md) for the full index and instructions for contributing a new deck.

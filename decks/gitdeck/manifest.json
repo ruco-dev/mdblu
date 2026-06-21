@@ -1,0 +1,13 @@
+{
+  "name": "gitdeck",
+  "version": "0.1.0",
+  "agentMd": "AGENT.md",
+  "blueprints": [
+    "gitdeck-init",
+    "gitdeck-add-repo"
+  ],
+  "energyCards": [
+    "REPO.md.template",
+    "FINDING.md.template"
+  ]
+}

@@ -6,7 +6,7 @@
 
 - [ ] Check if `.flowdeck/.crunchdeck/` already exists. If it does, stop and note under `## HUMAN` that crunchdeck is already initialized.
 
-- [ ] Create `.flowdeck/.crunchdeck/`, `.flowdeck/.crunchdeck/decisions/`, `.flowdeck/.crunchdeck/launches/`.
+- [ ] Create `.flowdeck/.crunchdeck/`, `.flowdeck/.crunchdeck/inbox/`, `.flowdeck/.crunchdeck/decisions/`, `.flowdeck/.crunchdeck/launches/`.
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.crunchdeck/` is excluded from `flowdeck turn`.
 
@@ -39,18 +39,25 @@
 
   ## BOT
 
-  - [ ] **Email signals** — search Gmail for threads from the last 14 days related to this product: user feedback, competitor mentions, feature requests. For each qualifying thread, add a row to `BACKLOG.md` Signal table.
-
-  - [ ] **Web signals** — read `../profile/PROFILE.md` for product category and competitors. Run 3–5 searches. Add findings to `BACKLOG.md` Signal table.
-
-  - [ ] **GitHub release signals** — read `## HUMAN` for repos to watch. Fetch last 3 releases per repo via `gh api repos/<owner>/<repo>/releases --limit 3`. Compare against `../roadmap/ROADMAP.md` themes. Add notable releases to `BACKLOG.md` Signal table.
+  - [ ] Check `../inbox/` for unrouted cards forwarded from emaildeck, gitdeck, or webdeck. Route any that are clearly backlog candidates by moving `to-backlog` to `## BOT` on each card.
 
   - [ ] Review P0/P1 candidates not yet in `../roadmap/ROADMAP.md` — surface them under `## HUMAN` for promotion decision.
 
   ## HUMAN
 
-  - [ ] GitHub repos to watch (owner/repo, one per line):
-    > _answer:_
+  #### COMMENTS
+  ```
+
+- [ ] Create `.flowdeck/.crunchdeck/inbox/TODO.md`:
+  ```
+  # inbox
+
+  ## BOT
+
+  - [ ] List all subdirectories in this folder that have an `EMAIL.md` with no completed routing action (`to-backlog`, `to-roadmap`, `to-decision`, or `discard`) in their `TODO.md`.
+  - [ ] For each unrouted item, read `EMAIL.md` and surface subject, from, date, and relevance note under `## HUMAN`.
+
+  ## HUMAN
 
   #### COMMENTS
   ```
@@ -67,6 +74,38 @@
   - [ ] Add promoted items to the correct horizon (Now / Next / Later) with outcome, hypothesis, and metric tracing to PROFILE north-star.
   - [ ] Check if any "Now" items have shipped — update Status.
   - [ ] Verify cross-product dependencies are still current.
+
+  ## HUMAN
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.crunchdeck/decisions/ADR-0001/ADR-0001.md` from `_energy-cards/ADR.md.template` — number `ADR-0001`, title "Initial Technology Stack", Status `Accepted`. Fill Context/Decision/Rationale with plausible initial choices derived from `package.json` and `PROFILE.md` (language, runtime, key dependencies). Use `{{AUTHOR}}` from `git config user.name` and `{{DATE}}` as today.
+
+- [ ] Create `.flowdeck/.crunchdeck/decisions/ADR-0001/TODO.md`:
+  ```
+  # decisions/ADR-0001
+
+  ## BOT
+
+  - [ ] Review `ADR-0001.md` for placeholder content. Update from `PROFILE.md` or `package.json` where possible.
+  - [ ] Flag any unresolved items to `## HUMAN`.
+
+  ## HUMAN
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.crunchdeck/launches/v0.0.0/LAUNCH.md` from `_energy-cards/LAUNCH.md.template` — version `v0.0.0`, title "Pre-launch Baseline", Status `Archived`. Fill as a seed/bootstrap state: all checklist items marked with a note that this is the starting baseline, not a real release. Use `{{DATE}}` as today and `{{OWNER}}` from `git config user.name`.
+
+- [ ] Create `.flowdeck/.crunchdeck/launches/v0.0.0/TODO.md`:
+  ```
+  # launches/v0.0.0
+
+  ## BOT
+
+  - [ ] Review `LAUNCH.md` for placeholder content. Update from `PROFILE.md` where possible.
+  - [ ] Flag any unresolved items to `## HUMAN`.
 
   ## HUMAN
 

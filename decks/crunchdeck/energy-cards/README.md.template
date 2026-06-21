@@ -30,18 +30,11 @@ Update it when the positioning changes, not every sprint. If you find yourself r
 
 **`BACKLOG.md`** is the curated intake pipeline. It has two sides:
 
-- **Signal** — continuous market input: customer feedback, competitor releases, search demand, GitHub activity. Every signal row must trace to a candidate item or it's noise.
 - **Candidate Items** — strategic, unscheduled work. Items stay here until a human explicitly promotes them to the roadmap.
 
 Backlog is not issue tracking (that's GitHub Issues reached via flowdeck cards) and not committed sequence (that's `ROADMAP.md`). Keep items at the strategic level.
 
-Run a signal blueprint to populate it automatically:
-
-| Blueprint | Signal source |
-|---|---|
-| `crunchdeck-signal-email` | Gmail threads |
-| `crunchdeck-signal-web` | Web search |
-| `crunchdeck-signal-github` | GitHub release comparisons |
+Signals arrive via `inbox/` — forwarded from emaildeck, gitdeck, or webdeck using `send-to-crunchdeck`. Route inbox cards to backlog using the `to-backlog` action.
 
 ---
 
@@ -80,9 +73,8 @@ Open questions that surface during a launch and resolve into real decisions shou
 ## Pipeline
 
 ```
-Signal (email / web / GitHub)
-  → backlog/BACKLOG.md Signal table
-  → Candidate Items
-  → roadmap/ROADMAP.md Horizons
+emaildeck / gitdeck / webdeck  (send-to-crunchdeck)
+  → inbox/
+  → Backlog / Roadmap / Decision
   → flowdeck cards / GitHub Issues
 ```

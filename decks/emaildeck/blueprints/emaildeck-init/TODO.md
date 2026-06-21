@@ -149,6 +149,38 @@
 
   ---
 
+  ## send-to-crunchdeck
+
+  Forward this email card to the crunchdeck product inbox for triage. Creates a card at `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<thread-slug>/`. Only runs if `.flowdeck/.crunchdeck/` exists — stops silently otherwise.
+
+  **Trigger:** `- [ ] send-to-crunchdeck`
+
+  When activated:
+  1. Check `.flowdeck/.crunchdeck/` exists — if not, note under `## HUMAN` and stop.
+  2. Read `EMAIL.md` for subject, sender, date, snippet, and `## Relevance` note (if present).
+  3. Create `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<thread-slug>/EMAIL.md` — copy all metadata and relevance note.
+  4. Create `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<thread-slug>/TODO.md`:
+     ```
+     # [Subject]
+
+     ## BOT
+
+     ## HUMAN
+
+     ## ACTIONS
+
+     <!-- Move an item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
+
+     - [ ] to-backlog — append as a candidate item in `../../backlog/BACKLOG.md`
+     - [ ] to-roadmap — promote directly to `../../roadmap/ROADMAP.md` under the relevant horizon
+     - [ ] to-decision — open a new ADR: `flowdeck blueprint use crunchdeck-adr <slug>`
+     - [ ] discard
+
+     #### COMMENTS
+     ```
+
+  ---
+
   <!-- Add your own actions below -->
   ```
 
@@ -269,10 +301,10 @@
 
   ## BOT
 
-  - [ ] Search Gmail for threads not yet labeled with any `emaildeck/*` label (query: `-label:emaildeck`). Default to the last 30 days.
-  - [ ] For each unrouted thread, create `inbox/<YYYY-MM-DD>-<thread-slug>/` with `EMAIL.md` (from `_energy-cards/EMAIL.md.template`) and `TODO.md` (using the `## ACTIONS` template).
-  - [ ] Check each new thread against defined filters in `filters/` — if it matches a filter's query, move the card there and apply the filter label.
-  - [ ] Report count of new threads and any routed ones under `## HUMAN`.
+  - [ ] List all filter cards in `filters/` (subdirectories that contain a `FILTER.md`).
+  - [ ] If no filters are defined, note under `## HUMAN` to add one with `flowdeck blueprint use emaildeck-add-filter` and stop.
+  - [ ] For each filter card, play its `TODO.md` — fetch threads matching its query and create message cards under `filters/<slug>/messages/`.
+  - [ ] Report under `## HUMAN`: filters run, threads found per filter, any that found nothing.
 
   ## HUMAN
 

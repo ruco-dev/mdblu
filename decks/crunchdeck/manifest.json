@@ -5,10 +5,7 @@
   "blueprints": [
     "crunchdeck-init",
     "crunchdeck-adr",
-    "crunchdeck-promote",
-    "crunchdeck-signal-email",
-    "crunchdeck-signal-github",
-    "crunchdeck-signal-web"
+    "crunchdeck-promote"
   ],
   "energyCards": [
     "README.md.template",
