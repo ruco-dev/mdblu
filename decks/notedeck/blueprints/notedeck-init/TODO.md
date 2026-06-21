@@ -12,6 +12,8 @@
 
 - [ ] Scaffold `.flowdeck/.notedeck/README.md` with a one-paragraph description of this deck.
 
+- [ ] Scaffold `.flowdeck/.notedeck/AGENT.md` if it does not already exist — copy verbatim from `_energy-cards/notedeck-AGENT.md`.
+
 - [ ] Commit: `git add .flowdeck/.notedeck && git commit -m "deck: init notedeck"`.
 
 ## HUMAN

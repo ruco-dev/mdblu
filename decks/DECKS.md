@@ -2,6 +2,8 @@
 
 A **deck** is a named, installable collection of [flowdeck](https://github.com/ruco-dev/flowdeck) blueprints and energy cards for a specific domain. Each deck ships with a `<deck>-init` blueprint that scaffolds its working directory.
 
+**Source vs. runtime:** the canonical source for every deck is `mdblu/decks/<name>/` (this repo). When a deck is installed into a project, flowdeck copies its blueprints and energy cards into the project's `.flowdeck/` directory. That copy is a runtime artifact — gitignored and overwritten on reinstall. Never edit it directly; always edit the source here.
+
 Install any deck into a project with a single command:
 
 ```bash

@@ -348,6 +348,8 @@
   #### COMMENTS
   ```
 
+- [ ] Scaffold `.flowdeck/.emaildeck/AGENT.md` if it does not already exist — copy verbatim from `_energy-cards/emaildeck-AGENT.md`.
+
 - [ ] Commit: `git add .flowdeck/.emaildeck && git commit -m "deck: init emaildeck"`.
 
 ## HUMAN

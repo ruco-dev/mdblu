@@ -1,6 +1,7 @@
 {
   "name": "emaildeck",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "agentMd": "AGENT.md",
   "blueprints": [
     "emaildeck-init",
     "emaildeck-add-filter"

@@ -57,6 +57,8 @@ All templates live in [`/templates`](templates/) and are open for contribution.
 
 A **deck** is a named, installable collection of [flowdeck](https://github.com/ruco-dev/flowdeck) blueprints and energy cards for a specific domain. mdblu distributes decks under [`/decks`](decks/) — each deck is a folder with a `manifest.json`, its blueprints, and any domain-specific energy card templates.
 
+**Source vs. runtime:** deck definitions live in `mdblu/decks/` (this repo). When installed, flowdeck copies blueprints and energy cards into the target project's `.flowdeck/` directory. That runtime copy is gitignored and gets overwritten on reinstall — never edit it directly. To change a deck, edit the source in `mdblu/decks/<name>/` and re-run `flowdeck install`.
+
 Install a deck into any flowdeck project:
 
 ```bash
