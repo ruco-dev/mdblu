@@ -5,7 +5,7 @@
 - [ ] This card is idempotent — do not stop early if `.flowdeck/.emaildeck/` already exists. For each path below, create it only if missing; skip silently if it already exists:
   - `.flowdeck/.emaildeck/`
   - `.flowdeck/.emaildeck/filters/`
-  - `.flowdeck/.emaildeck/inbox/`
+  - `.flowdeck/.emaildeck/mail-inbox/`
   - `.flowdeck/.emaildeck/drafts/`
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.emaildeck/` is excluded from `flowdeck turn`.
@@ -32,7 +32,7 @@
       <date>-<slug>/
         EMAIL.md   — thread metadata
         TODO.md    — ## ACTIONS menu; move items to ## BOT or ## HUMAN to activate
-  inbox/           — fetched threads not yet routed to a filter
+  mail-inbox/      — fetched threads not yet routed to a filter
   drafts/          — reply drafts staged for human review
   ```
 
@@ -260,7 +260,7 @@
   #### COMMENTS
   ```
 
-- [ ] Scaffold `.flowdeck/.emaildeck/inbox/mock-email-card/EMAIL.md` if it does not already exist — same structure as the drafts mock:
+- [ ] Scaffold `.flowdeck/.emaildeck/mail-inbox/mock-email-card/EMAIL.md` if it does not already exist — same structure as the drafts mock:
   ```markdown
   # Email: [Subject here]
 
@@ -281,7 +281,7 @@
   https://mail.google.com/mail/u/0/#inbox/THREAD_ID
   ```
 
-- [ ] Scaffold `.flowdeck/.emaildeck/inbox/mock-email-card/TODO.md` if it does not already exist — same structure as the drafts mock:
+- [ ] Scaffold `.flowdeck/.emaildeck/mail-inbox/mock-email-card/TODO.md` if it does not already exist — same structure as the drafts mock:
   ```markdown
   # [Subject here]
 
@@ -307,7 +307,7 @@
   #### COMMENTS
   ```
 
-- [ ] Scaffold `.flowdeck/.emaildeck/inbox/TODO.md` if it does not already exist:
+- [ ] Scaffold `.flowdeck/.emaildeck/mail-inbox/TODO.md` if it does not already exist:
   ```markdown
   # Inbox
 
