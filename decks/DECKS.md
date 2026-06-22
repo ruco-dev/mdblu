@@ -19,6 +19,7 @@ flowdeck install <deck-name> --local
 | [`gitdeck`](gitdeck/) | GitHub repo vigilance — watches owned, competitor, provider, consumer, and benchmark repos; routes findings to crunchdeck | `gitdeck-init`, `gitdeck-add-repo` |
 | [`webdeck`](webdeck/) | Web search signals — runs configured queries and routes findings to crunchdeck | `webdeck-init`, `webdeck-add-query` |
 | [`notedeck`](notedeck/) | Freeform notes as flowdeck cards under `.flowdeck/.notedeck/` | `notedeck-init` |
+| [`creamdeck`](creamdeck/) | Project-scoped CRM — contact cards and a unified inbox for emails and calls | `creamdeck-init`, `creamdeck-add-contact` |
 
 ## Contributing a Deck
 

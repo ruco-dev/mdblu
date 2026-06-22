@@ -1,0 +1,13 @@
+{
+  "name": "creamdeck",
+  "version": "0.1.0",
+  "agentMd": "AGENT.md",
+  "blueprints": [
+    "creamdeck-init",
+    "creamdeck-add-contact"
+  ],
+  "energyCards": [
+    "CONTACT.md.template",
+    "INBOX-ITEM.md.template"
+  ]
+}
