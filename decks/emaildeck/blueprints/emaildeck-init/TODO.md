@@ -24,7 +24,6 @@
 
   ## Structure
 
-  FILTERS.md       — human-editable filter criteria (edit before playing a filter)
   ACTIONS.md       — reference for all available email actions
   filters/<slug>/
     FILTER.md      — query, label, default task template
@@ -37,33 +36,40 @@
   drafts/          — reply drafts staged for human review
   ```
 
-- [ ] Check if `.flowdeck/.crunchdeck/profile/PROFILE.md` exists:
-  - If it exists, read the `## One-liner` and `## Elevator Pitch` sections.
-    - If both sections contain no `{{` placeholders, set `CRUNCHDECK_RELEVANCE` to those two sections' content joined as a single relevance description.
-    - If either section still has `{{` placeholders, set `CRUNCHDECK_RELEVANCE` to `<!-- crunchdeck profile detected but not yet filled — see .flowdeck/.crunchdeck/profile/PROFILE.md -->`.
-  - If the file does not exist, set `CRUNCHDECK_RELEVANCE` to `<!-- describe the topic; bot will score threads against this — leave blank to skip -->`.
+- [ ] Check if `.flowdeck/.creamdeck/CREAMDECK.md` exists:
+  - If it does not exist, skip this step entirely.
+  - If it exists, read the `## Tracked Domains` table and collect all values from the `Domain` column (strip backtick wrappers).
+  - If no domains are found, skip.
+  - Build `CREAMDECK_QUERY` by joining all domains as: `(from:@domain1 OR from:@domain2 ...)`.
+  - Scaffold `.flowdeck/.emaildeck/filters/creamdeck-contacts/FILTER.md` if it does not already exist — substitute `{CREAMDECK_QUERY}` with the built query:
+    ```markdown
+    # Filter: Creamdeck Contacts
 
-- [ ] Scaffold `.flowdeck/.emaildeck/FILTERS.md` if it does not already exist:
-  ```markdown
-  # Email Filters
+    ## Query
 
-  Edit this file to define which emails emaildeck will pull and how to route them.
-  Each block maps to a filter card under `filters/`. Duplicate the block to add more filters.
+    ```
+    {CREAMDECK_QUERY}
+    ```
 
-  ---
+    ## Label
 
-  ## Filter: [give it a name]
+    emaildeck/creamdeck-contacts
 
-  - **Since**: <!-- e.g. 2026-01-01 — leave blank for last 30 days -->
-  - **Sender email**: <!-- e.g. hello@example.com — leave blank to skip -->
-  - **Sender domain**: <!-- e.g. example.com — leave blank to skip -->
-  - **Keyword**: <!-- word or phrase that must appear in subject or body — leave blank to skip -->
-  - **Topic relevance**: {CRUNCHDECK_RELEVANCE}
-  - **Label**: <!-- Gmail label to apply, e.g. emaildeck/newsletters -->
-  - **Slug**: <!-- kebab-case folder name under filters/ -->
+    ## Default Tasks
 
-  ---
-  ```
+    > Tasks below are added to every message card this filter creates.
+    > Prefix with `BOT:` or `HUMAN:` — unprefixed defaults to HUMAN.
+
+    BOT: send-to-creamdeck
+
+    ## Date Range
+
+    ## Run Log
+
+    | Date | Threads found | Labeled | Cards created |
+    |------|--------------|---------|---------------|
+    ```
+  - Scaffold `.flowdeck/.emaildeck/filters/creamdeck-contacts/TODO.md` if it does not already exist — same structure as `mock-filter-card/TODO.md` but with `# Creamdeck Contacts` as the title.
 
 - [ ] Scaffold `.flowdeck/.emaildeck/ACTIONS.md` if it does not already exist:
   ```markdown
@@ -323,14 +329,11 @@
 
   ## BOT
 
-  - [ ] Read `FILTERS.md` for all defined filter blocks.
-  - [ ] For each filter with a `Slug` value, check if `filters/<slug>/` exists — if not, scaffold it from `emaildeck-add-filter` blueprint.
-  - [ ] List all filter cards under `filters/` and their last run date from each `FILTER.md`'s `## Run Log`.
+  - [ ] List all filter cards under `filters/` (subdirectories containing a `FILTER.md`) and their last run date from each `FILTER.md`'s `## Run Log`.
 
   ## HUMAN
 
   - [ ] Add a new filter: `flowdeck blueprint use emaildeck-add-filter start`
-  - [ ] Edit `FILTERS.md` to define filter criteria, then run: `flowdeck play .emaildeck/filters/<slug>`
 
   #### COMMENTS
   ```
