@@ -37,6 +37,12 @@
   drafts/          — reply drafts staged for human review
   ```
 
+- [ ] Check if `.flowdeck/.crunchdeck/profile/PROFILE.md` exists:
+  - If it exists, read the `## One-liner` and `## Elevator Pitch` sections.
+    - If both sections contain no `{{` placeholders, set `CRUNCHDECK_RELEVANCE` to those two sections' content joined as a single relevance description.
+    - If either section still has `{{` placeholders, set `CRUNCHDECK_RELEVANCE` to `<!-- crunchdeck profile detected but not yet filled — see .flowdeck/.crunchdeck/profile/PROFILE.md -->`.
+  - If the file does not exist, set `CRUNCHDECK_RELEVANCE` to `<!-- describe the topic; bot will score threads against this — leave blank to skip -->`.
+
 - [ ] Scaffold `.flowdeck/.emaildeck/FILTERS.md` if it does not already exist:
   ```markdown
   # Email Filters
@@ -52,7 +58,7 @@
   - **Sender email**: <!-- e.g. hello@example.com — leave blank to skip -->
   - **Sender domain**: <!-- e.g. example.com — leave blank to skip -->
   - **Keyword**: <!-- word or phrase that must appear in subject or body — leave blank to skip -->
-  - **Topic relevance**: <!-- describe the topic; bot will score threads against this — leave blank to skip -->
+  - **Topic relevance**: {CRUNCHDECK_RELEVANCE}
   - **Label**: <!-- Gmail label to apply, e.g. emaildeck/newsletters -->
   - **Slug**: <!-- kebab-case folder name under filters/ -->
 

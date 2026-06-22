@@ -96,6 +96,25 @@
   #### COMMENTS
   ```
 
+- [ ] Create `.flowdeck/.crunchdeck/launches/TODO.md`:
+  ```
+  # launches
+
+  ## BOT
+
+  - [ ] List all subfolders under `launches/` and read each `LAUNCH.md` — surface version, status, and target date.
+
+  ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
+
+  - [ ] create-launch — scan untagged `_meld/` cards, classify as feature/fix/breaking, infer next version (breaking→major, feature→minor, fix→patch), scaffold `launches/vX.Y.Z/LAUNCH.md` from `_energy-cards/LAUNCH.md.template` and `launches/vX.Y.Z/TODO.md` with the standard execution actions; surface the new version path under `## HUMAN`
+
+  #### COMMENTS
+  ```
+
 - [ ] Scaffold `.flowdeck/.crunchdeck/launches/v0.0.0/LAUNCH.md` from `_energy-cards/LAUNCH.md.template` — version `v0.0.0`, title "Pre-launch Baseline", Status `Archived`. Fill as a seed/bootstrap state: all checklist items marked with a note that this is the starting baseline, not a real release. Use `{{DATE}}` as today and `{{OWNER}}` from `git config user.name`.
 
 - [ ] Create `.flowdeck/.crunchdeck/launches/v0.0.0/TODO.md`:
@@ -108,6 +127,17 @@
   - [ ] Flag any unresolved items to `## HUMAN`.
 
   ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
+
+  - [ ] npm-publish — run `npm publish` with the correct scope; confirm the package resolves from a clean install
+  - [ ] tag-release — create git tag vX.Y.Z, push tag and branch to remote
+  - [ ] update-docs — sync README and any mdblu-served docs to reflect the shipped API
+  - [ ] draft-announce — draft a launch post using the content angle and one-liner from PROFILE
+  - [ ] capture-baseline — record the north-star metric value (defined in PROFILE) as a comment on this card before and after launch
+  - [ ] annotate-meld — add `**Released: vX.Y.Z**` to every untagged `_meld/` card `TODO.md` and commit
 
   #### COMMENTS
   ```
