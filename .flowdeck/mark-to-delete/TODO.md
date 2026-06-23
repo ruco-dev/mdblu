@@ -34,3 +34,4 @@
 - Atomicity: should both operations complete or roll back together?
 - Does flowdeck have a mechanism for invoking Gmail API calls, or does this need to be scaffolded?
 
+<!-- tokens 2026-06-23 flash: in=114 out=4574 -->
