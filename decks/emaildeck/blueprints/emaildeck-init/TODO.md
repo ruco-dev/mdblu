@@ -313,14 +313,12 @@
 
   ## BOT
 
-  - [ ] List all filter cards in `filters/` (subdirectories that contain a `FILTER.md`).
-  - [ ] If no filters are defined, note under `## HUMAN` to add one with `flowdeck blueprint use emaildeck-add-filter` and stop.
-  - [ ] For each filter card, play its `TODO.md` — fetch threads matching its query and create message cards under `filters/<slug>/messages/`.
-  - [ ] Report under `## HUMAN`: filters run, threads found per filter, any that found nothing.
+  - [ ] Scan `.flowdeck/.emaildeck/filters/` for filter card subdirectories. A valid filter card contains both `FILTER.md` and `TODO.md`. List valid filters; for incomplete filters (missing either file), note under `## HUMAN` as "incomplete: <slug> (missing <file>)".
+  - [ ] If no valid filters exist, note under `## HUMAN` that the user should add one using `flowdeck blueprint use emaildeck-add-filter`, then stop.
+  - [ ] For each valid filter, play its `TODO.md` to fetch Gmail threads and create message cards. On failure: if it's an auth error (token expired/revoked), halt immediately and report "re-authenticate"; for other errors, skip that filter, record error under `## HUMAN`, and continue with remaining filters.
+  - [ ] Report under `## HUMAN`: filters run, threads found per filter, incomplete/failed filters with details, and filters that found zero threads in this run AND have never matched in prior runs (check `FILTER.md` run log).
 
   ## HUMAN
-
-  #### COMMENTS
   ```
 
 - [ ] Scaffold `.flowdeck/.emaildeck/filters/TODO.md` if it does not already exist:
