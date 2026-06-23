@@ -34,21 +34,29 @@
 #### COMMENTS
 
 **What this involves:**
-- Extend emaildeck's default task system to support a "mark-to-delete" action
-- Action must: (1) delete the message card's .md file, (2) apply a DELETE label in Gmail
-- Requires understanding current emaildeck task execution model and Gmail API integration
+- Extend emaildeck's action system to support a "mark-to-delete" action for both per-message use and as a filter default
+- Action must: (1) apply `emaildeck/DELETE` label via Gmail API (auto-create if missing), (2) delete the local message card folder
+- Mirroring existing `archive` action shape — editorial changes only, no new infrastructure
 
 **Dependencies:**
-- emaildeck filter card architecture (how default tasks are populated and executed)
-- Gmail API label-application mechanism (likely already exists for other filters)
-- Whether the DELETE label exists in Gmail or needs auto-creation
+- emaildeck action pattern (follows `archive` precedent in `decks/emaildeck/blueprints/emaildeck-init/TODO.md`)
+- External Claude AI Gmail MCP (`mcp__claude_ai_Gmail__create_label`, `label_thread`) — already used, no new integration needed
+- Message card folder structure under `mail-inbox/` and `drafts/`
 
-**Risks & unknowns:**
-- Is this a per-message action (user clicks a button) or a filter default (auto-applied to all messages)?
-- How are current emaildeck default tasks executed — are they static or dynamically resolved at runtime?
-- Error handling: if Gmail API succeeds but file deletion fails (or vice versa), what's the recovery?
-- Atomicity: should both operations complete or roll back together?
-- Does flowdeck have a mechanism for invoking Gmail API calls, or does this need to be scaffolded?
+**Resolved (from HUMAN answers):**
+- ✓ Per-message action AND filter default (both — mirroring archive's dual use)
+- ✓ DELETE label auto-created via `mcp__claude_ai_Gmail__create_label` (idempotent, namespaced as `emaildeck/DELETE`)
+- ✓ Gmail API via external MCP invocation in card `## BOT` sections (no local code needed)
+- ✓ Atomicity: apply label *first*, then delete folder — if label fails, card survives for retry
+- ✓ Default tasks are static, defined in blueprints (no runtime resolution needed)
+
+**Implementation footprint** (5 locations in `decks/emaildeck/`):
+1. `blueprints/emaildeck-init/TODO.md` — add `## mark-to-delete` action to ACTIONS.md heredoc (~line 157)
+2. Same file — insert action into 2 mock message-card TODO.md lists (mail-inbox ~352, drafts ~268)
+3. `blueprints/emaildeck-add-filter/TODO.md` — scaffold the action into new message cards (line 34)
+4. `energy-cards/FILTER.md.template` — document mark-to-delete as available filter default (lines 15–16)
+5. Final commit: `git add decks/emaildeck && git commit -m "emaildeck: add mark-to-delete action"`
 
 <!-- tokens 2026-06-23 flash: in=114 out=4574 -->
 <!-- tokens 2026-06-23 kemps: in=8290 out=4244 -->
+<!-- tokens 2026-06-23 deal: in=8439 out=13944 -->

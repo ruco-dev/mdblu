@@ -162,6 +162,22 @@
 
   ---
 
+  ## mark-to-delete
+
+  Apply the `emaildeck/DELETE` label to the thread in Gmail, then delete this message card's local folder. Use for mail confirmed as junk.
+
+  **Trigger:** `- [ ] mark-to-delete`
+
+  When activated:
+  1. Read the thread ID from this card's `EMAIL.md`.
+  2. Ensure the `emaildeck/DELETE` label exists — call `mcp__claude_ai_Gmail__create_label` (idempotent, create-if-missing, same pattern as filter label creation).
+  3. Apply the label to the thread via `mcp__claude_ai_Gmail__label_thread`.
+  4. **Only after the label call succeeds**, delete this message card's local folder (the `<YYYY-MM-DD>-<thread-slug>/` directory under `mail-inbox/`). If the label call fails, do NOT delete the folder — note the failure under `## HUMAN` so the card survives for retry.
+
+  Can also be set as a filter default via `BOT: mark-to-delete` in a filter's `## Default Tasks`, for filters whose mail is reliably junk.
+
+  ---
+
   ## send-to-crunchdeck
 
   Forward this email card to the crunchdeck product inbox for triage. Creates a card at `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<thread-slug>/`. Only runs if `.flowdeck/.crunchdeck/` exists — stops silently otherwise.
@@ -266,6 +282,7 @@
   - [ ] translate — [target language]
   - [ ] snooze — [date or condition]
   - [ ] archive
+  - [ ] mark-to-delete
 
   #### COMMENTS
   ```
