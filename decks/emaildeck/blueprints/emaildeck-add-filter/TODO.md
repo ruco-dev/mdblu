@@ -6,7 +6,7 @@
 
 - [ ] Read `## HUMAN` below for filter name, slug, query, label, and default tasks. Stop and surface any missing values under `## HUMAN`.
 
-- [ ] Create `.flowdeck/.emaildeck/filters/{{FILTER_SLUG}}/` and `messages/` inside it.
+- [ ] Create `.flowdeck/.emaildeck/filters/{{FILTER_SLUG}}/`.
 
 - [ ] Scaffold `FILTER.md` from `_energy-cards/FILTER.md.template` — substitute `{{FILTER_NAME}}`, `{{QUERY}}`, `{{LABEL}}`, and `{{DEFAULT_TASKS}}`.
 
@@ -29,9 +29,9 @@
 
   - [ ] For each matching thread:
     - Apply the label using `mcp__claude_ai_Gmail__label_thread`
-    - Create `messages/<YYYY-MM-DD>-<thread-slug>/` inside this filter folder
+    - Create `../../mail-inbox/<YYYY-MM-DD>-<thread-slug>/`
     - Scaffold `EMAIL.md` from `_energy-cards/EMAIL.md.template` — substitute thread metadata; if crunchdeck PROFILE.md was read, append a `## Relevance` section with one sentence explaining why this thread matters to the product
-    - Scaffold `TODO.md` from the `## Default Tasks` block in `FILTER.md`; if `.flowdeck/.crunchdeck/` exists, append `- [ ] send-to-crunchdeck` to the `## ACTIONS` section
+    - Scaffold `TODO.md` from the `## Default Tasks` block in `FILTER.md`; if `.flowdeck/.crunchdeck/` exists, append `- [ ] send-to-crunchdeck` to the `## ACTIONS` section; always append `- [ ] archive` to the `## ACTIONS` section
 
   - [ ] Append a run log entry to `FILTER.md` under `## Run Log`: date, threads found, threads labeled, message cards created.
 

@@ -6,6 +6,7 @@
   - `.flowdeck/.emaildeck/`
   - `.flowdeck/.emaildeck/filters/`
   - `.flowdeck/.emaildeck/mail-inbox/`
+  - `.flowdeck/.emaildeck/mail-archive/`
   - `.flowdeck/.emaildeck/drafts/`
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.emaildeck/` is excluded from `flowdeck turn`.
@@ -27,12 +28,12 @@
   ACTIONS.md       — reference for all available email actions
   filters/<slug>/
     FILTER.md      — query, label, default task template
-    TODO.md        — when played: fetch → label → create message cards
-    messages/
-      <date>-<slug>/
-        EMAIL.md   — thread metadata
-        TODO.md    — ## ACTIONS menu; move items to ## BOT or ## HUMAN to activate
-  mail-inbox/      — fetched threads not yet routed to a filter
+    TODO.md        — when played: fetch → label → create message cards in mail-inbox/
+  mail-inbox/
+    <date>-<slug>/
+      EMAIL.md     — thread metadata
+      TODO.md      — ## ACTIONS menu; move items to ## BOT or ## HUMAN to activate
+  mail-archive/    — processed message cards (moved here by the archive action)
   drafts/          — reply drafts staged for human review
   ```
 
@@ -155,7 +156,7 @@
 
   ## archive
 
-  Mark the thread as read and archive it in Gmail.
+  Mark the thread as read and archive it in Gmail, then move this message card's folder from `mail-inbox/<...>/` to the `mail-archive/<...>/` pile (create `mail-archive/` if missing). Provenance is preserved — `EMAIL.md` still records the thread ID and the label applied, so the matching filter is recoverable without folder nesting.
 
   **Trigger:** `- [ ] archive`
 
@@ -356,6 +357,7 @@
   > Prefix with `BOT:` or `HUMAN:` — unprefixed defaults to HUMAN.
 
   BOT: summarize
+  - [ ] archive
 
   ## Date Range
 
@@ -376,11 +378,26 @@
   - [ ] Check if the label from `FILTER.md` exists; create it if not via `mcp__claude_ai_Gmail__create_label`.
   - [ ] For each matching thread:
     - Apply the label using `mcp__claude_ai_Gmail__label_thread`
-    - Create `messages/<YYYY-MM-DD>-<thread-slug>/` inside this filter folder
+    - Create `../../mail-inbox/<YYYY-MM-DD>-<thread-slug>/`
     - Scaffold `EMAIL.md` from `_energy-cards/EMAIL.md.template` — substitute thread metadata
     - Scaffold `TODO.md` using the `## ACTIONS` template — pre-populate `## BOT` from `## Default Tasks` in `FILTER.md`
   - [ ] Append a run log entry to `FILTER.md` under `## Run Log`.
   - [ ] If no threads matched, note under `## HUMAN` and stop.
+
+  ## HUMAN
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/mail-archive/TODO.md` if it does not already exist:
+  ```markdown
+  # Archive
+
+  Processed message cards moved here by the `archive` action. Destination pile only — no further action.
+
+  ## BOT
+
+  - [ ] List archived cards in `mail-archive/` (subdirectories with an `EMAIL.md`). This pile is a destination only — take no further action on them.
 
   ## HUMAN
 

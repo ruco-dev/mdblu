@@ -8,9 +8,10 @@ The `.flowdeck/.emaildeck/` directory holds Gmail filter rules as cards. Each fi
   - `TODO.md` — when played: fetch matching threads → apply label → create message cards
 
 **Message cards (created when a filter is played):**
-- `.flowdeck/.emaildeck/filters/<slug>/messages/<YYYY-MM-DD>-<thread-slug>/` — `EMAIL.md` + `TODO.md`
+- `.flowdeck/.emaildeck/mail-inbox/<YYYY-MM-DD>-<thread-slug>/` — `EMAIL.md` + `TODO.md`
   - `EMAIL.md` — thread metadata (subject, sender, date, snippet, thread ID, label applied)
   - `TODO.md` — populated from the filter's `## Default Tasks` block
+- `mail-archive/` — destination pile for archived message cards (moved here when the `archive` action runs)
 
 **To play a filter card**, read the `TODO.md` in `.flowdeck/.emaildeck/filters/<slug>/` and execute its `## BOT` tasks.
 
