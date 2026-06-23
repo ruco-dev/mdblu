@@ -367,6 +367,7 @@
   - [ ] translate — [target language]
   - [ ] snooze — [date or condition]
   - [ ] archive
+  - [ ] mark-to-delete
 
   #### COMMENTS
   ```
