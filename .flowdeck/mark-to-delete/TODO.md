@@ -2,7 +2,23 @@
 
 ## BOT
 
-- [ ] 
+- [ ] Add a new `## mark-to-delete` action to the `ACTIONS.md` heredoc inside `decks/emaildeck/blueprints/emaildeck-init/TODO.md`. Insert it between the `## archive` section (~lines 157–161) and the `## send-to-crunchdeck` section (~line 165), using the same shape as `## archive`. Body:
+  - Description: "Apply the `emaildeck/DELETE` label to the thread in Gmail, then delete this message card's local folder. Use for mail confirmed as junk."
+  - Numbered steps:
+    1. Read the thread ID from this card's `EMAIL.md`.
+    2. Ensure the `emaildeck/DELETE` label exists — call `mcp__claude_ai_Gmail__create_label` (idempotent, create-if-missing, same pattern as the filter label step in a filter's `TODO.md`).
+    3. Apply the label to the thread via `mcp__claude_ai_Gmail__label_thread`.
+    4. **Only after the label call succeeds**, delete the message card's local folder (the `<YYYY-MM-DD>-<thread-slug>/` directory under `mail-inbox/`). If the label call fails, do NOT delete the folder — note the failure under `## HUMAN` so the card survives for retry.
+  - Trigger line: ``**Trigger:** `- [ ] mark-to-delete` ``
+  - Closing note: "Can also be set as a filter default via `BOT: mark-to-delete` in a filter's `## Default Tasks`, for filters whose mail is reliably junk."
+
+- [ ] In the same file (`decks/emaildeck/blueprints/emaildeck-init/TODO.md`), add `- [ ] mark-to-delete` to the `## ACTIONS` menu list in both mock message-card `TODO.md` heredocs — `mail-inbox/mock-email-card/TODO.md` (the list ending ~line 352) and `drafts/mock-email-card/TODO.md` (the list ending ~line 268). Place it immediately after the `- [ ] archive` line in each list.
+
+- [ ] In `decks/emaildeck/blueprints/emaildeck-add-filter/TODO.md`, update the message-card scaffolding instruction (line 34) so the `## ACTIONS` section also gets `- [ ] mark-to-delete`. Change the trailing clause "always append `- [ ] archive` to the `## ACTIONS` section" so it appends both `- [ ] archive` and `- [ ] mark-to-delete` (mark-to-delete immediately after archive).
+
+- [ ] Document `mark-to-delete` as an available filter default task in `decks/emaildeck/energy-cards/FILTER.md.template`. Extend the `## Default Tasks` guidance comment (lines 15–16) to note that `BOT: mark-to-delete` is available for filters whose mail is reliably junk. Do not change the `{{DEFAULT_TASKS}}` substitution placeholder itself.
+
+- [ ] Commit the changes: `git add decks/emaildeck && git commit -m "emaildeck: add mark-to-delete action"`.
 
 ## HUMAN
 
