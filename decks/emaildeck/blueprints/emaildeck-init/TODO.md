@@ -194,6 +194,14 @@
 
   ---
 
+  ## push-to-gmail
+
+  Read this draft card's `MESSAGE.md` (To / Cc / Bcc / Subject metadata table + `## Body`) and create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`. Write the returned draft ID into the `Gmail draft ID` row of `MESSAGE.md`. The local `.md` remains the source of truth — this only pushes a copy to Gmail.
+
+  **Trigger:** `- [ ] push-to-gmail`
+
+  ---
+
   <!-- Add your own actions below -->
   ```
 
@@ -204,8 +212,9 @@
   ## BOT
 
   - [ ] List all draft cards in `drafts/` (subdirectories with a `TODO.md`).
-  - [ ] For each draft card that has a completed `draft-reply` task, read its `EMAIL.md` and the drafted reply, then create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`.
-  - [ ] Note each sent draft under `## HUMAN` with the Gmail draft ID.
+  - [ ] For each reply draft (has `EMAIL.md` + a completed `draft-reply` task): read the drafted reply and create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`.
+  - [ ] For each compose draft (has `MESSAGE.md` with an empty `Gmail draft ID` row): read the To/Cc/Bcc/Subject table and `## Body`, create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`, and write the returned draft ID back into the `Gmail draft ID` row of `MESSAGE.md`. Skip compose drafts that already have a draft ID.
+  - [ ] Note each pushed draft under `## HUMAN` with its Gmail draft ID.
 
   ## HUMAN
 
@@ -257,6 +266,43 @@
   - [ ] translate — [target language]
   - [ ] snooze — [date or condition]
   - [ ] archive
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/drafts/mock-compose-card/MESSAGE.md` if it does not already exist:
+  ```markdown
+  # [Subject here]
+
+  | Field | Value |
+  |-------|-------|
+  | To | recipient@example.com |
+  | Cc |  |
+  | Bcc |  |
+  | Subject | [Subject here] |
+  | Gmail draft ID | <!-- populated by push-to-gmail; empty until pushed --> |
+
+  ## Body
+
+  <!-- Write your message here -->
+  ```
+
+- [ ] Scaffold `.flowdeck/.emaildeck/drafts/mock-compose-card/TODO.md` if it does not already exist:
+  ```markdown
+  # [Subject here]
+
+  ## BOT
+
+  ## HUMAN
+
+  Author / edit the message in `MESSAGE.md`. When ready, move `push-to-gmail` into `## BOT` to create the Gmail draft.
+
+  ## ACTIONS
+
+  <!-- Move an item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
+
+  - [ ] improve-language — [target tone, e.g. "more concise" or "formal"]
+  - [ ] push-to-gmail
 
   #### COMMENTS
   ```

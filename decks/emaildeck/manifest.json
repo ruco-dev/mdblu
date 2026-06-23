@@ -1,13 +1,15 @@
 {
   "name": "emaildeck",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "agentMd": "AGENT.md",
   "blueprints": [
     "emaildeck-init",
-    "emaildeck-add-filter"
+    "emaildeck-add-filter",
+    "emaildeck-compose"
   ],
   "energyCards": [
     "FILTER.md.template",
-    "EMAIL.md.template"
+    "EMAIL.md.template",
+    "MESSAGE.md.template"
   ]
 }
