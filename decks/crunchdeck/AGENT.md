@@ -21,7 +21,7 @@ The `.flowdeck/.crunchdeck/` directory is a product management deck. Each asset 
 Act on these without waiting to be asked:
 
 - **Architectural or product decision made** — open an ADR immediately: `flowdeck blueprint use crunchdeck-adr <slug>`, fill it with the decision, rationale, and rejected alternatives.
-- **Release being prepared** — run `flowdeck blueprint use crunchdeck-release`; it infers the version from the last launch and roadmap state.
+- **Release being prepared** — play `.flowdeck/.crunchdeck/launches/TODO.md`; it infers the version from untagged meld cards and scaffolds the launch folder.
 - **Open question resolved into a significant choice** — if reversing it would cost meaningful time or money, it warrants an ADR.
 
 Surface the created file path under `## HUMAN` so the human can review.

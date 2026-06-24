@@ -14,7 +14,7 @@ flowdeck install <deck-name> --local
 
 | Deck | Description | Blueprints |
 |---|---|---|
-| [`crunchdeck`](crunchdeck/) | Product management — PROFILE, BACKLOG, ROADMAP, ADR, and inbox under `.flowdeck/.crunchdeck/` | `crunchdeck-init`, `crunchdeck-adr`, `crunchdeck-promote`, `crunchdeck-release` |
+| [`crunchdeck`](crunchdeck/) | Product management — PROFILE, BACKLOG, ROADMAP, ADR, and inbox under `.flowdeck/.crunchdeck/` | `crunchdeck-init`, `crunchdeck-adr`, `crunchdeck-promote` |
 | [`emaildeck`](emaildeck/) | Gmail filter rules as flowdeck cards — fetch, label, and route findings to crunchdeck | `emaildeck-init`, `emaildeck-add-filter` |
 | [`gitdeck`](gitdeck/) | GitHub repo vigilance — watches owned, competitor, provider, consumer, and benchmark repos; routes findings to crunchdeck | `gitdeck-init`, `gitdeck-add-repo` |
 | [`webdeck`](webdeck/) | Web search signals — runs configured queries and routes findings to crunchdeck | `webdeck-init`, `webdeck-add-query` |
