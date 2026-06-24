@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.0] — 2026-06-24
+
+### Added
+
+- **`emaildeck` deck:** Gmail integration deck with inbox scanning, filter cards, message cards (mail-inbox/), archive-move action, mark-to-delete action, and human-compose draft path (`MESSAGE.md` + `emaildeck-compose` blueprint + `push-to-gmail` action).
+- **`creamdeck` deck:** project-scoped CRM deck with unified inbox (`creamdeck-inbox/`), contact cards, and `creamdeck-add-contact` blueprint. Default contact categories include Colleagues.
+- **`gitdeck` and `webdeck` decks:** registered in `DECKS.md` with init and query/repo blueprints.
+- **`farmdeck`, `notedeck`, `calendardeck` decks:** additional domain decks shipped in the registry.
+- **Inbox column naming convention:** inbox columns renamed to `<deck>-inbox/` (e.g. `creamdeck-inbox/`, `crunchdeck-inbox/`) across all blueprints to prevent slug collisions between decks.
+
 ## [1.2.0] — 2026-06-17
 
 ### Added
