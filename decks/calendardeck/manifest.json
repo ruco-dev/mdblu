@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "agentMd": "AGENT.md",
   "blueprints": [
-    "calendardeck-init",
-    "calendardeck-sync"
+    "calendardeck-init"
   ],
   "energyCards": [
     "SYNC.md.template",
+    "SYNC-TODO.md.template",
     "DAY.md.template",
     "WEEK.md.template",
     "MONTH.md.template",

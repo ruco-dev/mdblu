@@ -1,8 +1,8 @@
-# calendardeck-sync
+# sync
 
 ## BOT
 
-- [ ] **Synchronize calendar** — pull events from Google Calendar and create/update calendardeck cards for the full sync range defined in SYNC.md.
+- [ ] **Synchronize calendar** — pull events from Google Calendar and create/update calendardeck cards for the full sync range defined in `sync/SYNC.md`.
 
 - [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, and `Last Sync`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first.
 
@@ -24,7 +24,8 @@
   - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
   - Write `EVENTS.md` from `_energy-cards/DAY.md.template` — substitute `{{SLUG}}`, `{{WEEKDAY}}`, `{{DATE_LONG}}`, and `{{EVENTS_TABLE}}` (one row per event: time, title, location, attendees). If the day has zero events, substitute `{{EVENTS_TABLE}}` with `_No events._` so the card is still well-formed.
   - Scaffold `TODO.md` only if it does not exist — do not overwrite. Use this template:
-    ```markdown
+
+    ```
     # {{SLUG}}
 
     {{WEEKDAY}}, {{DATE_LONG}}
@@ -46,7 +47,8 @@
   - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
   - Write `SUMMARY.md` from `_energy-cards/WEEK.md.template`.
   - Scaffold `TODO.md` only if it does not exist:
-    ```markdown
+
+    ```
     # {{SLUG}}
 
     Week {{N}} of {{MONTH_LONG}} — {{DATE_RANGE}}
@@ -64,7 +66,8 @@
   - Compute slug: `{{YYYYMM}}`.
   - Write `SUMMARY.md` from `_energy-cards/MONTH.md.template`.
   - Scaffold `TODO.md` only if it does not exist:
-    ```markdown
+
+    ```
     # {{YYYYMM}}
 
     {{MONTH_LONG}} {{YYYY}}
@@ -82,7 +85,8 @@
   - Compute slug: `{{YYYY}}`.
   - Write `SUMMARY.md` from `_energy-cards/YEAR.md.template`.
   - Scaffold `TODO.md` only if it does not exist:
-    ```markdown
+
+    ```
     # {{YYYY}}
 
     ## BOT
@@ -94,7 +98,7 @@
     - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
     ```
 
-- [ ] Append a row to the `## Run Log` table in `SYNC.md`:
+- [ ] Append a row to the `## Run Log` table in `sync/SYNC.md`:
   | {{TODAY}} | {{RANGE}} | {{DAYS_SYNCED}} | {{EVENTS_FETCHED}} | {{CARDS_CREATED}} | {{CARDS_UPDATED}} |
 
 - [ ] Surface a sync summary under `## HUMAN`: range synced, number of events fetched, cards created, cards updated.

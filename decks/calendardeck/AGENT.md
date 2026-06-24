@@ -21,7 +21,9 @@ All slugs are unique — no full path needed to identify a card.
 
 ```
 .flowdeck/.calendardeck/
-  SYNC.md              ← sync config: calendar IDs, default range, run log
+  sync/                ← sync card
+    SYNC.md            ← sync config: calendar IDs, default range, run log
+    TODO.md            ← play this card to synchronize
   README.md
   20260601/            ← day card
     EVENTS.md          ← synced event data (do not edit)
@@ -66,11 +68,16 @@ When `send-to-gcal` is in `## BOT`:
 
 ### `sync-day`
 
-Re-fetches events for this specific day from Google Calendar and rewrites `EVENTS.md`. Does not touch `TODO.md`. Uses the same Windsor.ai fetch path as `calendardeck-sync` but scoped to a single date.
+Re-fetches events for this specific day from Google Calendar and rewrites `EVENTS.md`. Does not touch `TODO.md`. Uses the same Windsor.ai fetch path as the `sync` card but scoped to a single date.
 
 ---
 
 ## Blueprints
 
-- `calendardeck-init` — scaffold `.flowdeck/.calendardeck/` in this project
-- `calendardeck-sync` — pull events from Google Calendar and create/update all cards in range
+- `calendardeck-init` — scaffold `.flowdeck/.calendardeck/` and the `sync` card in this project
+
+## Usage
+
+- **Sync:** play `.calendardeck/sync`
+- **Play a day:** `flowdeck play .calendardeck/20260601`
+- **Add event from task:** move `send-to-gcal` to `## BOT` in any card, then play it
