@@ -4,10 +4,24 @@
 
 - [ ] This card is idempotent — do not stop early if `.flowdeck/.calendardeck/` already exists. Create each path only if missing; skip silently otherwise:
   - `.flowdeck/.calendardeck/`
+  - `.flowdeck/.calendardeck/sync/`
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present.
 
-- [ ] Check if `.flowdeck/.calendardeck/SYNC.md` exists. If not, scaffold it from `_energy-cards/SYNC.md.template` with placeholder values, then surface the path under `## HUMAN` so the user can fill in their Calendar ID and preferred sync range.
+- [ ] Check if `.flowdeck/.calendardeck/sync/SYNC.md` exists. If not, scaffold it from `_energy-cards/SYNC.md.template` with placeholder values, then surface the path under `## HUMAN` so the user can fill in their Calendar ID and preferred sync range.
+
+- [ ] Check if `.flowdeck/.calendardeck/sync/TODO.md` exists. If not, scaffold it:
+  ```markdown
+  # sync
+
+  ## BOT
+
+  - [ ] Synchronize calendar — read `.flowdeck/.calendardeck/sync/SYNC.md` for Calendar ID and Sync Range, then pull events from Google Calendar and create/update calendardeck cards for every day in the full sync range.
+
+  ## HUMAN
+
+  - [ ] Fill in `.flowdeck/.calendardeck/sync/SYNC.md` with your Calendar ID and Sync Range before syncing.
+  ```
 
 - [ ] Scaffold `.flowdeck/.calendardeck/README.md` if it does not already exist:
   ```
@@ -29,7 +43,7 @@
   ```
 
 - [ ] Surface under `## HUMAN`:
-  - Path to `SYNC.md` that needs to be filled in (Calendar ID and sync range).
+  - Path to `sync/SYNC.md` that needs to be filled in (Calendar ID and sync range).
   - Reminder to ensure Windsor.ai is connected with Google Calendar access before running `calendardeck-sync`.
 
 - [ ] Commit: `git add .flowdeck/.calendardeck && git commit -m "deck: init calendardeck"`.

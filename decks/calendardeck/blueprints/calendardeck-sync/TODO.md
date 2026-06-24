@@ -4,7 +4,7 @@
 
 - [ ] **Synchronize calendar** — pull events from Google Calendar and create/update calendardeck cards for the full sync range defined in SYNC.md.
 
-- [ ] Read `.flowdeck/.calendardeck/SYNC.md` — extract `Calendar ID`, `Sync Range`, and `Last Sync`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first.
+- [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, and `Last Sync`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first.
 
 - [ ] Determine the sync date range:
   - If `## HUMAN` below specifies an explicit range (e.g. `range: 2026-06-01–2026-06-30`), use that.
@@ -101,7 +101,7 @@
 
 ## HUMAN
 
-- [ ] Fill in `.flowdeck/.calendardeck/SYNC.md` with your Calendar ID and Sync Range before syncing.
+- [ ] Fill in `.flowdeck/.calendardeck/sync/SYNC.md` with your Calendar ID and Sync Range before syncing.
 
 <!-- Optional: specify an explicit sync range.
 range: YYYY-MM-DD–YYYY-MM-DD
