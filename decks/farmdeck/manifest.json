@@ -1,0 +1,15 @@
+{
+  "name": "farmdeck",
+  "version": "0.1.0",
+  "agentMd": "AGENT.md",
+  "blueprints": [
+    "farmdeck-init",
+    "farmdeck-add-prospect"
+  ],
+  "energyCards": [
+    "PROSPECT.md.template",
+    "INTERACTIONS.md.template",
+    "PIPELINE.md.template"
+  ],
+  "description": "Prospection pipeline — track contacts through Seed → Nurture → Active → Won / Dropped"
+}

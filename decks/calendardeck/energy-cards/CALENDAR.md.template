@@ -1,0 +1,20 @@
+# Calendar Config
+
+## Calendar ID
+
+> Your Google Calendar ID. Find it in Google Calendar → Settings → your calendar → "Calendar ID".
+> Example: `yourname@gmail.com` or `abc123xyz@group.calendar.google.com`
+
+{{CALENDAR_ID}}
+
+## Sync Range
+
+> Default range used by `calendardeck-sync` when no explicit range is given.
+> Examples: `current-month`, `next-30-days`, `2026-06-01–2026-06-30`
+
+{{SYNC_RANGE}}
+
+## Run Log
+
+| Date | Range | Days synced | Events fetched | Cards created | Cards updated |
+|------|-------|-------------|----------------|---------------|---------------|
