@@ -2,11 +2,13 @@
 
 ## BOT
 
-- [ ] Read `.flowdeck/.calendardeck/CALENDAR.md` — extract `Calendar ID`, `Sync Range`, and `Last Sync`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first.
+- [ ] **Synchronize calendar** — pull events from Google Calendar and create/update calendardeck cards for the full sync range defined in SYNC.md.
+
+- [ ] Read `.flowdeck/.calendardeck/SYNC.md` — extract `Calendar ID`, `Sync Range`, and `Last Sync`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first.
 
 - [ ] Determine the sync date range:
   - If `## HUMAN` below specifies an explicit range (e.g. `range: 2026-06-01–2026-06-30`), use that.
-  - Otherwise use the `Sync Range` field from `CALENDAR.md` (default: current month).
+  - Otherwise use the `Sync Range` field from `SYNC.md` (default: current month).
   - Resolve to concrete start/end ISO dates.
 
 - [ ] Check for Google Calendar access via Windsor.ai:
@@ -14,13 +16,13 @@
   - If found: call `mcp__claude_ai_Windsor_ai__get_data` with:
     - `connector`: the matched connector id
     - `fields`: `["event_id", "event_title", "start_datetime", "end_datetime", "location", "description", "attendees", "calendar_id"]`
-    - Filter to the resolved date range and the `Calendar ID` from `CALENDAR.md`.
+    - Filter to the resolved date range and the `Calendar ID` from `SYNC.md`.
   - If not found: stop and surface under `## HUMAN` that Windsor.ai Google Calendar connector is required, with a note to connect it at Windsor.ai.
 
-- [ ] For each calendar day in the sync range that has at least one event:
+- [ ] For each calendar day in the sync range — whether or not it has events:
   - Compute slug: `YYYYMMDD`.
   - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
-  - Write `EVENTS.md` from `_energy-cards/DAY.md.template` — substitute `{{SLUG}}`, `{{WEEKDAY}}`, `{{DATE_LONG}}`, and `{{EVENTS_TABLE}}` (one row per event: time, title, location, attendees).
+  - Write `EVENTS.md` from `_energy-cards/DAY.md.template` — substitute `{{SLUG}}`, `{{WEEKDAY}}`, `{{DATE_LONG}}`, and `{{EVENTS_TABLE}}` (one row per event: time, title, location, attendees). If the day has zero events, substitute `{{EVENTS_TABLE}}` with `_No events._` so the card is still well-formed.
   - Scaffold `TODO.md` only if it does not exist — do not overwrite. Use this template:
     ```markdown
     # {{SLUG}}
@@ -92,12 +94,14 @@
     - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
     ```
 
-- [ ] Append a row to the `## Run Log` table in `CALENDAR.md`:
+- [ ] Append a row to the `## Run Log` table in `SYNC.md`:
   | {{TODAY}} | {{RANGE}} | {{DAYS_SYNCED}} | {{EVENTS_FETCHED}} | {{CARDS_CREATED}} | {{CARDS_UPDATED}} |
 
 - [ ] Surface a sync summary under `## HUMAN`: range synced, number of events fetched, cards created, cards updated.
 
 ## HUMAN
+
+- [ ] Fill in `.flowdeck/.calendardeck/SYNC.md` with your Calendar ID and Sync Range before syncing.
 
 <!-- Optional: specify an explicit sync range.
 range: YYYY-MM-DD–YYYY-MM-DD

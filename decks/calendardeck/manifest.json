@@ -7,7 +7,7 @@
     "calendardeck-sync"
   ],
   "energyCards": [
-    "CALENDAR.md.template",
+    "SYNC.md.template",
     "DAY.md.template",
     "WEEK.md.template",
     "MONTH.md.template",

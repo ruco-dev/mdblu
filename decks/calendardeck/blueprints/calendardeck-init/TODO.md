@@ -7,7 +7,7 @@
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present.
 
-- [ ] Check if `.flowdeck/.calendardeck/CALENDAR.md` exists. If not, scaffold it from `_energy-cards/CALENDAR.md.template` with placeholder values, then surface the path under `## HUMAN` so the user can fill in their Calendar ID and preferred sync range.
+- [ ] Check if `.flowdeck/.calendardeck/SYNC.md` exists. If not, scaffold it from `_energy-cards/SYNC.md.template` with placeholder values, then surface the path under `## HUMAN` so the user can fill in their Calendar ID and preferred sync range.
 
 - [ ] Scaffold `.flowdeck/.calendardeck/README.md` if it does not already exist:
   ```
@@ -29,7 +29,7 @@
   ```
 
 - [ ] Surface under `## HUMAN`:
-  - Path to `CALENDAR.md` that needs to be filled in (Calendar ID and sync range).
+  - Path to `SYNC.md` that needs to be filled in (Calendar ID and sync range).
   - Reminder to ensure Windsor.ai is connected with Google Calendar access before running `calendardeck-sync`.
 
 - [ ] Commit: `git add .flowdeck/.calendardeck && git commit -m "deck: init calendardeck"`.

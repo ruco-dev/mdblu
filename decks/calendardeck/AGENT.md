@@ -21,7 +21,7 @@ All slugs are unique — no full path needed to identify a card.
 
 ```
 .flowdeck/.calendardeck/
-  CALENDAR.md          ← sync config: calendar IDs, default range, run log
+  SYNC.md              ← sync config: calendar IDs, default range, run log
   README.md
   20260601/            ← day card
     EVENTS.md          ← synced event data (do not edit)
