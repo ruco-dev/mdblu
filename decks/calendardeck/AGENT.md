@@ -61,14 +61,13 @@ Creates a Google Calendar event from a task description. Format:
 
 When `send-to-gcal` is in `## BOT`:
 1. Parse title, date, start time, end time, and description from the task line.
-2. Call `mcp__claude_ai_Windsor_ai__list_actions` with the `google_calendar` connector to confirm the create-event action identifier.
-3. Call `mcp__claude_ai_Windsor_ai__execute_action` with the parsed fields.
-4. Replace the task line with `- [x] sent-to-gcal — event ID: {{EVENT_ID}}`.
-5. If Windsor.ai Google Calendar is unavailable, surface the gap under `## HUMAN` with instructions to connect the connector.
+2. Call `mcp__google_calendar__create_event` with the parsed fields (`summary`, `start` dateTime, `end` dateTime, `description`).
+3. Replace the task line with `- [x] sent-to-gcal — event ID: {{EVENT_ID}}`.
+4. If the Google Calendar MCP server is unavailable, surface the gap under `## HUMAN` with instructions to install and configure `@cocal/google-calendar-mcp`.
 
 ### `sync-day`
 
-Re-fetches events for this specific day from Google Calendar and rewrites `EVENTS.md`. Does not touch `TODO.md`. Uses the same Windsor.ai fetch path as the `sync` card but scoped to a single date.
+Re-fetches events for this specific day from Google Calendar and rewrites `EVENTS.md`. Does not touch `TODO.md`. Uses the same Google Calendar MCP fetch path as the `sync` card but scoped to a single date.
 
 ---
 

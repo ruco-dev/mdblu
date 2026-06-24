@@ -33,7 +33,10 @@
 
 - [ ] Surface under `## HUMAN`:
   - Path to `sync/SYNC.md` that needs to be filled in (Calendar ID and sync range).
-  - Reminder to ensure Windsor.ai is connected with Google Calendar access before playing the `sync` card.
+  - Reminder to install `@cocal/google-calendar-mcp` and complete OAuth setup before playing the `sync` card:
+    1. `npx @cocal/google-calendar-mcp` (or add to Claude Code MCP config as `google_calendar`)
+    2. Complete the OAuth browser flow on first run — credentials saved to `~/.config/google-calendar-mcp/`
+    3. Required scopes: `https://www.googleapis.com/auth/calendar`
 
 - [ ] Commit: `git add .flowdeck/.calendardeck && git commit -m "deck: init calendardeck"`.
 
