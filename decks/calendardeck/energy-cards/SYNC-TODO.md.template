@@ -11,13 +11,13 @@
   - Otherwise use the `Sync Range` field from `SYNC.md` (default: current month).
   - Resolve to concrete start/end ISO dates.
 
-- [ ] Check for Google Calendar access via Windsor.ai:
-  - Call `mcp__claude_ai_Windsor_ai__get_connectors` and look for a connector with id `google_calendar` or similar.
-  - If found: call `mcp__claude_ai_Windsor_ai__get_data` with:
-    - `connector`: the matched connector id
-    - `fields`: `["event_id", "event_title", "start_datetime", "end_datetime", "location", "description", "attendees", "calendar_id"]`
-    - Filter to the resolved date range and the `Calendar ID` from `SYNC.md`.
-  - If not found: stop and surface under `## HUMAN` that Windsor.ai Google Calendar connector is required, with a note to connect it at Windsor.ai.
+- [ ] Fetch events via the Google Calendar MCP server (`@cocal/google-calendar-mcp`):
+  - Call `mcp__google_calendar__list_events` with:
+    - `calendarId`: the `Calendar ID` from `SYNC.md`
+    - `timeMin`: start ISO date (start of day, UTC)
+    - `timeMax`: end ISO date (end of day, UTC)
+    - `singleEvents`: true, `orderBy`: startTime
+  - If the tool is unavailable: stop and surface under `## HUMAN` that `@cocal/google-calendar-mcp` must be installed and configured, with a link to its README for OAuth setup.
 
 - [ ] For each calendar day in the sync range — whether or not it has events:
   - Compute slug: `YYYYMMDD`.
