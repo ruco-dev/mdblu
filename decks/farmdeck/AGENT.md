@@ -54,7 +54,7 @@ These appear in `## ACTIONS` of every prospect card. Move one to `## BOT` and pl
 | `drop` | Moves the card folder to `dropped/<slug>/`; updates stage to Dropped |
 | `win` | Moves the card folder to `won/<slug>/`; updates stage to Won |
 | `draft-email` | Creates a Gmail draft via emaildeck for this prospect |
-| `send-to-crunchdeck` | Routes a signal or insight to `.crunchdeck/inbox/` |
+| `send-to-crunchdeck` | Routes a signal or insight to `.crunchdeck/crunchdeck-inbox/` |
 
 ---
 

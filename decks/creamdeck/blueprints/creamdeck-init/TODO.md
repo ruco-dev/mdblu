@@ -6,7 +6,7 @@
 
 - [ ] Check if `.flowdeck/.creamdeck/` already exists. If it does, stop and note under `## HUMAN` that creamdeck is already initialized.
 
-- [ ] Create `.flowdeck/.creamdeck/`, `.flowdeck/.creamdeck/inbox/`, `.flowdeck/.creamdeck/contacts/`.
+- [ ] Create `.flowdeck/.creamdeck/`, `.flowdeck/.creamdeck/creamdeck-inbox/`, `.flowdeck/.creamdeck/contacts/`.
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.creamdeck/` is excluded from `flowdeck turn`.
 
@@ -19,19 +19,19 @@
 
   ## Structure
 
-  - `inbox/` — incoming items routed from emaildeck or logged manually
+  - `creamdeck-inbox/` — incoming items routed from emaildeck or logged manually
   - `contacts/` — one subfolder per tracked contact
 
   ## Usage
 
-  - Play `inbox/TODO.md` to surface and route unread items.
+  - Play `creamdeck-inbox/TODO.md` to surface and route unread items.
   - Play a contact card to review interactions and draft follow-ups.
   - Add a contact directly: `flowdeck blueprint use creamdeck-add-contact`.
   ```
 
-- [ ] Create `.flowdeck/.creamdeck/inbox/TODO.md`:
+- [ ] Create `.flowdeck/.creamdeck/creamdeck-inbox/TODO.md`:
   ```markdown
-  # inbox
+  # creamdeck-inbox
 
   ## BOT
 
@@ -44,7 +44,7 @@
 
   <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
 
-  - [ ] create-inbox-item — manually log a call or note: ask for subject, type, contact, date, and notes; scaffold `inbox/<YYYY-MM-DD>-<slug>/INBOX-ITEM.md` from `_energy-cards/INBOX-ITEM.md.template` and a `TODO.md` with the standard ACTIONS menu
+  - [ ] create-inbox-item — manually log a call or note: ask for subject, type, contact, date, and notes; scaffold `creamdeck-inbox/<YYYY-MM-DD>-<slug>/INBOX-ITEM.md` from `_energy-cards/INBOX-ITEM.md.template` and a `TODO.md` with the standard ACTIONS menu
 
   #### COMMENTS
   ```
@@ -104,13 +104,13 @@
   - [ ] draft-email — create a Gmail draft to this contact via emaildeck
   - [ ] log-interaction — append a new entry to `CONTACT.md` interaction log (date, type, notes)
   - [ ] schedule-follow-up — add a follow-up entry with a target date to `CONTACT.md`
-  - [ ] route-to-crunchdeck — surface this contact's context as a signal in `.crunchdeck/inbox/`
-  - [ ] sync-from-inbox — scan `../../inbox/` for unlogged items linked to this contact; append missing interactions to `CONTACT.md`
+  - [ ] route-to-crunchdeck — surface this contact's context as a signal in `.crunchdeck/crunchdeck-inbox/`
+  - [ ] sync-from-inbox — scan `../../creamdeck-inbox/` for unlogged items linked to this contact; append missing interactions to `CONTACT.md`
 
   #### COMMENTS
   ```
 
-- [ ] Scaffold an example inbox item at `.flowdeck/.creamdeck/inbox/{{DATE}}-example-intro/`:
+- [ ] Scaffold an example inbox item at `.flowdeck/.creamdeck/creamdeck-inbox/{{DATE}}-example-intro/`:
 
   **`INBOX-ITEM.md`** (substitute `{{DATE}}` with today):
   ```markdown
@@ -164,7 +164,7 @@
   - [ ] draft-reply — create a Gmail draft in emaildeck responding to this thread
   - [ ] create-contact — scaffold `contacts/<name>/TODO.md` from this item's context
   - [ ] log-to-contact — append this interaction to an existing `contacts/<name>/CONTACT.md`
-  - [ ] route-to-crunchdeck — copy this item to `.crunchdeck/inbox/` as a signal card
+  - [ ] route-to-crunchdeck — copy this item to `.crunchdeck/crunchdeck-inbox/` as a signal card
   - [ ] schedule-follow-up — add a follow-up task with a target date to the linked contact card
   - [ ] archive — mark this item as resolved; move `completed: true` to `INBOX-ITEM.md`
 

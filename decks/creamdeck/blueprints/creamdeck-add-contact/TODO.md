@@ -29,8 +29,8 @@
   - [ ] draft-email — create a Gmail draft to this contact via emaildeck
   - [ ] log-interaction — append a new entry to `CONTACT.md` interaction log (date, type, notes)
   - [ ] schedule-follow-up — add a follow-up entry with a target date to `CONTACT.md`
-  - [ ] route-to-crunchdeck — surface this contact's context as a signal in `.crunchdeck/inbox/`
-  - [ ] sync-from-inbox — scan `../../inbox/` for unlogged items linked to this contact; append missing interactions to `CONTACT.md`
+  - [ ] route-to-crunchdeck — surface this contact's context as a signal in `.crunchdeck/crunchdeck-inbox/`
+  - [ ] sync-from-inbox — scan `../../creamdeck-inbox/` for unlogged items linked to this contact; append missing interactions to `CONTACT.md`
 
   #### COMMENTS
   ```

@@ -180,15 +180,15 @@
 
   ## send-to-crunchdeck
 
-  Forward this email card to the crunchdeck product inbox for triage. Creates a card at `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<thread-slug>/`. Only runs if `.flowdeck/.crunchdeck/` exists — stops silently otherwise.
+  Forward this email card to the crunchdeck product inbox for triage. Creates a card at `.flowdeck/.crunchdeck/crunchdeck-inbox/<YYYY-MM-DD>-<thread-slug>/`. Only runs if `.flowdeck/.crunchdeck/` exists — stops silently otherwise.
 
   **Trigger:** `- [ ] send-to-crunchdeck`
 
   When activated:
   1. Check `.flowdeck/.crunchdeck/` exists — if not, note under `## HUMAN` and stop.
   2. Read `EMAIL.md` for subject, sender, date, snippet, and `## Relevance` note (if present).
-  3. Create `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<thread-slug>/EMAIL.md` — copy all metadata and relevance note.
-  4. Create `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<thread-slug>/TODO.md`:
+  3. Create `.flowdeck/.crunchdeck/crunchdeck-inbox/<YYYY-MM-DD>-<thread-slug>/EMAIL.md` — copy all metadata and relevance note.
+  4. Create `.flowdeck/.crunchdeck/crunchdeck-inbox/<YYYY-MM-DD>-<thread-slug>/TODO.md`:
      ```
      # [Subject]
 

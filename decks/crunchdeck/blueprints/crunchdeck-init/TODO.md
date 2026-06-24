@@ -6,7 +6,7 @@
 
 - [ ] Check if `.flowdeck/.crunchdeck/` already exists. If it does, stop and note under `## HUMAN` that crunchdeck is already initialized.
 
-- [ ] Create `.flowdeck/.crunchdeck/`, `.flowdeck/.crunchdeck/inbox/`, `.flowdeck/.crunchdeck/decisions/`, `.flowdeck/.crunchdeck/launches/`.
+- [ ] Create `.flowdeck/.crunchdeck/`, `.flowdeck/.crunchdeck/crunchdeck-inbox/`, `.flowdeck/.crunchdeck/decisions/`, `.flowdeck/.crunchdeck/launches/`.
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.crunchdeck/` is excluded from `flowdeck turn`.
 
@@ -39,7 +39,7 @@
 
   ## BOT
 
-  - [ ] Check `../inbox/` for unrouted cards forwarded from emaildeck, gitdeck, or webdeck. Route any that are clearly backlog candidates by moving `to-backlog` to `## BOT` on each card.
+  - [ ] Check `../crunchdeck-inbox/` for unrouted cards forwarded from emaildeck, gitdeck, or webdeck. Route any that are clearly backlog candidates by moving `to-backlog` to `## BOT` on each card.
 
   - [ ] Review P0/P1 candidates not yet in `../roadmap/ROADMAP.md` — surface them under `## HUMAN` for promotion decision.
 
@@ -48,9 +48,9 @@
   #### COMMENTS
   ```
 
-- [ ] Create `.flowdeck/.crunchdeck/inbox/TODO.md`:
+- [ ] Create `.flowdeck/.crunchdeck/crunchdeck-inbox/TODO.md`:
   ```
-  # inbox
+  # crunchdeck-inbox
 
   ## BOT
 

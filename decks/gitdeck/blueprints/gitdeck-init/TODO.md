@@ -98,15 +98,15 @@
 
   ## send-to-crunchdeck
 
-  Forward this finding to the crunchdeck product inbox for triage. Creates a card at `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<slug>/`. Only runs if `.flowdeck/.crunchdeck/` exists — stops silently otherwise.
+  Forward this finding to the crunchdeck product inbox for triage. Creates a card at `.flowdeck/.crunchdeck/crunchdeck-inbox/<YYYY-MM-DD>-<slug>/`. Only runs if `.flowdeck/.crunchdeck/` exists — stops silently otherwise.
 
   **Trigger:** `- [ ] send-to-crunchdeck`
 
   When activated:
   1. Check `.flowdeck/.crunchdeck/` exists — if not, note under `## HUMAN` and stop.
   2. Read `FINDING.md` for title, repo, type, date, summary, and relevance note.
-  3. Create `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<slug>/FINDING.md` — copy all fields.
-  4. Create `.flowdeck/.crunchdeck/inbox/<YYYY-MM-DD>-<slug>/TODO.md`:
+  3. Create `.flowdeck/.crunchdeck/crunchdeck-inbox/<YYYY-MM-DD>-<slug>/FINDING.md` — copy all fields.
+  4. Create `.flowdeck/.crunchdeck/crunchdeck-inbox/<YYYY-MM-DD>-<slug>/TODO.md`:
      ```
      # [Title]
 
