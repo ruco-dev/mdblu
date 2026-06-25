@@ -18,11 +18,12 @@
 - [ ] Fetch events for the `Calendar ID`:
   - URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`).
   - Attempt ICS fetch: `GET https://calendar.google.com/calendar/ical/{{ENCODED_ID}}/public/basic.ics`
-  - If the fetch succeeds (2xx): parse the ICS feed and extract events within `timeMin`–`timeMax`.
+  - If the fetch succeeds (2xx): parse the ICS feed and extract events within `timeMin`–`timeMax`. Note the count and date range of events found in the run log.
   - If the fetch returns 403/404 (private calendar): fall back to MCP —
     - Try `mcp__claude_ai_Google_Calendar__list_events` (claude.ai built-in).
     - If unavailable, try `mcp__google_calendar__list_events` (`@cocal/google-calendar-mcp`).
     - If neither is available: stop and note under `## HUMAN` to connect Google Calendar in Claude Code (Settings → Integrations), then replay this card.
+  - Do not suggest MCP if the ICS fetch succeeded — stale or sparse data is a calendar content issue, not an auth issue.
 
 - [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch it the same way:
   - If it looks like a calendar ID (contains `@`): URL-encode and attempt ICS fetch first; MCP fallback only on 403/404.
