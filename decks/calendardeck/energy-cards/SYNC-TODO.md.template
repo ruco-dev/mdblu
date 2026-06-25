@@ -4,7 +4,7 @@
 
 - [ ] **Synchronize calendar** — pull events from Google Calendar and create/update calendardeck cards for the full sync range defined in `sync/SYNC.md`.
 
-- [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, `Last Sync`, and `Public Source`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first. Treat a blank or placeholder `Public Source` (e.g. `{{PUBLIC_SOURCE}}`) as "no public source — sync only the user's `Calendar ID`".
+- [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `API Key`, `Sync Range`, `Last Sync`, and `Public Source`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first. Treat a blank or placeholder `Public Source` or `API Key` as not set.
 
 - [ ] Validate config before proceeding:
   - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`): stop and surface under `## HUMAN` that the Calendar ID must be set in `sync/SYNC.md` before syncing.
@@ -17,17 +17,15 @@
 
 - [ ] Fetch events for the `Calendar ID`:
   - URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`).
-  - Attempt ICS fetch: `GET https://calendar.google.com/calendar/ical/{{ENCODED_ID}}/public/basic.ics`
-  - If the fetch succeeds (2xx): parse the ICS feed and extract events within `timeMin`–`timeMax`. Note the count and date range of events found in the run log.
-  - If the fetch returns 403/404 (private calendar): fall back to MCP —
-    - Try `mcp__claude_ai_Google_Calendar__list_events` (claude.ai built-in).
-    - If unavailable, try `mcp__google_calendar__list_events` (`@cocal/google-calendar-mcp`).
-    - If neither is available: stop and note under `## HUMAN` to connect Google Calendar in Claude Code (Settings → Integrations), then replay this card.
-  - Do not suggest MCP if the ICS fetch succeeded — stale or sparse data is a calendar content issue, not an auth issue.
+  - **If `API Key` is set:** call the Google Calendar JSON API —
+    `GET https://www.googleapis.com/calendar/v3/calendars/{{ENCODED_ID}}/events?key={{API_KEY}}&timeMin={{timeMin}}&timeMax={{timeMax}}&singleEvents=true&orderBy=startTime`
+    Parse the JSON `items` array. If the response is 403/400, note under `## HUMAN` that the API key may be invalid or the Calendar API is not enabled in GCP, then stop.
+  - **If no API key:** attempt ICS fetch —
+    `GET https://calendar.google.com/calendar/ical/{{ENCODED_ID}}/public/basic.ics`
+    If 2xx: parse the ICS feed. Note: personal calendar ICS feeds are often stale — prefer the API key approach.
+    If 403/404: fall back to MCP (`mcp__claude_ai_Google_Calendar__list_events`, then `mcp__google_calendar__list_events`). If neither available: stop and note under `## HUMAN` to add an API key to `SYNC.md` or connect Google Calendar in Settings → Integrations.
 
-- [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch it the same way:
-  - If it looks like a calendar ID (contains `@`): URL-encode and attempt ICS fetch first; MCP fallback only on 403/404.
-  - If it looks like an ICS URL (starts with `http`): fetch directly.
+- [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch it the same way (API key if set, otherwise ICS — public holiday calendars work fine via ICS).
   - Parse events within `timeMin`–`timeMax`. Tag all public events with `source: public` internally. When writing event rows, append ` (public)` to the event title. Public events are read-only — never write back to the public source.
 
 - [ ] For each year spanned by the sync range:

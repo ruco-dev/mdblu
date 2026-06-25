@@ -7,6 +7,15 @@
 
 {{CALENDAR_ID}}
 
+## API Key
+
+> Optional but recommended for personal calendars. A Google Cloud API key with the Calendar API enabled.
+> Create one at console.cloud.google.com → APIs & Services → Credentials → Create API key.
+> Enable "Google Calendar API" for the project. No OAuth or browser flow required.
+> Leave blank to fall back to ICS (public calendars only) or MCP.
+
+{{API_KEY}}
+
 ## Public Source
 
 > Optional. An additional read-only sync source — a public Google Calendar ID or a public ICS URL.
