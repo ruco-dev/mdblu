@@ -1,6 +1,6 @@
 # calendardeck
 
-The `.flowdeck/.calendardeck/` directory holds Google Calendar events as flowdeck cards. Sync is one-way: GCal → local. To push a task to Google Calendar, use the `send-to-gcal` action in any card.
+The `.flowdeck/.calendardeck/` directory holds Google Calendar events as flowdeck cards. Sync is one-way: GCal → local — including an optional public calendar source (a public GCal ID or ICS URL configured in `sync/SYNC.md`). Public events are read-only and are tagged "(public)" in event rows; to copy one to your personal calendar, move its pre-filled `send-to-gcal` action to `## BOT` and play the card. To push any other task to Google Calendar, use the `send-to-gcal` action in any card.
 
 ---
 
@@ -22,7 +22,7 @@ All slugs are unique — no full path needed to identify a card.
 ```
 .flowdeck/.calendardeck/
   sync/                ← sync card
-    SYNC.md            ← sync config: calendar IDs, default range, run log
+    SYNC.md            ← sync config: calendar ID, optional public source, default range, run log
     TODO.md            ← play this card to synchronize
   README.md
   20260601/            ← day card

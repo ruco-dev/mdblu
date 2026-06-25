@@ -10,6 +10,8 @@ The `.flowdeck/.calendardeck/` directory holds Google Calendar events as flowdec
 
 **Card anatomy:** `EVENTS.md` (day) or `SUMMARY.md` (week/month/year) — synced, do not edit. `TODO.md` — your tasks and activated actions.
 
+**Public calendar source:** `sync/SYNC.md` accepts an optional `Public Source` field — a public GCal ID or ICS URL. Public events are fetched alongside your own and tagged "(public)" in event rows. They are read-only; each day card ships a pre-filled `send-to-gcal` line per public event so you can move it to `## BOT` to copy it to your personal calendar.
+
 **Blueprints:**
 - `calendardeck-init` — scaffold `.flowdeck/.calendardeck/`
 - `calendardeck-sync` — pull events from GCal and create/update cards

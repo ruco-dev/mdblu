@@ -8,7 +8,11 @@
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present.
 
-- [ ] Check if `.flowdeck/.calendardeck/sync/SYNC.md` exists. If not, scaffold it from `.flowdeck/_energy-cards/SYNC.md.template` with placeholder values, then surface the path under `## HUMAN` so the user can fill in their Calendar ID and preferred sync range.
+- [ ] Check if `.flowdeck/.calendardeck/sync/SYNC.md` exists. If not, scaffold it from `.flowdeck/_energy-cards/SYNC.md.template` with placeholder values:
+  - Replace `{{CALENDAR_ID}}` with `your-calendar-id@gmail.com`
+  - Replace `{{PUBLIC_SOURCE}}` with `en.usa#holiday@group.v.calendar.google.com` (US holidays — overridable or leave blank to disable)
+  - Replace `{{SYNC_RANGE}}` with `current-month`
+  Then surface the path under `## HUMAN` so the user can fill in their Calendar ID, preferred sync range, and optional public source.
 
 - [ ] Check if `.flowdeck/.calendardeck/sync/TODO.md` exists. If not, scaffold it from `.flowdeck/_energy-cards/SYNC-TODO.md.template` verbatim.
 
@@ -32,7 +36,7 @@
   ```
 
 - [ ] Surface under `## HUMAN`:
-  - Path to `sync/SYNC.md` that needs to be filled in (Calendar ID and sync range).
+  - Path to `sync/SYNC.md` that needs to be filled in: `Calendar ID`, `Sync Range`, and optionally `Public Source` (a public GCal ID or ICS URL — defaults to US holidays; leave blank to disable).
   - Reminder to connect Google Calendar before playing the `sync` card: open Claude Code → Settings → Integrations → Google Calendar and complete the OAuth flow. The sync card will use this connection automatically.
 
 - [ ] Commit: `git add .flowdeck/.calendardeck && git commit -m "deck: init calendardeck"`.

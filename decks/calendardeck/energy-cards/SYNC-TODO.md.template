@@ -4,7 +4,7 @@
 
 - [ ] **Synchronize calendar** — pull events from Google Calendar and create/update calendardeck cards for the full sync range defined in `sync/SYNC.md`.
 
-- [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, and `Last Sync`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first.
+- [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, `Last Sync`, and `Public Source`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first. Treat a blank or placeholder `Public Source` (e.g. `{{PUBLIC_SOURCE}}`) as "no public source — sync only the user's `Calendar ID`".
 
 - [ ] Validate config before proceeding:
   - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`): stop and surface under `## HUMAN` that the Calendar ID must be set in `sync/SYNC.md` before syncing.
@@ -21,12 +21,16 @@
   - If the built-in is unavailable, fall back to `@cocal/google-calendar-mcp`:
     - Call `mcp__google_calendar__list_events` with the same parameters.
   - If neither tool is available: call `mcp__claude_ai_Google_Calendar__authenticate` — if that fails too, stop and note under `## HUMAN` to connect Google Calendar in Claude Code settings (Settings → Integrations), then replay this card.
+  - **If `Public Source` is set** (non-blank, non-placeholder):
+    - If it looks like a calendar ID (contains `@`): call `list_events` a second time with `calendarId` set to the public calendar ID and the same `timeMin`/`timeMax`. No extra OAuth is needed for public calendars.
+    - If it looks like an ICS URL (starts with `http`): fetch the URL and parse the ICS feed to extract events in the sync range.
+    - Tag all public events with `source: public` internally. When writing event rows, append ` (public)` to the event title so they are distinguishable from the user's own events. Public events are read-only — never write back to the public source.
 
 - [ ] For each calendar day in the sync range — whether or not it has events:
   - Compute slug: `YYYYMMDD`.
   - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
   - Write `EVENTS.md` from `.flowdeck/_energy-cards/DAY.md.template` — substitute `{{SLUG}}`, `{{WEEKDAY}}`, `{{DATE_LONG}}`, and `{{EVENTS_TABLE}}` (one row per event: time, title, location, attendees). If the day has zero events, substitute `{{EVENTS_TABLE}}` with `_No events._` so the card is still well-formed.
-  - Scaffold `TODO.md` only if it does not exist — do not overwrite. Use this template:
+  - Scaffold `TODO.md` only if it does not exist — do not overwrite. Use this template, substituting public event lines as described below:
 
     ```
     # {{SLUG}}
@@ -40,10 +44,19 @@
     ## ACTIONS
 
     <!-- Move an item to ## BOT to activate it, then play this card. -->
+    <!-- Public event lines below are pre-filled from the public calendar source and are read-only. -->
+    <!-- Do not regenerate this section on re-sync — only scaffold when TODO.md does not yet exist. -->
 
+    {{PUBLIC_EVENT_ACTIONS}}
     - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
     - [ ] sync-day — re-fetch events for this day only
     ```
+
+    Where `{{PUBLIC_EVENT_ACTIONS}}` expands to one `send-to-gcal` line per public event on this day, using the event's real details:
+    ```
+    - [ ] send-to-gcal — [{{PUBLIC_TITLE}} | {{SLUG}} | {{START_TIME}}–{{END_TIME}} | {{DESCRIPTION}}]
+    ```
+    If there are no public events on this day, `{{PUBLIC_EVENT_ACTIONS}}` expands to nothing (omit entirely). The generic placeholder line is always kept as the final entry for ad-hoc use.
 
 - [ ] For each week spanned by the sync range:
   - Compute slug: `{{YYYYMM}}W{{N}}` where N = `ceil(first_day_of_week_in_month / 7)`.

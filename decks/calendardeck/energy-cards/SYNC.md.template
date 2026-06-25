@@ -7,6 +7,16 @@
 
 {{CALENDAR_ID}}
 
+## Public Source
+
+> Optional. An additional read-only sync source — a public Google Calendar ID or a public ICS URL.
+> Public GCals (e.g. holidays, sports seasons) are fetched via `list_events` with no extra OAuth.
+> ICS URLs are fetched and parsed directly. Leave blank or keep the placeholder to disable.
+> Public events are marked read-only in cards; use `send-to-gcal` to copy one to your own calendar.
+> Example (US holidays): `en.usa#holiday@group.v.calendar.google.com`
+
+{{PUBLIC_SOURCE}}
+
 ## Sync Range
 
 > Default range used by `calendardeck-sync` when no explicit range is given.
