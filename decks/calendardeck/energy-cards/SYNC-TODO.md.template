@@ -8,7 +8,7 @@
 
 - [ ] Validate config before proceeding:
   - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`): stop and surface under `## HUMAN` that the Calendar ID must be set in `sync/SYNC.md` before syncing.
-  - If `.flowdeck/.flowdeck/_energy-cards/DAY.md.template` does not exist: stop and surface under `## HUMAN` to run `calendardeck-init` first to deploy energy-card templates.
+  - If `.flowdeck/_energy-cards/DAY.md.template` does not exist: stop and surface under `## HUMAN` to run `calendardeck-init` first to deploy energy-card templates.
 
 - [ ] Determine the sync date range:
   - If `## HUMAN` below specifies an explicit range (e.g. `range: 2026-06-01–2026-06-30`), use that.
