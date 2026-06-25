@@ -30,11 +30,73 @@
   - If it looks like an ICS URL (starts with `http`): fetch directly.
   - Parse events within `timeMin`–`timeMax`. Tag all public events with `source: public` internally. When writing event rows, append ` (public)` to the event title. Public events are read-only — never write back to the public source.
 
+- [ ] For each year spanned by the sync range:
+  - Compute slug: `{{YYYY}}`.
+  - Path: `.flowdeck/.calendardeck/{{YYYY}}/`
+  - Create the directory if missing.
+  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/YEAR.md.template`.
+  - Scaffold `TODO.md` only if it does not exist:
+
+    ```
+    # {{YYYY}}
+
+    ## BOT
+
+    ## HUMAN
+
+    ## ACTIONS
+
+    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
+    ```
+
+- [ ] For each month spanned by the sync range:
+  - Compute slug: `{{YYYYMM}}`.
+  - Path: `.flowdeck/.calendardeck/{{YYYY}}/{{YYYYMM}}/`
+  - Create the directory if missing.
+  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/MONTH.md.template`.
+  - Scaffold `TODO.md` only if it does not exist:
+
+    ```
+    # {{YYYYMM}}
+
+    {{MONTH_LONG}} {{YYYY}}
+
+    ## BOT
+
+    ## HUMAN
+
+    ## ACTIONS
+
+    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
+    ```
+
+- [ ] For each week spanned by the sync range:
+  - Compute slug: `{{YYYYMM}}W{{N}}` where N = `ceil(first_day_of_week_in_month / 7)`. A week belongs to the month in which it starts.
+  - Path: `.flowdeck/.calendardeck/{{YYYY}}/{{YYYYMM}}/{{YYYYMMWN}}/`
+  - Create the directory if missing.
+  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/WEEK.md.template`.
+  - Scaffold `TODO.md` only if it does not exist:
+
+    ```
+    # {{SLUG}}
+
+    Week {{N}} of {{MONTH_LONG}} — {{DATE_RANGE}}
+
+    ## BOT
+
+    ## HUMAN
+
+    ## ACTIONS
+
+    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
+    ```
+
 - [ ] For each calendar day in the sync range — whether or not it has events:
-  - Compute slug: `YYYYMMDD`.
-  - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
+  - Compute slug: `YYYYMMDD`. A day belongs to the week in which it falls.
+  - Path: `.flowdeck/.calendardeck/{{YYYY}}/{{YYYYMM}}/{{YYYYMMWN}}/{{YYYYMMDD}}/`
+  - Create the directory if missing.
   - Write `EVENTS.md` from `.flowdeck/_energy-cards/DAY.md.template` — substitute `{{SLUG}}`, `{{WEEKDAY}}`, `{{DATE_LONG}}`, and `{{EVENTS_TABLE}}` (one row per event: time, title, location, attendees). If the day has zero events, substitute `{{EVENTS_TABLE}}` with `_No events._` so the card is still well-formed.
-  - Scaffold `TODO.md` only if it does not exist — do not overwrite. Use this template, substituting public event lines as described below:
+  - Scaffold `TODO.md` only if it does not exist — do not overwrite. Use this template:
 
     ```
     # {{SLUG}}
@@ -56,67 +118,11 @@
     - [ ] sync-day — re-fetch events for this day only
     ```
 
-    Where `{{PUBLIC_EVENT_ACTIONS}}` expands to one `send-to-gcal` line per public event on this day, using the event's real details:
+    Where `{{PUBLIC_EVENT_ACTIONS}}` expands to one `send-to-gcal` line per public event on this day:
     ```
     - [ ] send-to-gcal — [{{PUBLIC_TITLE}} | {{SLUG}} | {{START_TIME}}–{{END_TIME}} | {{DESCRIPTION}}]
     ```
-    If there are no public events on this day, `{{PUBLIC_EVENT_ACTIONS}}` expands to nothing (omit entirely). The generic placeholder line is always kept as the final entry for ad-hoc use.
-
-- [ ] For each week spanned by the sync range:
-  - Compute slug: `{{YYYYMM}}W{{N}}` where N = `ceil(first_day_of_week_in_month / 7)`.
-  - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
-  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/WEEK.md.template`.
-  - Scaffold `TODO.md` only if it does not exist:
-
-    ```
-    # {{SLUG}}
-
-    Week {{N}} of {{MONTH_LONG}} — {{DATE_RANGE}}
-
-    ## BOT
-
-    ## HUMAN
-
-    ## ACTIONS
-
-    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
-    ```
-
-- [ ] For each month spanned by the sync range:
-  - Compute slug: `{{YYYYMM}}`.
-  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/MONTH.md.template`.
-  - Scaffold `TODO.md` only if it does not exist:
-
-    ```
-    # {{YYYYMM}}
-
-    {{MONTH_LONG}} {{YYYY}}
-
-    ## BOT
-
-    ## HUMAN
-
-    ## ACTIONS
-
-    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
-    ```
-
-- [ ] For each year spanned by the sync range:
-  - Compute slug: `{{YYYY}}`.
-  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/YEAR.md.template`.
-  - Scaffold `TODO.md` only if it does not exist:
-
-    ```
-    # {{YYYY}}
-
-    ## BOT
-
-    ## HUMAN
-
-    ## ACTIONS
-
-    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
-    ```
+    If there are no public events on this day, omit `{{PUBLIC_EVENT_ACTIONS}}` entirely.
 
 - [ ] Append a row to the `## Run Log` table in `sync/SYNC.md`:
   | {{TODAY}} | {{RANGE}} | {{DAYS_SYNCED}} | {{EVENTS_FETCHED}} | {{CARDS_CREATED}} | {{CARDS_UPDATED}} |

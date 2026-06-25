@@ -21,22 +21,29 @@ All slugs are unique — no full path needed to identify a card.
 
 ```
 .flowdeck/.calendardeck/
-  sync/                ← sync card
-    SYNC.md            ← sync config: calendar ID, optional public source, default range, run log
-    TODO.md            ← play this card to synchronize
+  sync/                        ← sync card
+    SYNC.md                    ← sync config: calendar ID, optional public source, default range, run log
+    TODO.md                    ← play this card to synchronize
   README.md
-  20260601/            ← day card
-    EVENTS.md          ← synced event data (do not edit)
-    TODO.md
-  202606W1/            ← week card
-    SUMMARY.md         ← synced weekly summary (do not edit)
-    TODO.md
-  202606/              ← month card
+  2026/                        ← year card
     SUMMARY.md
     TODO.md
-  2026/                ← year card
-    SUMMARY.md
-    TODO.md
+    202606/                    ← month card (child of year)
+      SUMMARY.md
+      TODO.md
+      202606W1/                ← week card (child of month, W1 = days 1–7)
+        SUMMARY.md
+        TODO.md
+        20260601/              ← day card (child of week)
+          EVENTS.md            ← synced event data (do not edit)
+          TODO.md
+        20260602/
+          EVENTS.md
+          TODO.md
+      202606W2/
+        ...
+    202607/
+      ...
 ```
 
 ---
