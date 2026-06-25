@@ -8,9 +8,9 @@
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present.
 
-- [ ] Check if `.flowdeck/.calendardeck/sync/SYNC.md` exists. If not, scaffold it from `_energy-cards/SYNC.md.template` with placeholder values, then surface the path under `## HUMAN` so the user can fill in their Calendar ID and preferred sync range.
+- [ ] Check if `.flowdeck/.calendardeck/sync/SYNC.md` exists. If not, scaffold it from `.flowdeck/_energy-cards/SYNC.md.template` with placeholder values, then surface the path under `## HUMAN` so the user can fill in their Calendar ID and preferred sync range.
 
-- [ ] Check if `.flowdeck/.calendardeck/sync/TODO.md` exists. If not, scaffold it from `_energy-cards/SYNC-TODO.md.template` verbatim.
+- [ ] Check if `.flowdeck/.calendardeck/sync/TODO.md` exists. If not, scaffold it from `.flowdeck/_energy-cards/SYNC-TODO.md.template` verbatim.
 
 - [ ] Scaffold `.flowdeck/.calendardeck/README.md` if it does not already exist:
   ```
@@ -33,10 +33,7 @@
 
 - [ ] Surface under `## HUMAN`:
   - Path to `sync/SYNC.md` that needs to be filled in (Calendar ID and sync range).
-  - Reminder to install `@cocal/google-calendar-mcp` and complete OAuth setup before playing the `sync` card:
-    1. `npx @cocal/google-calendar-mcp` (or add to Claude Code MCP config as `google_calendar`)
-    2. Complete the OAuth browser flow on first run — credentials saved to `~/.config/google-calendar-mcp/`
-    3. Required scopes: `https://www.googleapis.com/auth/calendar`
+  - Reminder to connect Google Calendar before playing the `sync` card: open Claude Code → Settings → Integrations → Google Calendar and complete the OAuth flow. The sync card will use this connection automatically.
 
 - [ ] Commit: `git add .flowdeck/.calendardeck && git commit -m "deck: init calendardeck"`.
 

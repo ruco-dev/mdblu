@@ -6,23 +6,26 @@
 
 - [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, and `Last Sync`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first.
 
+- [ ] Validate config before proceeding:
+  - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`): stop and surface under `## HUMAN` that the Calendar ID must be set in `sync/SYNC.md` before syncing.
+  - If `.flowdeck/.flowdeck/_energy-cards/DAY.md.template` does not exist: stop and surface under `## HUMAN` to run `calendardeck-init` first to deploy energy-card templates.
+
 - [ ] Determine the sync date range:
   - If `## HUMAN` below specifies an explicit range (e.g. `range: 2026-06-01–2026-06-30`), use that.
   - Otherwise use the `Sync Range` field from `SYNC.md` (default: current month).
   - Resolve to concrete start/end ISO dates.
 
-- [ ] Fetch events via the Google Calendar MCP server (`@cocal/google-calendar-mcp`):
-  - Call `mcp__google_calendar__list_events` with:
-    - `calendarId`: the `Calendar ID` from `SYNC.md`
-    - `timeMin`: start ISO date (start of day, UTC)
-    - `timeMax`: end ISO date (end of day, UTC)
-    - `singleEvents`: true, `orderBy`: startTime
-  - If the tool is unavailable: stop and surface under `## HUMAN` that `@cocal/google-calendar-mcp` must be installed and configured, with a link to its README for OAuth setup.
+- [ ] Fetch events from Google Calendar:
+  - Try the claude.ai built-in Google Calendar MCP first:
+    - If `mcp__claude_ai_Google_Calendar__authenticate` is available, call it to start OAuth. Then call `mcp__claude_ai_Google_Calendar__list_events` with `calendarId`, `timeMin`, `timeMax`, `singleEvents: true`, `orderBy: startTime`.
+  - If the built-in is unavailable, fall back to `@cocal/google-calendar-mcp`:
+    - Call `mcp__google_calendar__list_events` with the same parameters.
+  - If neither tool is available: call `mcp__claude_ai_Google_Calendar__authenticate` — if that fails too, stop and note under `## HUMAN` to connect Google Calendar in Claude Code settings (Settings → Integrations), then replay this card.
 
 - [ ] For each calendar day in the sync range — whether or not it has events:
   - Compute slug: `YYYYMMDD`.
   - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
-  - Write `EVENTS.md` from `_energy-cards/DAY.md.template` — substitute `{{SLUG}}`, `{{WEEKDAY}}`, `{{DATE_LONG}}`, and `{{EVENTS_TABLE}}` (one row per event: time, title, location, attendees). If the day has zero events, substitute `{{EVENTS_TABLE}}` with `_No events._` so the card is still well-formed.
+  - Write `EVENTS.md` from `.flowdeck/_energy-cards/DAY.md.template` — substitute `{{SLUG}}`, `{{WEEKDAY}}`, `{{DATE_LONG}}`, and `{{EVENTS_TABLE}}` (one row per event: time, title, location, attendees). If the day has zero events, substitute `{{EVENTS_TABLE}}` with `_No events._` so the card is still well-formed.
   - Scaffold `TODO.md` only if it does not exist — do not overwrite. Use this template:
 
     ```
@@ -45,7 +48,7 @@
 - [ ] For each week spanned by the sync range:
   - Compute slug: `{{YYYYMM}}W{{N}}` where N = `ceil(first_day_of_week_in_month / 7)`.
   - Create `.flowdeck/.calendardeck/{{SLUG}}/` if missing.
-  - Write `SUMMARY.md` from `_energy-cards/WEEK.md.template`.
+  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/WEEK.md.template`.
   - Scaffold `TODO.md` only if it does not exist:
 
     ```
@@ -64,7 +67,7 @@
 
 - [ ] For each month spanned by the sync range:
   - Compute slug: `{{YYYYMM}}`.
-  - Write `SUMMARY.md` from `_energy-cards/MONTH.md.template`.
+  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/MONTH.md.template`.
   - Scaffold `TODO.md` only if it does not exist:
 
     ```
@@ -83,7 +86,7 @@
 
 - [ ] For each year spanned by the sync range:
   - Compute slug: `{{YYYY}}`.
-  - Write `SUMMARY.md` from `_energy-cards/YEAR.md.template`.
+  - Write `SUMMARY.md` from `.flowdeck/_energy-cards/YEAR.md.template`.
   - Scaffold `TODO.md` only if it does not exist:
 
     ```
