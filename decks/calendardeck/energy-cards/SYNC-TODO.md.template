@@ -15,16 +15,19 @@
   - Otherwise use the `Sync Range` field from `SYNC.md` (default: current month).
   - Resolve to concrete start/end ISO dates.
 
-- [ ] Fetch events from Google Calendar:
-  - Try the claude.ai built-in Google Calendar MCP first:
-    - If `mcp__claude_ai_Google_Calendar__authenticate` is available, call it to start OAuth. Then call `mcp__claude_ai_Google_Calendar__list_events` with `calendarId`, `timeMin`, `timeMax`, `singleEvents: true`, `orderBy: startTime`.
-  - If the built-in is unavailable, fall back to `@cocal/google-calendar-mcp`:
-    - Call `mcp__google_calendar__list_events` with the same parameters.
-  - If neither tool is available: call `mcp__claude_ai_Google_Calendar__authenticate` — if that fails too, stop and note under `## HUMAN` to connect Google Calendar in Claude Code settings (Settings → Integrations), then replay this card.
-  - **If `Public Source` is set** (non-blank, non-placeholder):
-    - If it looks like a calendar ID (contains `@`): call `list_events` a second time with `calendarId` set to the public calendar ID and the same `timeMin`/`timeMax`. No extra OAuth is needed for public calendars.
-    - If it looks like an ICS URL (starts with `http`): fetch the URL and parse the ICS feed to extract events in the sync range.
-    - Tag all public events with `source: public` internally. When writing event rows, append ` (public)` to the event title so they are distinguishable from the user's own events. Public events are read-only — never write back to the public source.
+- [ ] Fetch events for the `Calendar ID`:
+  - URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`).
+  - Attempt ICS fetch: `GET https://calendar.google.com/calendar/ical/{{ENCODED_ID}}/public/basic.ics`
+  - If the fetch succeeds (2xx): parse the ICS feed and extract events within `timeMin`–`timeMax`.
+  - If the fetch returns 403/404 (private calendar): fall back to MCP —
+    - Try `mcp__claude_ai_Google_Calendar__list_events` (claude.ai built-in).
+    - If unavailable, try `mcp__google_calendar__list_events` (`@cocal/google-calendar-mcp`).
+    - If neither is available: stop and note under `## HUMAN` to connect Google Calendar in Claude Code (Settings → Integrations), then replay this card.
+
+- [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch it the same way:
+  - If it looks like a calendar ID (contains `@`): URL-encode and attempt ICS fetch first; MCP fallback only on 403/404.
+  - If it looks like an ICS URL (starts with `http`): fetch directly.
+  - Parse events within `timeMin`–`timeMax`. Tag all public events with `source: public` internally. When writing event rows, append ` (public)` to the event title. Public events are read-only — never write back to the public source.
 
 - [ ] For each calendar day in the sync range — whether or not it has events:
   - Compute slug: `YYYYMMDD`.
