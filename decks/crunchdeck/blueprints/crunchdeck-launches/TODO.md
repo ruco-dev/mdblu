@@ -1,4 +1,5 @@
 # crunchdeck-launches
+<!-- lifecycle: recurring -->
 
 ## BOT
 
@@ -65,7 +66,6 @@
   - [ ] Add `**Released: vX.Y.Z**` to every untagged `_meld/` card `TODO.md`.
   - [ ] Commit: `git add .flowdeck/ && git commit -m "deck: annotate meld → vX.Y.Z"`.
   - [ ] Surface the released version, CHANGELOG entry, and npm publish output under `## HUMAN`.
-  - [ ] Reset this card: replace every `- [x]` with `- [ ]` in `.flowdeck/.crunchdeck/launches/TODO.md` so it is ready for the next release.
 
   ## HUMAN
 

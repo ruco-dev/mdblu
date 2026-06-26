@@ -1,4 +1,5 @@
 # crunchdeck-adr
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

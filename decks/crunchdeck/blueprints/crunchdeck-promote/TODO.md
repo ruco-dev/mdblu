@@ -1,4 +1,5 @@
 # crunchdeck-promote
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

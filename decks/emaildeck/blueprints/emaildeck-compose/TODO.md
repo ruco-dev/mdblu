@@ -1,4 +1,5 @@
 # emaildeck-compose
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

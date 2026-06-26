@@ -1,4 +1,5 @@
 # gitdeck-add-repo
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

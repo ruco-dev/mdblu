@@ -1,4 +1,5 @@
 # calendardeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 

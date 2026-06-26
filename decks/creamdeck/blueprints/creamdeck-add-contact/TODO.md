@@ -1,4 +1,5 @@
 # creamdeck-add-contact
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

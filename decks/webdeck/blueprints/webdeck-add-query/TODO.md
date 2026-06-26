@@ -1,4 +1,5 @@
 # webdeck-add-query
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

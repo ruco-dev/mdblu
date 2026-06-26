@@ -1,4 +1,5 @@
 # creamdeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 

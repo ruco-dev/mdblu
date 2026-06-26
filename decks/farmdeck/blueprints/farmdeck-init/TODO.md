@@ -1,4 +1,5 @@
 # farmdeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 

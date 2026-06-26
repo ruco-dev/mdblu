@@ -1,4 +1,5 @@
 # farmdeck-add-prospect
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

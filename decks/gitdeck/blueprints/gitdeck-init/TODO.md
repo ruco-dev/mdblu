@@ -1,4 +1,5 @@
 # gitdeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 

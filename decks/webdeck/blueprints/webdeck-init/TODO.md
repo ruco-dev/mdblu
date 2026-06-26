@@ -1,4 +1,5 @@
 # webdeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 

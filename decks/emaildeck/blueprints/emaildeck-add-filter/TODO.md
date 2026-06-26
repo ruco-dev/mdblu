@@ -1,4 +1,5 @@
 # emaildeck-add-filter
+<!-- lifecycle: one-shot -->
 
 ## BOT
 

@@ -1,4 +1,5 @@
 # emaildeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 

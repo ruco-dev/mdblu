@@ -71,6 +71,22 @@ Conventions you MUST follow:
 - Remove all HTML comments from the final filled output.
 -->
 
+### Lifecycle Marker
+
+Every TODO.md card (blueprint or energy-card) must declare its lifecycle as an HTML comment on the second line, immediately after the `# title`:
+
+```
+<!-- lifecycle: recurring | idempotent | one-shot -->
+```
+
+**recurring** — the card is meant to be replayed on every cycle (e.g. sync, release, standup). flowdeck resets all `## BOT` checkboxes automatically after a successful play so the card is immediately replayable. Do not add a manual reset step — the runtime owns it.
+
+**idempotent** — the card is safe to replay but skips work that is already done (e.g. init cards). flowdeck does not reset checkboxes; replay is safe but the agent is expected to detect and skip already-completed steps.
+
+**one-shot** — the card is intended for a single use and should be melded after play. flowdeck will warn if the card is played again after all BOT items are checked.
+
+Omitting the marker is an error in new templates. Backfill it on existing cards when touching them.
+
 ---
 
 \`\`\`

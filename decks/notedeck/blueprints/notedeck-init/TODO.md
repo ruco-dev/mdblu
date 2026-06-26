@@ -1,4 +1,5 @@
 # notedeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 

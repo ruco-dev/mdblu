@@ -1,4 +1,5 @@
 # crunchdeck-init
+<!-- lifecycle: idempotent -->
 
 ## BOT
 
