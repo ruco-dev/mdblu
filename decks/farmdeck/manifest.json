@@ -4,12 +4,21 @@
   "agentMd": "AGENT.md",
   "blueprints": [
     "farmdeck-init",
-    "farmdeck-add-prospect"
+    "farmdeck-add-prospect",
+    "farmdeck-inbox",
+    "farmdeck-prospects",
+    "farmdeck-won",
+    "farmdeck-dropped",
+    "farmdeck-pipeline"
   ],
   "energyCards": [
     "PROSPECT.md.template",
     "INTERACTIONS.md.template",
-    "PIPELINE.md.template"
+    "PIPELINE.md.template",
+    "INBOX.md.template",
+    "PROSPECTS.md.template",
+    "WON.md.template",
+    "DROPPED.md.template"
   ],
   "description": "Prospection pipeline — Inbox → Seed → Nurture → Active → Won / Dropped"
 }

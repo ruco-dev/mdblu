@@ -22,15 +22,29 @@ Stage definitions and stale thresholds are in `PIPELINE.md`.
 
 ```
 .flowdeck/.farmdeck/
-  PIPELINE.md              ← stage config and stale thresholds
-  pipeline/TODO.md         ← standing overview card — play for pipeline status
-  farmdeck-inbox/<slug>/   ← unqualified leads awaiting review (PROSPECT.md, INTERACTIONS.md, TODO.md)
-  prospects/<slug>/
-    PROSPECT.md            ← data companion: name, email, company, stage, source, score
-    INTERACTIONS.md        ← chronological interaction log
-    TODO.md                ← active tasks + ACTIONS
-  won/<slug>/              ← archived won prospects (moved, not deleted)
-  dropped/<slug>/          ← archived dropped prospects (moved, not deleted)
+  README.md
+  pipeline/
+    PIPELINE.md                ← stage config and stale thresholds
+    TODO.md                    ← standing pipeline overview card
+  farmdeck-inbox/
+    INBOX.md                   ← auto-updated leads index
+    TODO.md                    ← standing inbox card — review and route leads
+    <slug>/                    ← unqualified lead (PROSPECT.md, INTERACTIONS.md, TODO.md)
+  prospects/
+    PROSPECTS.md               ← auto-updated prospects index
+    TODO.md                    ← standing prospects card — overview, triage, add
+    <slug>/
+      PROSPECT.md              ← data companion: name, email, company, stage, source, score
+      INTERACTIONS.md          ← chronological interaction log
+      TODO.md                  ← active tasks + ACTIONS
+  won/
+    WON.md                     ← auto-updated won deals index
+    TODO.md                    ← standing won card — archive overview, re-engage
+    <slug>/                    ← archived won prospect (moved, not deleted)
+  dropped/
+    DROPPED.md                 ← auto-updated dropped prospects index
+    TODO.md                    ← standing dropped card — archive overview, re-engage
+    <slug>/                    ← archived dropped prospect (moved, not deleted)
 ```
 
 ---
@@ -84,3 +98,8 @@ Both paths are available: `flowdeck create-card` for programmatic intake, `farmd
 
 - `farmdeck-init` — scaffold `.flowdeck/.farmdeck/` in this project
 - `farmdeck-add-prospect` — create a new prospect card from `## HUMAN` input
+- `farmdeck-inbox` — standing card for `farmdeck-inbox/` (installed by farmdeck-init)
+- `farmdeck-prospects` — standing card for `prospects/` (installed by farmdeck-init)
+- `farmdeck-won` — standing card for `won/` (installed by farmdeck-init)
+- `farmdeck-dropped` — standing card for `dropped/` (installed by farmdeck-init)
+- `farmdeck-pipeline` — standing card for `pipeline/` (installed by farmdeck-init)
