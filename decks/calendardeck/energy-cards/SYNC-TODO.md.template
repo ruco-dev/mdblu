@@ -4,10 +4,10 @@
 
 - [ ] **Synchronize calendar** — pull events from Google Calendar and create/update calendardeck cards for the full sync range defined in `sync/SYNC.md`.
 
-- [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `API Key`, `Sync Range`, `Last Sync`, and `Public Source`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first. Treat a blank or placeholder `Public Source` or `API Key` as not set.
+- [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, `Last Sync`, and `Public Source`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first. Treat a blank or placeholder `Public Source` as not set.
 
 - [ ] Validate config before proceeding:
-  - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`): stop and surface under `## HUMAN` that the Calendar ID must be set in `sync/SYNC.md` before syncing.
+  - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`): treat as `primary` — the authenticated user's main calendar. Only stop if there is also no token at `~/.config/flowdeck/tokens/google.json`.
   - If `.flowdeck/_energy-cards/DAY.md.template` does not exist: stop and surface under `## HUMAN` to run `calendardeck-init` first to deploy energy-card templates.
 
 - [ ] Determine the sync date range:
@@ -15,8 +15,8 @@
   - Otherwise use the `Sync Range` field from `SYNC.md` (default: current month).
   - Resolve to concrete start/end ISO dates.
 
-- [ ] Fetch events for the `Calendar ID`:
-  - URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`).
+- [ ] Fetch events for the `Calendar ID` (use `primary` if blank or placeholder):
+  - URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`). `primary` needs no encoding.
   - **Try `flowdeck auth` token first** (preferred — works for any calendar the user owns):
     - Read `~/.config/flowdeck/tokens/google.json`. If it exists and has an `access_token`:
       - If `expiry_date` < now: refresh the token —

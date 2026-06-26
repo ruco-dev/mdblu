@@ -2,19 +2,11 @@
 
 ## Calendar ID
 
-> Your Google Calendar ID. Find it in Google Calendar → Settings → your calendar → "Calendar ID".
+> Optional when authenticated via `flowdeck auth google` — defaults to `primary` (your main calendar).
+> Set this to sync a specific calendar. Find the ID in Google Calendar → Settings → your calendar → "Calendar ID".
 > Example: `yourname@gmail.com` or `abc123xyz@group.calendar.google.com`
 
 {{CALENDAR_ID}}
-
-## API Key
-
-> Optional but recommended for personal calendars. A Google Cloud API key with the Calendar API enabled.
-> Create one at console.cloud.google.com → APIs & Services → Credentials → Create API key.
-> Enable "Google Calendar API" for the project. No OAuth or browser flow required.
-> Leave blank to fall back to ICS (public calendars only) or MCP.
-
-{{API_KEY}}
 
 ## Public Source
 
