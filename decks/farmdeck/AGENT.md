@@ -24,6 +24,7 @@ Stage definitions and stale thresholds are in `PIPELINE.md`.
 .flowdeck/.farmdeck/
   PIPELINE.md              ← stage config and stale thresholds
   pipeline/TODO.md         ← standing overview card — play for pipeline status
+  farmdeck-inbox/<slug>/   ← unqualified leads awaiting review (PROSPECT.md, INTERACTIONS.md, TODO.md)
   prospects/<slug>/
     PROSPECT.md            ← data companion: name, email, company, stage, source, score
     INTERACTIONS.md        ← chronological interaction log
@@ -31,6 +32,14 @@ Stage definitions and stale thresholds are in `PIPELINE.md`.
   won/<slug>/              ← archived won prospects (moved, not deleted)
   dropped/<slug>/          ← archived dropped prospects (moved, not deleted)
 ```
+
+---
+
+## Inbox
+
+Raw and unqualified leads land in `farmdeck-inbox/` — from manual entry, programmatic intake, or forwards from other decks (emaildeck, crunchdeck). Each inbox entry has the same structure as a prospect card (`PROSPECT.md`, `INTERACTIONS.md`, `TODO.md`) but is not yet part of the active pipeline.
+
+Play `farmdeck-inbox/TODO.md` to review and route leads. From there, the `qualify` action promotes a lead into `prospects/` (Stage → Seed), and `drop` archives it in `dropped/`.
 
 ---
 
@@ -49,6 +58,7 @@ These appear in `## ACTIONS` of every prospect card. Move one to `## BOT` and pl
 
 | Action | What it does |
 |---|---|
+| `qualify` | Moves a lead from `farmdeck-inbox/<slug>/` to `prospects/<slug>/`; sets Stage to Seed |
 | `log-interaction` | Appends an entry to `INTERACTIONS.md` — type, date, notes from task line |
 | `advance-stage` | Promotes prospect to the next stage; updates stage field in `PROSPECT.md` |
 | `drop` | Moves the card folder to `dropped/<slug>/`; updates stage to Dropped |

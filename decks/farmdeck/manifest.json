@@ -11,5 +11,5 @@
     "INTERACTIONS.md.template",
     "PIPELINE.md.template"
   ],
-  "description": "Prospection pipeline — track contacts through Seed → Nurture → Active → Won / Dropped"
+  "description": "Prospection pipeline — Inbox → Seed → Nurture → Active → Won / Dropped"
 }

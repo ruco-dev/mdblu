@@ -5,10 +5,30 @@
 
 - [ ] This card is idempotent — create each path only if missing; skip silently otherwise:
   - `.flowdeck/.farmdeck/`
+  - `.flowdeck/.farmdeck/farmdeck-inbox/`
   - `.flowdeck/.farmdeck/prospects/`
   - `.flowdeck/.farmdeck/won/`
   - `.flowdeck/.farmdeck/dropped/`
   - `.flowdeck/.farmdeck/pipeline/`
+
+- [ ] Scaffold `.flowdeck/.farmdeck/farmdeck-inbox/TODO.md` if it does not already exist:
+  ```markdown
+  # farmdeck-inbox
+
+  ## BOT
+
+  - [ ] List every `farmdeck-inbox/*/PROSPECT.md` — extract slug, name, company, source.
+  - [ ] Surface each unqualified lead under `## HUMAN` as a `- [ ]` item with a one-line summary.
+
+  ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move an item to ## BOT to activate it, then play this card. -->
+
+  - [ ] qualify — move a lead folder from farmdeck-inbox/ to prospects/, set Stage to Seed
+  - [ ] drop — move a lead folder to dropped/, set Stage to Dropped
+  ```
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present.
 
