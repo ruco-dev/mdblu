@@ -4,7 +4,7 @@
 ## BOT
 
 - [ ] List every `farmdeck-inbox/*/PROSPECT.md` — extract slug, name, company, source, added date.
-- [ ] Rewrite `INBOX.md` with an updated incoming-leads table.
+- [ ] Rewrite `FARMDECK-INBOX.md` with an updated incoming-leads table.
 - [ ] Surface each unqualified lead under `## HUMAN` as a `- [ ]` item with a one-line summary.
 
 ## HUMAN

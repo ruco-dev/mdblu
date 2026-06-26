@@ -27,7 +27,7 @@ Stage definitions and stale thresholds are in `PIPELINE.md`.
     PIPELINE.md                ← stage config and stale thresholds
     TODO.md                    ← standing pipeline overview card
   farmdeck-inbox/
-    INBOX.md                   ← auto-updated leads index
+    FARMDECK-INBOX.md          ← auto-updated leads index
     TODO.md                    ← standing inbox card — review and route leads
     <slug>/                    ← unqualified lead (PROSPECT.md, INTERACTIONS.md, TODO.md)
   prospects/

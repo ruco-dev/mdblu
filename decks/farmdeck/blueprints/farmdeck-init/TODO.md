@@ -20,7 +20,7 @@
 
 - [ ] Scaffold data documents from energy card templates — copy each template to the target path if it does not already exist:
   - `_energy-cards/PIPELINE.md.template` → `.flowdeck/.farmdeck/pipeline/PIPELINE.md`
-  - `_energy-cards/INBOX.md.template` → `.flowdeck/.farmdeck/farmdeck-inbox/INBOX.md`
+  - `_energy-cards/FARMDECK-INBOX.md.template` → `.flowdeck/.farmdeck/farmdeck-inbox/FARMDECK-INBOX.md`
   - `_energy-cards/PROSPECTS.md.template` → `.flowdeck/.farmdeck/prospects/PROSPECTS.md`
   - `_energy-cards/WON.md.template` → `.flowdeck/.farmdeck/won/WON.md`
   - `_energy-cards/DROPPED.md.template` → `.flowdeck/.farmdeck/dropped/DROPPED.md`
