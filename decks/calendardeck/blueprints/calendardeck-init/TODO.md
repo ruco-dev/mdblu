@@ -37,7 +37,7 @@
 
 - [ ] Surface under `## HUMAN`:
   - Path to `sync/SYNC.md` that needs to be filled in: `Calendar ID`, `Sync Range`, and optionally `Public Source` (a public GCal ID or ICS URL — defaults to US holidays; leave blank to disable).
-  - Reminder to connect Google Calendar before playing the `sync` card: open Claude Code → Settings → Integrations → Google Calendar and complete the OAuth flow. The sync card will use this connection automatically.
+  - Reminder to authorize Google Calendar before playing the `sync` card: run `flowdeck auth google` in the terminal. A browser will open — click Allow. One-time per machine.
 
 - [ ] Commit: `git add .flowdeck/.calendardeck && git commit -m "deck: init calendardeck"`.
 

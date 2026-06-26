@@ -17,15 +17,23 @@
 
 - [ ] Fetch events for the `Calendar ID`:
   - URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`).
-  - **If `API Key` is set:** call the Google Calendar JSON API —
-    `GET https://www.googleapis.com/calendar/v3/calendars/{{ENCODED_ID}}/events?key={{API_KEY}}&timeMin={{timeMin}}&timeMax={{timeMax}}&singleEvents=true&orderBy=startTime`
-    Parse the JSON `items` array. If the response is 403/400, note under `## HUMAN` that the API key may be invalid or the Calendar API is not enabled in GCP, then stop.
-  - **If no API key:** attempt ICS fetch —
+  - **Try `flowdeck auth` token first** (preferred — works for any calendar the user owns):
+    - Read `~/.config/flowdeck/tokens/google.json`. If it exists and has an `access_token`:
+      - If `expiry_date` < now: refresh the token —
+        - Read `~/.config/flowdeck/google-oauth.json` to get `client_id` and `client_secret`.
+        - Run: `curl -s -X POST https://oauth2.googleapis.com/token -d "client_id=CLIENT_ID&client_secret=CLIENT_SECRET&refresh_token=REFRESH_TOKEN&grant_type=refresh_token"`
+        - Save the new token (merge `access_token` and `expiry_date`) back to `~/.config/flowdeck/tokens/google.json`.
+      - Fetch events: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/calendar/v3/calendars/ENCODED_ID/events?timeMin=TIME_MIN&timeMax=TIME_MAX&singleEvents=true&orderBy=startTime"`
+      - Parse the JSON `items` array.
+      - If 401: token is invalid — stop and note under `## HUMAN` to run `flowdeck auth google --force` to re-authorize.
+  - **If no token:** attempt ICS fetch —
     `GET https://calendar.google.com/calendar/ical/{{ENCODED_ID}}/public/basic.ics`
-    If 2xx: parse the ICS feed. Note: personal calendar ICS feeds are often stale — prefer the API key approach.
-    If 403/404: fall back to MCP (`mcp__claude_ai_Google_Calendar__list_events`, then `mcp__google_calendar__list_events`). If neither available: stop and note under `## HUMAN` to add an API key to `SYNC.md` or connect Google Calendar in Settings → Integrations.
+    If 2xx: parse the ICS feed. Note: personal calendar ICS feeds are often stale — run `flowdeck auth google` once for reliable sync.
+    If 403/404: stop and note under `## HUMAN` to run `flowdeck auth google` to authorize, then replay this card.
 
-- [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch it the same way (API key if set, otherwise ICS — public holiday calendars work fine via ICS).
+- [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch via ICS (public holiday calendars work reliably without auth).
+  - If it looks like a calendar ID (contains `@`): fetch `https://calendar.google.com/calendar/ical/ENCODED_ID/public/basic.ics`.
+  - If it looks like an ICS URL (starts with `http`): fetch directly.
   - Parse events within `timeMin`–`timeMax`. Tag all public events with `source: public` internally. When writing event rows, append ` (public)` to the event title. Public events are read-only — never write back to the public source.
 
 - [ ] For each year spanned by the sync range:
