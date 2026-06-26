@@ -25,11 +25,11 @@
         - Save the new token (merge `access_token` and `expiry_date`) back to `~/.config/flowdeck/tokens/google.json`.
       - Fetch events: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/calendar/v3/calendars/ENCODED_ID/events?timeMin=TIME_MIN&timeMax=TIME_MAX&singleEvents=true&orderBy=startTime"`
       - Parse the JSON `items` array.
-      - If 401: token is invalid — stop and note under `## HUMAN` to run `flowdeck auth google --force` to re-authorize.
+      - If 401: token is invalid — stop and note under `## HUMAN` to run `flowdeck auth google --force` to re-authorize. If Google blocks the sign-in, the user may not be on the beta tester list — ask them to email validator-mc@ruco.pt.
   - **If no token:** attempt ICS fetch —
     `GET https://calendar.google.com/calendar/ical/{{ENCODED_ID}}/public/basic.ics`
     If 2xx: parse the ICS feed. Note: personal calendar ICS feeds are often stale — run `flowdeck auth google` once for reliable sync.
-    If 403/404: stop and note under `## HUMAN` to run `flowdeck auth google` to authorize, then replay this card.
+    If 403/404: stop and note under `## HUMAN` to run `flowdeck auth google` to authorize, then replay this card. If Google blocks the sign-in, the user may not be on the beta tester list — ask them to email validator-mc@ruco.pt.
 
 - [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch via ICS (public holiday calendars work reliably without auth).
   - If it looks like a calendar ID (contains `@`): fetch `https://calendar.google.com/calendar/ical/ENCODED_ID/public/basic.ics`.

@@ -23,6 +23,10 @@
   Google Calendar events as flowdeck cards. Sync is one-way: GCal → local.
   To push a task to Google Calendar, use the `send-to-gcal` action in any card.
 
+  ## Beta access
+
+  calendardeck is in private beta. To request access, email validator-mc@ruco.pt — you will be added as a tester and can then authorize via `flowdeck auth google`.
+
   ## Slugs
   - Day:   YYYYMMDD   (e.g. 20260601)
   - Week:  YYYYMMWn   (e.g. 202606W1, W1 = days 1–7)
@@ -37,7 +41,7 @@
 
 - [ ] Surface under `## HUMAN`:
   - Path to `sync/SYNC.md`. Calendar ID defaults to `primary` (main calendar) — change it only if targeting a different calendar. Set `Sync Range` and optionally `Public Source` (a public GCal ID or ICS URL — defaults to US holidays; leave blank to disable).
-  - Reminder to authorize Google Calendar before playing the `sync` card: run `flowdeck auth google` in the terminal. A browser will open — click Allow. One-time per machine.
+  - Reminder to authorize Google Calendar before playing the `sync` card: run `flowdeck auth google` in the terminal. A browser will open — click Allow. One-time per machine. **Note:** calendardeck is in private beta — if Google blocks the sign-in, email validator-mc@ruco.pt to be added as a tester.
 
 - [ ] Commit: `git add .flowdeck/.calendardeck && git commit -m "deck: init calendardeck"`.
 
