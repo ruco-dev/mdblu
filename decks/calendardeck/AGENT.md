@@ -68,9 +68,11 @@ Creates a Google Calendar event from a task description. Format:
 
 When `send-to-gcal` is in `## BOT`:
 1. Parse title, date, start time, end time, and description from the task line.
-2. Call `mcp__google_calendar__create_event` with the parsed fields (`summary`, `start` dateTime, `end` dateTime, `description`).
-3. Replace the task line with `- [x] sent-to-gcal — event ID: {{EVENT_ID}}`.
-4. If the Google Calendar MCP server is unavailable, surface the gap under `## HUMAN` with instructions to install and configure `@cocal/google-calendar-mcp`.
+2. Resolve the day card path from the date: compute `YYYYMMDD`, `YYYYMM`, and week slug `YYYYMMWn` (W1 = days 1–7, W2 = 8–14, W3 = 15–21, W4 = 22–28, W5 = 29–31). Locate `.flowdeck/.calendardeck/YYYY/YYYYMM/YYYYMMWn/YYYYMMDD/EVENTS.md` — scaffold the path and file if they don't exist.
+3. Append the event as a row to `EVENTS.md`. If the file already has an events table, add a row; if not, create the table with header first. Row format: `| HH:MM–HH:MM | Title | — | — |`.
+4. If the Google Calendar MCP server (`mcp__google_calendar__create_event`) is available, call it with the parsed fields (`summary`, `start` dateTime, `end` dateTime, `description`) and capture the returned event ID.
+5. Replace the task line with `- [x] sent-to-gcal — YYYYMMDD HH:MM–HH:MM | Title` (append `| gcal: EVENT_ID` if step 4 succeeded).
+6. If the Google Calendar MCP server is unavailable, skip step 4 silently — writing to `EVENTS.md` is the primary record. Do not surface to `## HUMAN`.
 
 ### `sync-day`
 
