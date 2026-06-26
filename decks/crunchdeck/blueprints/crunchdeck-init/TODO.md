@@ -98,7 +98,7 @@
 
 - [ ] Create `.flowdeck/.crunchdeck/launches/TODO.md`:
   ```
-  # release
+  # launches
 
   ## BOT
 
@@ -108,27 +108,58 @@
 
   - [ ] List existing launch folders under `.flowdeck/.crunchdeck/launches/` — find the highest vX.Y.Z. If none, start at v0.1.0.
   - [ ] Scan `.flowdeck/_meld/` for card `TODO.md` files that do not contain a `**Released:**` line — these represent work completed since the last release.
-  - [ ] Classify each untagged meld card as: **feature** (new capability), **fix** (bug or regression), or **breaking** (incompatible change). Surface the list as a note.
+  - [ ] Classify each untagged meld card as: **feature** (new capability), **fix** (bug or regression), **breaking** (incompatible change). Surface the full list as a note before proceeding.
   - [ ] Infer bump level — any breaking → major, any feature → minor, fixes only → patch. Use HUMAN override if set.
-  - [ ] Resolve the new version string.
+  - [ ] Resolve the new version string (e.g. `v1.3.0`).
 
   ---
 
-  ### Scaffold launch card
+  ### Update repo
 
-  - [ ] Create `.flowdeck/.crunchdeck/launches/vX.Y.Z/` using the resolved version.
-  - [ ] Scaffold `LAUNCH.md` from `_energy-cards/LAUNCH.md.template` — substitute product name from `PROFILE.md`, version, today's date as target, and owner from `git config user.name`. Pre-fill with the classified meld card summaries as the shipped items.
-  - [ ] Create `launches/vX.Y.Z/TODO.md` with: `## BOT` containing "Read LAUNCH.md and verify all checklist sections are filled — flag any TBDs under ## HUMAN" and "Confirm Go/No-Go gate criteria match the current state of the codebase"; `## HUMAN` containing "Review and complete LAUNCH.md checklist", "Run publish commands when Go criteria are met", and "After publishing: move annotate-meld to ## BOT and replay this card"; `## ACTIONS` containing "annotate-meld — add **Released: vX.Y.Z** to every untagged _meld/ card TODO.md and commit".
+  - [ ] Set `version` in `package.json` to the resolved version (no `v` prefix).
+  - [ ] Update `CHANGELOG.md`: prepend a new `## [vX.Y.Z] — YYYY-MM-DD` section. Group entries under `### Breaking Changes`, `### Features`, and `### Fixes` as appropriate. Create `CHANGELOG.md` if it does not exist.
 
   ---
 
-  ### Hand off
+  ### Scaffold launch record
 
-  - [ ] Surface the resolved version, the untagged meld card list, and the path to the launch card under `## HUMAN`. Do not commit or tag.
+  - [ ] Create `.flowdeck/.crunchdeck/launches/vX.Y.Z/`.
+  - [ ] Scaffold `LAUNCH.md` from `_energy-cards/LAUNCH.md.template` — substitute product name from `PROFILE.md`, version, today's date, and owner from `git config user.name`. Pre-fill shipped items from the classified meld cards.
+  - [ ] Create `launches/vX.Y.Z/TODO.md`:
+    ```
+    # launches/vX.Y.Z
+
+    ## BOT
+
+    - [ ] Read LAUNCH.md — flag any TBDs under ## HUMAN.
+
+    ## HUMAN
+
+    #### COMMENTS
+    ```
+
+  ---
+
+  ### Ship
+
+  - [ ] Commit: `git add package.json CHANGELOG.md && git commit -m "release: vX.Y.Z"`.
+  - [ ] Tag: `git tag vX.Y.Z && git push origin HEAD --tags`.
+  - [ ] Resolve npm auth:
+    - If `NPM_TOKEN` is already in the environment (`echo $NPM_TOKEN` is non-empty), use it directly.
+    - Otherwise, if `.env` exists and contains `NPM_TOKEN`, load it: `set -a && source .env && set +a`.
+    - Ensure `.npmrc` in the project root contains `//registry.npmjs.org/:_authToken=${NPM_TOKEN}` — add the line if missing (do not commit it; add `.npmrc` to `.gitignore` if not already present).
+    - Run `npm whoami` to confirm auth. If it fails, stop and surface the error under `## HUMAN` with instructions to set `NPM_TOKEN` in the environment or `.env`.
+  - [ ] Publish: `npm publish`.
+
+  ---
+
+  ### Close out
+
+  - [ ] Add `**Released: vX.Y.Z**` to every untagged `_meld/` card `TODO.md`.
+  - [ ] Commit: `git add .flowdeck/ && git commit -m "deck: annotate meld → vX.Y.Z"`.
+  - [ ] Surface the released version, CHANGELOG entry, and npm publish output under `## HUMAN`.
 
   ## HUMAN
-
-  - [ ] Bump level override (leave blank to let BOT infer — major / minor / patch): ___
 
   #### COMMENTS
   ```
