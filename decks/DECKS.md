@@ -20,7 +20,7 @@ flowdeck install <deck-name> --local
 | [`webdeck`](webdeck/) | Web search signals — runs configured queries and routes findings to crunchdeck | `webdeck-init`, `webdeck-add-query` |
 | [`notedeck`](notedeck/) | Freeform notes as flowdeck cards under `.flowdeck/.notedeck/` | `notedeck-init` |
 | [`creamdeck`](creamdeck/) | Project-scoped CRM — contact cards and a unified inbox for emails and calls | `creamdeck-init`, `creamdeck-add-contact` |
-| [`calendardeck`](calendardeck/) | Calendar events as flowdeck cards — one-way read-only ICS sync with per-day, week, month, and year cards; supports public Google Calendar IDs and direct ICS URLs | `calendardeck-init` |
+| [`calendardeck`](calendardeck/) | Google Calendar events as flowdeck cards — one-way sync (GCal → local) over browser-OAuth REST v3, with per-day, week, month, and year cards; optional public ICS source and a `send-to-gcal` action for pushing tasks back | `calendardeck-init` |
 | [`farmdeck`](farmdeck/) | Prospection pipeline — track contacts through Seed → Nurture → Active → Won / Dropped; programmatic intake via `flowdeck create-card` (CLI-001) | `farmdeck-init`, `farmdeck-add-prospect` |
 
 ## Contributing a Deck
