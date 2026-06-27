@@ -2,18 +2,18 @@
 
 ## Calendar ID
 
-> Optional when authenticated via `flowdeck auth google` — defaults to `primary` (your main calendar).
-> Set this to sync a specific calendar. Find the ID in Google Calendar → Settings → your calendar → "Calendar ID".
-> Example: `yourname@gmail.com` or `abc123xyz@group.calendar.google.com`
+> The calendar must be accessible as a public ICS feed. Supply a public Google Calendar ID or a direct `.ics` URL.
+> `primary` and OAuth-only calendars are not supported — the calendar must be shared publicly.
+> Find the ID in Google Calendar → Settings → your calendar → "Calendar ID". Example: `yourname@gmail.com` or `abc123xyz@group.calendar.google.com`
 
 {{CALENDAR_ID}}
 
 ## Public Source
 
 > Optional. An additional read-only sync source — a public Google Calendar ID or a public ICS URL.
-> Public GCals (e.g. holidays, sports seasons) are fetched via `list_events` with no extra OAuth.
+> Public GCals (e.g. holidays, sports seasons) are fetched via their public ICS feed.
 > ICS URLs are fetched and parsed directly. Leave blank or keep the placeholder to disable.
-> Public events are marked read-only in cards; use `send-to-gcal` to copy one to your own calendar.
+> Public events are marked read-only in cards.
 > Example (US holidays): `en.usa#holiday@group.v.calendar.google.com`
 
 {{PUBLIC_SOURCE}}

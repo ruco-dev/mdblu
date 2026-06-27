@@ -1,6 +1,6 @@
 # calendardeck
 
-The `.flowdeck/.calendardeck/` directory holds Google Calendar events as flowdeck cards. Sync is one-way: GCal → local — including an optional public calendar source (a public GCal ID or ICS URL configured in `sync/SYNC.md`). Public events are read-only and are tagged "(public)" in event rows; to copy one to your personal calendar, move its pre-filled `send-to-gcal` action to `## BOT` and play the card. To push any other task to Google Calendar, use the `send-to-gcal` action in any card.
+The `.flowdeck/.calendardeck/` directory holds calendar events as flowdeck cards. Sync is one-way and read-only: events are fetched via ICS feeds (public Google Calendar ID or direct `.ics` URL configured in `sync/SYNC.md`) and written to local cards. An optional `Public Source` field adds a second read-only ICS feed. Public events are tagged "(public)" in event rows.
 
 ---
 
@@ -58,26 +58,6 @@ Every card has a `TODO.md` with `## BOT` / `## HUMAN` / `## ACTIONS` sections, p
 
 These actions appear in the `## ACTIONS` section of cards. Move an item to `## BOT` to activate it, then play the card.
 
-### `send-to-gcal`
-
-Creates a Google Calendar event from a task description. Format:
-
-```
-- [ ] send-to-gcal — [Title | date YYYY-MM-DD | HH:MM–HH:MM | optional description]
-```
-
-When `send-to-gcal` is in `## BOT`:
-1. Parse title, date, start time, end time, and description from the task line.
-2. Resolve the day card path from the date: compute `YYYYMMDD`, `YYYYMM`, and week slug `YYYYMMWn` (W1 = days 1–7, W2 = 8–14, W3 = 15–21, W4 = 22–28, W5 = 29–31). Locate `.flowdeck/.calendardeck/YYYY/YYYYMM/YYYYMMWn/YYYYMMDD/EVENTS.md` — scaffold the path and file if they don't exist.
-3. Append the event as a row to `EVENTS.md`. If the file already has an events table, add a row; if not, create the table with header first. Row format: `| HH:MM–HH:MM | Title | — | — |`.
-4. If the Google Calendar MCP server (`mcp__google_calendar__create_event`) is available, call it with the parsed fields (`summary`, `start` dateTime, `end` dateTime, `description`) and capture the returned event ID.
-5. Replace the task line with `- [x] sent-to-gcal — YYYYMMDD HH:MM–HH:MM | Title` (append `| gcal: EVENT_ID` if step 4 succeeded).
-6. If the Google Calendar MCP server is unavailable, skip step 4 silently — writing to `EVENTS.md` is the primary record. Do not surface to `## HUMAN`.
-
-### `sync-day`
-
-Re-fetches events for this specific day from Google Calendar and rewrites `EVENTS.md`. Does not touch `TODO.md`. Uses the same Google Calendar MCP fetch path as the `sync` card but scoped to a single date.
-
 ---
 
 ## Blueprints
@@ -88,4 +68,3 @@ Re-fetches events for this specific day from Google Calendar and rewrites `EVENT
 
 - **Sync:** play `.calendardeck/sync`
 - **Play a day:** `flowdeck play .calendardeck/20260601`
-- **Add event from task:** move `send-to-gcal` to `## BOT` in any card, then play it

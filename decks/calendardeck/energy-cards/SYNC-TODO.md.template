@@ -8,7 +8,7 @@
 - [ ] Read `.flowdeck/.calendardeck/sync/SYNC.md` — extract `Calendar ID`, `Sync Range`, `Last Sync`, and `Public Source`. If the file does not exist, stop and note under `## HUMAN` to run `calendardeck-init` first. Treat a blank or placeholder `Public Source` as not set.
 
 - [ ] Validate config before proceeding:
-  - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`): treat as `primary` — the authenticated user's main calendar. Only stop if there is also no token at `~/.config/flowdeck/tokens/google.json`.
+  - If `Calendar ID` is empty or still a placeholder (e.g. `{{CALENDAR_ID}}`, `your-calendar-id@gmail.com`) **and** `Public Source` is also blank or unset: stop and note under `## HUMAN` that an ICS source is required — supply a public Google Calendar ID or a direct `.ics` URL in `sync/SYNC.md`.
   - If `.flowdeck/_energy-cards/DAY.md.template` does not exist: stop and surface under `## HUMAN` to run `calendardeck-init` first to deploy energy-card templates.
 
 - [ ] Determine the sync date range:
@@ -16,21 +16,11 @@
   - Otherwise use the `Sync Range` field from `SYNC.md` (default: current month).
   - Resolve to concrete start/end ISO dates.
 
-- [ ] Fetch events for the `Calendar ID` (use `primary` if blank or placeholder):
-  - URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`). `primary` needs no encoding.
-  - **Try `flowdeck auth` token first** (preferred — works for any calendar the user owns):
-    - Read `~/.config/flowdeck/tokens/google.json`. If it exists and has an `access_token`:
-      - If `expiry_date` < now: refresh the token —
-        - Read `~/.config/flowdeck/google-oauth.json` to get `client_id` and `client_secret`.
-        - Run: `curl -s -X POST https://oauth2.googleapis.com/token -d "client_id=CLIENT_ID&client_secret=CLIENT_SECRET&refresh_token=REFRESH_TOKEN&grant_type=refresh_token"`
-        - Save the new token (merge `access_token` and `expiry_date`) back to `~/.config/flowdeck/tokens/google.json`.
-      - Fetch events: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/calendar/v3/calendars/ENCODED_ID/events?timeMin=TIME_MIN&timeMax=TIME_MAX&singleEvents=true&orderBy=startTime"`
-      - Parse the JSON `items` array.
-      - If 401: token is invalid — stop and note under `## HUMAN` to run `flowdeck auth google --force` to re-authorize. If Google blocks the sign-in, the user may not be on the beta tester list — ask them to email validator-mc@ruco.pt.
-  - **If no token:** attempt ICS fetch —
-    `GET https://calendar.google.com/calendar/ical/{{ENCODED_ID}}/public/basic.ics`
-    If 2xx: parse the ICS feed. Note: personal calendar ICS feeds are often stale — run `flowdeck auth google` once for reliable sync.
-    If 403/404: stop and note under `## HUMAN` to run `flowdeck auth google` to authorize, then replay this card. If Google blocks the sign-in, the user may not be on the beta tester list — ask them to email validator-mc@ruco.pt.
+- [ ] Fetch events for the `Calendar ID` via ICS:
+  - If the `Calendar ID` value starts with `http`: fetch it directly as an ICS URL.
+  - Otherwise: URL-encode the Calendar ID (replace `@` → `%40`, `#` → `%23`, and apply standard percent-encoding for any other special characters) and fetch `https://calendar.google.com/calendar/ical/ENCODED_ID/public/basic.ics`.
+  - Parse the ICS feed for `VEVENT` entries within `timeMin`–`timeMax` (compare against `DTSTART`).
+  - On 403/404: stop and note under `## HUMAN` that the calendar must be shared as a public ICS feed, or a direct `.ics` URL must be supplied in `sync/SYNC.md`.
 
 - [ ] **If `Public Source` is set** (non-blank, non-placeholder): fetch via ICS (public holiday calendars work reliably without auth).
   - If it looks like a calendar ID (contains `@`): fetch `https://calendar.google.com/calendar/ical/ENCODED_ID/public/basic.ics`.
@@ -53,7 +43,7 @@
 
     ## ACTIONS
 
-    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
+    <!-- No actions ship by default. -->
     ```
 
 - [ ] For each month spanned by the sync range:
@@ -74,7 +64,7 @@
 
     ## ACTIONS
 
-    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
+    <!-- No actions ship by default. -->
     ```
 
 - [ ] For each week spanned by the sync range:
@@ -95,7 +85,7 @@
 
     ## ACTIONS
 
-    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
+    <!-- No actions ship by default. -->
     ```
 
 - [ ] For each calendar day in the sync range — whether or not it has events:
@@ -117,19 +107,8 @@
     ## ACTIONS
 
     <!-- Move an item to ## BOT to activate it, then play this card. -->
-    <!-- Public event lines below are pre-filled from the public calendar source and are read-only. -->
-    <!-- Do not regenerate this section on re-sync — only scaffold when TODO.md does not yet exist. -->
-
-    {{PUBLIC_EVENT_ACTIONS}}
-    - [ ] send-to-gcal — [Title | YYYY-MM-DD | HH:MM–HH:MM | optional description]
-    - [ ] sync-day — re-fetch events for this day only
+    <!-- No actions ship by default — sync is read-only. -->
     ```
-
-    Where `{{PUBLIC_EVENT_ACTIONS}}` expands to one `send-to-gcal` line per public event on this day:
-    ```
-    - [ ] send-to-gcal — [{{PUBLIC_TITLE}} | {{SLUG}} | {{START_TIME}}–{{END_TIME}} | {{DESCRIPTION}}]
-    ```
-    If there are no public events on this day, omit `{{PUBLIC_EVENT_ACTIONS}}` entirely.
 
 - [ ] Append a row to the `## Run Log` table in `sync/SYNC.md`:
   | {{TODAY}} | {{RANGE}} | {{DAYS_SYNCED}} | {{EVENTS_FETCHED}} | {{CARDS_CREATED}} | {{CARDS_UPDATED}} |
@@ -138,7 +117,7 @@
 
 ## HUMAN
 
-- [ ] Fill in `.flowdeck/.calendardeck/sync/SYNC.md` with your Calendar ID and Sync Range before syncing.
+- [ ] Configure `.flowdeck/.calendardeck/sync/SYNC.md` before syncing: set `Calendar ID` to a public Google Calendar ID or a direct `.ics` URL, and set `Sync Range` to the desired range (e.g. `current-month`). The calendar must be accessible as a public ICS feed — `primary` and OAuth-only calendars are not supported.
 
 <!-- Optional: specify an explicit sync range.
 range: YYYY-MM-DD–YYYY-MM-DD
