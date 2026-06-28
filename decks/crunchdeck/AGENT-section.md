@@ -7,10 +7,11 @@ The `.flowdeck/.crunchdeck/` directory is a product management deck. Each asset 
 - `.flowdeck/.crunchdeck/profile/` — `PROFILE.md` + `TODO.md` — product identity: one-liner, elevator pitch, north-star, market lane
 - `.flowdeck/.crunchdeck/backlog/` — `BACKLOG.md` + `TODO.md` — candidate items promoted from inbox
 - `.flowdeck/.crunchdeck/roadmap/` — `ROADMAP.md` + `TODO.md` — committed themes by horizon (Now / Next / Later)
+- `.flowdeck/.crunchdeck/launches/` — `TODO.md` — recurring release pipeline (`<!-- lifecycle: recurring -->`); auto-resets after each play, never melds
 
 **Created per-instance:**
 - `.flowdeck/.crunchdeck/decisions/ADR-XXXX/` — `ADR-XXXX.md` + `TODO.md` — architectural and product decisions
-- `.flowdeck/.crunchdeck/launches/vX.Y.Z/` — `LAUNCH.md` + `TODO.md` — per-launch operational checklists
+- `.flowdeck/.crunchdeck/launches/vX.Y.Z/` — `LAUNCH.md` + `TODO.md` — per-launch operational checklists (created by the launches pipeline card)
 
 **Pipeline:** emaildeck / gitdeck / webdeck (`send-to-crunchdeck`) → `crunchdeck-inbox/` → Backlog / Roadmap / Decision → flowdeck cards
 
