@@ -18,18 +18,20 @@
 
   ## BOT
 
-  - [ ] Check if `mcp__claude_ai_Gmail__search_threads` is available. If not, add a `## HUMAN` item to connect Gmail MCP and stop.
+  - [ ] **Authenticate** — read `~/.config/flowdeck/tokens/google.json`. If missing: stop and note under `## HUMAN` to run `flowdeck auth google`. If `expiry_date` < now: refresh via `~/.config/flowdeck/google-oauth.json` (POST to `https://oauth2.googleapis.com/token` with `grant_type=refresh_token`; merge `access_token` + `expiry_date` back into `google.json`). On 401 from any API call: stop and note to run `flowdeck auth google --force`.
 
   - [ ] Read `FILTER.md` for query, label, and default tasks.
 
   - [ ] Check if `.flowdeck/.crunchdeck/profile/PROFILE.md` exists. If it does, read it and extract product name, one-liner, competitors, and north-star metric as a relevance context for scoring threads.
 
   - [ ] Search Gmail using the query. Default to the last 30 days unless `FILTER.md` specifies a `## Date Range`. If crunchdeck PROFILE.md was found, use the product context to discard threads with no meaningful connection to the product.
+    - `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/gmail/v1/users/me/threads?q=ENCODED_QUERY&maxResults=50"`
+    - For each thread ID, fetch metadata: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/gmail/v1/users/me/threads/THREAD_ID?format=metadata&metadataHeaders=Subject&metadataHeaders=From&metadataHeaders=Date"`
 
-  - [ ] Check if the label from `FILTER.md` exists; create it if not via `mcp__claude_ai_Gmail__create_label`.
+  - [ ] Ensure the label from `FILTER.md` exists — list labels: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/gmail/v1/users/me/labels"`. If not found, create it: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"name":"LABEL_NAME"}' "https://www.googleapis.com/gmail/v1/users/me/labels"`. Record the label ID.
 
   - [ ] For each matching thread:
-    - Apply the label using `mcp__claude_ai_Gmail__label_thread`
+    - Apply the label: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"addLabelIds":["LABEL_ID"]}' "https://www.googleapis.com/gmail/v1/users/me/threads/THREAD_ID/modify"`
     - Create `../../mail-inbox/<YYYY-MM-DD>-<thread-slug>/`
     - Scaffold `EMAIL.md` from `_energy-cards/EMAIL.md.template` — substitute thread metadata; if crunchdeck PROFILE.md was read, append a `## Relevance` section with one sentence explaining why this thread matters to the product
     - Scaffold `TODO.md` from the `## Default Tasks` block in `FILTER.md`; if `.flowdeck/.crunchdeck/` exists, append `- [ ] send-to-crunchdeck` to the `## ACTIONS` section; always append `- [ ] archive` and `- [ ] mark-to-delete` (mark-to-delete immediately after archive) to the `## ACTIONS` section

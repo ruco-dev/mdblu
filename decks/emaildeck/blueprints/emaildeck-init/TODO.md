@@ -92,7 +92,7 @@
 
   ## draft-reply
 
-  Compose a reply draft using Gmail MCP and save it to `drafts/`.
+  Compose a reply draft and save it to `drafts/`.
   Include instructions on what the reply should say.
 
   **Trigger:** `- [ ] draft-reply — [your instructions here]`
@@ -171,8 +171,8 @@
 
   When activated:
   1. Read the thread ID from this card's `EMAIL.md`.
-  2. Ensure the `emaildeck/DELETE` label exists — call `mcp__claude_ai_Gmail__create_label` (idempotent, create-if-missing, same pattern as filter label creation).
-  3. Apply the label to the thread via `mcp__claude_ai_Gmail__label_thread`.
+  2. Ensure the `emaildeck/DELETE` label exists — list labels and create if missing: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"name":"emaildeck/DELETE"}' "https://www.googleapis.com/gmail/v1/users/me/labels"`.
+  3. Apply the label: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"addLabelIds":["LABEL_ID"]}' "https://www.googleapis.com/gmail/v1/users/me/threads/THREAD_ID/modify"`.
   4. **Only after the label call succeeds**, delete this message card's local folder (the `<YYYY-MM-DD>-<thread-slug>/` directory under `mail-inbox/`). If the label call fails, do NOT delete the folder — note the failure under `## HUMAN` so the card survives for retry.
 
   Can also be set as a filter default via `BOT: mark-to-delete` in a filter's `## Default Tasks`, for filters whose mail is reliably junk.
@@ -213,7 +213,7 @@
 
   ## push-to-gmail
 
-  Read this draft card's `MESSAGE.md` (To / Cc / Bcc / Subject metadata table + `## Body`) and create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`. Write the returned draft ID into the `Gmail draft ID` row of `MESSAGE.md`. The local `.md` remains the source of truth — this only pushes a copy to Gmail.
+  Read this draft card's `MESSAGE.md` (To / Cc / Bcc / Subject metadata table + `## Body`). Authenticate via `~/.config/flowdeck/tokens/google.json` (refresh if expired). Encode the message as RFC 2822 base64url and POST to `https://www.googleapis.com/gmail/v1/users/me/drafts`. Write the returned draft ID into the `Gmail draft ID` row of `MESSAGE.md`. The local `.md` remains the source of truth — this only pushes a copy to Gmail.
 
   **Trigger:** `- [ ] push-to-gmail`
 
@@ -229,8 +229,9 @@
   ## BOT
 
   - [ ] List all draft cards in `drafts/` (subdirectories with a `TODO.md`).
-  - [ ] For each reply draft (has `EMAIL.md` + a completed `draft-reply` task): read the drafted reply and create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`.
-  - [ ] For each compose draft (has `MESSAGE.md` with an empty `Gmail draft ID` row): read the To/Cc/Bcc/Subject table and `## Body`, create a Gmail draft via `mcp__claude_ai_Gmail__create_draft`, and write the returned draft ID back into the `Gmail draft ID` row of `MESSAGE.md`. Skip compose drafts that already have a draft ID.
+  - [ ] **Authenticate** — read `~/.config/flowdeck/tokens/google.json`; refresh if expired (same pattern as filter cards). On 401: stop and note to run `flowdeck auth google --force`.
+  - [ ] For each reply draft (has `EMAIL.md` + a completed `draft-reply` task): read the drafted reply, encode as RFC 2822 base64url, POST to `https://www.googleapis.com/gmail/v1/users/me/drafts`.
+  - [ ] For each compose draft (has `MESSAGE.md` with an empty `Gmail draft ID` row): read the To/Cc/Bcc/Subject table and `## Body`, encode as RFC 2822 base64url, POST to `https://www.googleapis.com/gmail/v1/users/me/drafts`, and write the returned draft ID back into the `Gmail draft ID` row of `MESSAGE.md`. Skip compose drafts that already have a draft ID.
   - [ ] Note each pushed draft under `## HUMAN` with its Gmail draft ID.
 
   ## HUMAN
@@ -439,10 +440,12 @@
   ## BOT
 
   - [ ] Read `FILTER.md` for query, label, and default tasks.
-  - [ ] Search Gmail using the query. Default to the last 30 days unless `FILTER.md` specifies a `## Date Range`.
-  - [ ] Check if the label from `FILTER.md` exists; create it if not via `mcp__claude_ai_Gmail__create_label`.
+  - [ ] **Authenticate** — read `~/.config/flowdeck/tokens/google.json`. If missing: stop and note under `## HUMAN` to run `flowdeck auth google`. If `expiry_date` < now: refresh via `~/.config/flowdeck/google-oauth.json` (POST to `https://oauth2.googleapis.com/token` with `grant_type=refresh_token`). On 401: stop and note to run `flowdeck auth google --force`.
+  - [ ] Read `FILTER.md` for query, label, and default tasks.
+  - [ ] Search Gmail: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/gmail/v1/users/me/threads?q=ENCODED_QUERY&maxResults=50"`. Default to last 30 days unless `FILTER.md` specifies a `## Date Range`.
+  - [ ] Ensure the label exists — list labels and create if missing: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"name":"LABEL_NAME"}' "https://www.googleapis.com/gmail/v1/users/me/labels"`. Record the label ID.
   - [ ] For each matching thread:
-    - Apply the label using `mcp__claude_ai_Gmail__label_thread`
+    - Apply the label: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"addLabelIds":["LABEL_ID"]}' "https://www.googleapis.com/gmail/v1/users/me/threads/THREAD_ID/modify"`
     - Create `../../mail-inbox/<YYYY-MM-DD>-<thread-slug>/`
     - Scaffold `EMAIL.md` from `_energy-cards/EMAIL.md.template` — substitute thread metadata
     - Scaffold `TODO.md` using the `## ACTIONS` template — pre-populate `## BOT` from `## Default Tasks` in `FILTER.md`
