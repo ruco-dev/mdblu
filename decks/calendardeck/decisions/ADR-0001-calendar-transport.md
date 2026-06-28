@@ -87,7 +87,7 @@ Browser-OAuth is already implemented and shipped in the flowdeck CLI (`flowdeck 
 
 ---
 
-*Provided by [mdblu](https://github.com/ruco-ai/mdblu)*
+*Provided by [mdblu](https://github.com/ruco-dev/mdblu)*
 
 ---
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/ADR.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/ADR.md.template`*

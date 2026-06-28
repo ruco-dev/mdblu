@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.1] — 2026-06-29
+
+### Fixes
+- GitHub repository migrated from `ruco-ai/mdblu` to `ruco-dev/mdblu` — stale links in ADR footer updated
+
 ## [2.1.0] — 2026-06-29
 
 ### Features
