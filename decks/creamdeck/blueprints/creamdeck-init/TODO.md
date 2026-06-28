@@ -53,7 +53,7 @@
   #### COMMENTS
   ```
 
-- [ ] Scaffold `.flowdeck/.creamdeck/CREAMDECK.md` from `_energy-cards/CREAMDECK.md.template` — substitute `{{PROJECT_NAME}}` and `{{PROJECT_DESCRIPTION}}` from what was read in step 1.
+- [ ] Scaffold `.flowdeck/.creamdeck/CREAMDECK.md` from `_energy-cards/CREAMDECK.md.template` — substitute `{{PROJECT_NAME}}`, `{{PROJECT_DESCRIPTION}}`, and `{{TICKET_PREFIX}}`. Derive `TICKET_PREFIX` from the project name: uppercase first 3 consonants or first 3 letters if unclear (e.g. `hcv-mcp` → `HCV`, `mdblu` → `MDB`). Ask under `## HUMAN` if ambiguous.
 
 - [ ] Scaffold an example contact at `.flowdeck/.creamdeck/contacts/john-dee/`:
 
@@ -193,7 +193,7 @@
 
   <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
 
-  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description
+  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description. Auto-generate the ticket ID: read `Prefix` from the `## Ticket ID` table in `CREAMDECK.md`, count existing ticket subdirs for the sequence (zero-padded to 3 digits), and combine as `{PREFIX}{DDMMYYYY}{SEQ}` using today's date (e.g. `HCV29062026001`). Use this ID as the folder name and as `{{TICKET_ID}}` in the scaffolded `TICKET.md`.
   - [ ] close-ticket — prompt for ticket slug; set Status to Closed and fill Closed date in `TICKET.md`
 
   #### COMMENTS

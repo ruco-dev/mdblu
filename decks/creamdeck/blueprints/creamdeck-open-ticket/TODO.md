@@ -22,7 +22,7 @@
 
   <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
 
-  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description
+  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description. Auto-generate the ticket ID: read `Prefix` from the `## Ticket ID` table in `CREAMDECK.md`, count existing ticket subdirs for the sequence (zero-padded to 3 digits), and combine as `{PREFIX}{DDMMYYYY}{SEQ}` using today's date (e.g. `HCV29062026001`). Use this ID as the folder name and as `{{TICKET_ID}}` in the scaffolded `TICKET.md`.
   - [ ] close-ticket — prompt for ticket slug; set Status to Closed and fill Closed date in `TICKET.md`
 
   #### COMMENTS
@@ -30,7 +30,7 @@
 
 - [ ] Read `## HUMAN` below for title, priority, linked contact, and description. Stop and surface any missing required values (title) under `## HUMAN`.
 
-- [ ] Generate a numeric ticket ID: count existing subdirectories in `tickets/` (excluding non-ticket dirs) + 1, zero-padded to 3 digits (e.g. `001`).
+- [ ] Generate a ticket ID: read `Prefix` from the `## Ticket ID` table in `CREAMDECK.md`. Count existing subdirectories in `tickets/` (excluding non-ticket files) + 1, zero-padded to 3 digits. Combine as `{PREFIX}{DDMMYYYY}{SEQ}` using today's date (e.g. `HCV29062026001`). This ID is passed to the client and must be unique.
 
 - [ ] Generate slug from title: kebab-case, max 40 characters.
 
