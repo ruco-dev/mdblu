@@ -12,6 +12,10 @@
 
 {{SNIPPET}}
 
+## Body
+
+{{BODY}}
+
 ## Thread URL
 
 https://mail.google.com/mail/u/0/#inbox/{{THREAD_ID}}

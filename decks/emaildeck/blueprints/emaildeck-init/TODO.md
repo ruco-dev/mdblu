@@ -464,12 +464,13 @@
   - [ ] Read `FILTER.md` for query, label, and default tasks.
   - [ ] **Authenticate** — read `~/.config/flowdeck/tokens/google.json`. If missing: stop and note under `## HUMAN` to run `flowdeck auth google`. If `expiry_date` < now: refresh via `~/.config/flowdeck/google-oauth.json` (POST to `https://oauth2.googleapis.com/token` with `grant_type=refresh_token`). On 401: stop and note to run `flowdeck auth google --force`.
   - [ ] Read `FILTER.md` for query, label, and default tasks.
-  - [ ] Search Gmail: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/gmail/v1/users/me/threads?q=ENCODED_QUERY&maxResults=50"`. Default to last 30 days unless `FILTER.md` specifies a `## Date Range`.
+  - [ ] Search Gmail: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/gmail/v1/users/me/threads?q=ENCODED_QUERY&maxResults=50"`. Default to last 30 days unless `FILTER.md` specifies a `## Date Range`. Record `snippet` per thread from this response.
   - [ ] Ensure the label exists — list labels and create if missing: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"name":"LABEL_NAME"}' "https://www.googleapis.com/gmail/v1/users/me/labels"`. Record the label ID.
   - [ ] For each matching thread:
+    - Fetch full content: `curl -s -H "Authorization: Bearer ACCESS_TOKEN" "https://www.googleapis.com/gmail/v1/users/me/threads/THREAD_ID?format=full"` — extract Subject/From/Date from headers, decode the `text/plain` part (base64url) from `messages[0].payload` for the body
     - Apply the label: `curl -s -X POST -H "Authorization: Bearer ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"addLabelIds":["LABEL_ID"]}' "https://www.googleapis.com/gmail/v1/users/me/threads/THREAD_ID/modify"`
     - Create `../../mail-inbox/<YYYY-MM-DD>-<thread-slug>/`
-    - Scaffold `EMAIL.md` from `_energy-cards/EMAIL.md.template` — substitute thread metadata
+    - Scaffold `EMAIL.md` from `_energy-cards/EMAIL.md.template` — substitute thread metadata including `{{SNIPPET}}` and decoded `{{BODY}}`
     - Scaffold `TODO.md` using the `## ACTIONS` template — pre-populate `## BOT` from `## Default Tasks` in `FILTER.md`
   - [ ] Append a run log entry to `FILTER.md` under `## Run Log`.
   - [ ] If no threads matched, note under `## HUMAN` and stop.
