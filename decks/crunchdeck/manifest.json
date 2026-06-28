@@ -6,7 +6,7 @@
     "crunchdeck-init",
     "crunchdeck-adr",
     "crunchdeck-promote",
-    "crunchdeck-release"
+    "crunchdeck-launches"
   ],
   "energyCards": [
     "README.md.template",

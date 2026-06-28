@@ -63,6 +63,7 @@
 
   ### Close out
 
+  - [ ] Update `README.md`: diff the CHANGELOG entry against the current README — update any sections that describe the CLI API, template list, command syntax, or version references to match what shipped.
   - [ ] Add `**Released: vX.Y.Z**` to every untagged `_meld/` card `TODO.md`.
   - [ ] Commit: `git add .flowdeck/ && git commit -m "deck: annotate meld → vX.Y.Z"`.
   - [ ] Surface the released version, CHANGELOG entry, and npm publish output under `## HUMAN`.
