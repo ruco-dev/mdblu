@@ -7,7 +7,7 @@
 
 - [ ] Check if `.flowdeck/.creamdeck/` already exists. If it does, stop and note under `## HUMAN` that creamdeck is already initialized.
 
-- [ ] Create `.flowdeck/.creamdeck/`, `.flowdeck/.creamdeck/creamdeck-inbox/`, `.flowdeck/.creamdeck/contacts/`.
+- [ ] Create `.flowdeck/.creamdeck/`, `.flowdeck/.creamdeck/creamdeck-inbox/`, `.flowdeck/.creamdeck/contacts/`, `.flowdeck/.creamdeck/tickets/`.
 
 - [ ] Add `.*` to `.flowdeck/.flowdeckignore` if not already present, so `.creamdeck/` is excluded from `flowdeck turn`.
 
@@ -22,12 +22,15 @@
 
   - `creamdeck-inbox/` — incoming items routed from emaildeck or logged manually
   - `contacts/` — one subfolder per tracked contact
+  - `tickets/` — open support or project tickets
 
   ## Usage
 
   - Play `creamdeck-inbox/TODO.md` to surface and route unread items.
   - Play a contact card to review interactions and draft follow-ups.
+  - Play `tickets/TODO.md` to see open tickets by stage.
   - Add a contact directly: `flowdeck blueprint use creamdeck-add-contact`.
+  - Open a ticket: `flowdeck blueprint use creamdeck-open-ticket`.
   ```
 
 - [ ] Create `.flowdeck/.creamdeck/creamdeck-inbox/TODO.md`:
@@ -168,6 +171,30 @@
   - [ ] route-to-crunchdeck — copy this item to `.crunchdeck/crunchdeck-inbox/` as a signal card
   - [ ] schedule-follow-up — add a follow-up task with a target date to the linked contact card
   - [ ] archive — mark this item as resolved; move `completed: true` to `INBOX-ITEM.md`
+
+  #### COMMENTS
+  ```
+
+- [ ] Scaffold `.flowdeck/.creamdeck/tickets/PIPELINE.md` from `_energy-cards/PIPELINE.md.template` — substitute `{{PROJECT_NAME}}`.
+
+- [ ] Create `.flowdeck/.creamdeck/tickets/TODO.md`:
+  ```markdown
+  # tickets
+
+  ## BOT
+
+  - [ ] List all subdirectories in this folder. For each, read `TICKET.md` — extract title, ID, status, stage, priority, and linked contact.
+  - [ ] Surface open tickets (Stage ≠ Closed) under `## HUMAN`, grouped by stage, sorted by priority (high first).
+  - [ ] Flag any tickets in `Waiting` stage where the last update in `TICKET.md` is older than 7 days.
+
+  ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
+
+  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description
+  - [ ] close-ticket — prompt for ticket slug; set Status to Closed and fill Closed date in `TICKET.md`
 
   #### COMMENTS
   ```

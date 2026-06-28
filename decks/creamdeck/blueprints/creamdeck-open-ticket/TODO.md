@@ -1,0 +1,82 @@
+# creamdeck-open-ticket
+<!-- lifecycle: one-shot -->
+
+## BOT
+
+- [ ] Check `.flowdeck/.creamdeck/` exists. If not, stop and surface under `## HUMAN` to run `creamdeck-init` first.
+
+- [ ] Check `.flowdeck/.creamdeck/tickets/` exists. If not, create it, scaffold `PIPELINE.md` from `_energy-cards/PIPELINE.md.template` (substitute `{{PROJECT_NAME}}` from `FLOWDECK.md` or `package.json`), and create `tickets/TODO.md` as the tickets overview card:
+
+  ```markdown
+  # tickets
+
+  ## BOT
+
+  - [ ] List all subdirectories in this folder. For each, read `TICKET.md` — extract title, ID, status, stage, priority, and linked contact.
+  - [ ] Surface open tickets (Stage ≠ Closed) under `## HUMAN`, grouped by stage, sorted by priority (high first).
+  - [ ] Flag any tickets in `Waiting` stage where the last update in `TICKET.md` is older than 7 days.
+
+  ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
+
+  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description
+  - [ ] close-ticket — prompt for ticket slug; set Status to Closed and fill Closed date in `TICKET.md`
+
+  #### COMMENTS
+  ```
+
+- [ ] Read `## HUMAN` below for title, priority, linked contact, and description. Stop and surface any missing required values (title) under `## HUMAN`.
+
+- [ ] Generate a numeric ticket ID: count existing subdirectories in `tickets/` (excluding non-ticket dirs) + 1, zero-padded to 3 digits (e.g. `001`).
+
+- [ ] Generate slug from title: kebab-case, max 40 characters.
+
+- [ ] Create `.flowdeck/.creamdeck/tickets/{{DATE}}-{{SLUG}}/`.
+
+- [ ] Scaffold `TICKET.md` from `_energy-cards/TICKET.md.template` — substitute `{{TICKET_TITLE}}`, `{{TICKET_ID}}`, `{{PRIORITY}}`, `{{STAGE}}` (default: New), `{{CONTACT}}`, `{{DATE}}` (today), `{{DESCRIPTION}}`.
+
+- [ ] Create `TODO.md` in `.flowdeck/.creamdeck/tickets/{{DATE}}-{{SLUG}}/`:
+
+  ```markdown
+  # {{TICKET_TITLE}}
+
+  ## BOT
+
+  - [ ] Read `TICKET.md` — extract title, stage, priority, linked contact, and last update.
+  - [ ] Surface ticket summary and flag if `Waiting` with no update in 7+ days under `## HUMAN`.
+
+  ## HUMAN
+
+  ## ACTIONS
+
+  <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
+
+  - [ ] advance-stage — move to next pipeline stage; update Stage in `TICKET.md`
+  - [ ] log-update — append an entry to the Updates section of `TICKET.md` (date + summary)
+  - [ ] link-inbox-item — note an inbox item linked to this ticket in both files
+  - [ ] draft-reply — create a Gmail draft via emaildeck to the linked contact
+  - [ ] close — mark ticket Resolved or Closed; populate Resolution in `TICKET.md`
+
+  #### COMMENTS
+  ```
+
+- [ ] Commit: `git add .flowdeck/.creamdeck/tickets && git commit -m "deck: open ticket — {{TICKET_TITLE}}"`.
+
+## HUMAN
+
+- [ ] Title:
+  > _answer:_
+
+- [ ] Priority (high / medium / low):
+  > _answer:_ (default: medium)
+
+- [ ] Linked contact slug (from `contacts/`):
+  > _answer:_ (optional)
+
+- [ ] Description:
+  > _answer:_
+
+#### COMMENTS
