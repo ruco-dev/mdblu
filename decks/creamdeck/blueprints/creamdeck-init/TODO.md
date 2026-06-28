@@ -186,6 +186,7 @@
   - [ ] List all subdirectories in this folder. For each, read `TICKET.md` — extract title, ID, status, stage, priority, and linked contact.
   - [ ] Surface open tickets (Stage ≠ Closed) under `## HUMAN`, grouped by stage, sorted by priority (high first).
   - [ ] Flag any tickets in `Waiting` stage where the last update in `TICKET.md` is older than 7 days.
+  - [ ] Scan emaildeck inbox — for each email, infer tasks and their current status implied by the client's message. For each task found: open a ticket using the `open-ticket` action (auto-generating ID, linking to the contact, setting stage and priority from the inferred status); then update the ticket status field to reflect the inferred state (e.g. New, In Progress, Waiting, Blocked).
 
   ## HUMAN
 
