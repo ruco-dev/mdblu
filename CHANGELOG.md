@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.0] — 2026-06-29
+
+### Features
+
+- **`creamdeck` — ticket system:** New `TICKET.md.template`, `PIPELINE.md.template`, and `creamdeck-open-ticket` blueprint. Tickets have ID, status, priority, stage, linked contact, and a full update log. `creamdeck-init` scaffolds a `tickets/` directory with a PIPELINE overview card.
+- **`creamdeck` — prefix-based ticket IDs:** `CREAMDECK.md` gains a `## Ticket ID` section with format `{PREFIX}{DDMMYYYY}{SEQ}` (e.g. `MDB29062026001`). Prefix is set at init time via `{{TICKET_PREFIX}}` substitution.
+- **`creamdeck` — email inbox scan on ticket card:** The default `tickets/TODO.md` bot task now scans the emaildeck inbox, infers client tasks, and opens a ticket per task via `open-ticket`.
+- **`farmdeck` — folders as standing cards:** Every farmdeck folder (inbox, prospects, pipeline, won, dropped) is now a proper standing card backed by a blueprint and a data-doc energy card template. `farmdeck-init` scaffolds all standing cards from blueprints instead of inlining content. `PIPELINE.md` relocated to `pipeline/PIPELINE.md`.
+- **`mdblu` — STATS.md template:** New `STATS.md.template` for capturing weekly npm/GitHub metrics snapshots (downloads, stars, issues, forks, bundle size). Diff-friendly over time. Registered in `CLAUDE.md` and `TAGS.md`.
+- **`mdblu` — lifecycle markers convention:** `TEMPLATE.md.template` gains a `### Lifecycle Marker` subsection documenting the `<!-- lifecycle: recurring | idempotent | one-shot -->` convention for all blueprint and energy-card `TODO.md` files.
+
+### Fixes
+
+- **CLI — wrong GitHub org in fetches:** `REPO_OWNER` in `bin/mdblu.js` corrected from `ruco-ai` to `ruco-dev`. All template fetches now point at the right org. A GitHub nudge (`Star or contribute →`) added to `mdblu list` and scaffold output.
+- **`calendardeck` — transport corrected:** Restored browser-OAuth REST v3 as primary sync path (token refresh via `oauth2.googleapis.com/token`, Bearer fetch from `calendar/v3`). ICS retained as secondary public-source and no-token fallback. `send-to-gcal` write-back re-implemented as authenticated `POST .../calendar/v3/.../events` (no MCP). Dropped `@cocal/google-calendar-mcp` and API-key plumbing. Decision recorded in `decks/calendardeck/decisions/ADR-0001-calendar-transport.md`.
+
 ## [2.0.0] — 2026-06-26
 
 ### Breaking Changes
