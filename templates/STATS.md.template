@@ -1,0 +1,91 @@
+---
+title: "Package Stats Dashboard"
+type: reporting
+tags: [reporting, metadata, reference]
+---
+
+# {{PROJECT_NAME}} Package Stats Dashboard
+
+<!--
+INSTRUCTIONS FOR THE MODEL:
+Populate this dashboard from the following data sources for each package listed in ## Packages.
+You must fill every cell — call the APIs via curl or fetch; do not invent values.
+
+npm downloads:
+  https://api.npmjs.org/downloads/point/last-week/{pkg}    → .downloads
+  https://api.npmjs.org/downloads/point/last-month/{pkg}   → .downloads
+
+npm registry (version + publish date):
+  https://registry.npmjs.org/{pkg}/latest → .version, time[version] (ISO date)
+
+GitHub (stars, issues, forks):
+  https://api.github.com/repos/{owner}/{repo} → .stargazers_count, .open_issues_count, .forks_count
+  Pass -H "Authorization: token $GITHUB_TOKEN" if the env var is set.
+
+Bundle size (browser packages only — use — for CLI-only):
+  https://bundlephobia.com/api/size?package={pkg}@{version} → .gzip (convert bytes to KB, 1 decimal)
+
+After filling: update Snapshot date to today's ISO date and set Projects tracked count.
+Remove this comment block from the final output.
+-->
+
+**Snapshot date:** {{DATE}}
+**Projects tracked:** {{PROJECT_COUNT}}
+
+---
+
+## Packages
+
+<!--
+List every npm package to track. Columns:
+- Package: human name
+- npm handle: exact string passed to the downloads/registry API (include scope, e.g. @scope/pkg)
+- GitHub repo: owner/repo path used in the GitHub API call
+- Type: SDK | CLI | lib | app
+Edit this table to add or remove packages.
+-->
+
+| Package | npm handle | GitHub repo | Type |
+|---------|-----------|-------------|------|
+{{PACKAGES_ROWS}}
+
+---
+
+## Weekly Stats Snapshot
+
+<!--
+One row per package, same order as ## Packages.
+Weekly DL: last-week downloads  |  Monthly DL: last-month downloads
+Stars: GitHub stargazers  |  Issues: GitHub open issues  |  Forks: GitHub forks
+Version: latest on npm  |  Published: ISO date of that version
+Size (gz): bundlephobia gzip KB, or — for non-browser packages
+-->
+
+| Package | Weekly DL | Monthly DL | Stars | Issues | Forks | Version | Published | Size (gz) |
+|---------|-----------|------------|-------|--------|-------|---------|-----------|-----------|
+{{STATS_ROWS}}
+
+---
+
+## Trends
+
+<!--
+Compare against the prior snapshot (git history or previous table values before overwriting).
+One bullet per notable change: "pkg: ±X% DL WoW, +Y stars".
+If this is the first snapshot, write "First snapshot — no prior data to compare."
+Skip packages with no meaningful change (< 5% DL delta, 0 star change).
+-->
+
+{{TRENDS}}
+
+---
+
+## Notes
+
+<!-- [HUMAN] Observations, anomalies, follow-up actions, or context for bot on next run. -->
+
+{{NOTES}}
+
+---
+
+*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/STATS.md.template`*
