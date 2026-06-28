@@ -16,13 +16,33 @@
   ```
   # emaildeck
 
-  Gmail filter rules as flowdeck cards. Each filter card defines a Gmail search query,
-  a label to apply to matching threads, and default tasks added to every message card.
+  Gmail filter rules as flowdeck cards.
 
-  ## Usage
+  ## Recipes
 
-  Add a filter: `flowdeck blueprint use emaildeck-add-filter start`
-  Play a filter: `flowdeck play .emaildeck/filters/<slug>`
+  ### Get emails from a specific sender
+  1. `flowdeck blueprint use emaildeck-add-filter start`
+  2. Set query to `from:name@example.com` or `from:@domain.com` for all mail from a domain.
+  3. Play the filter card — message cards land in `mail-inbox/`.
+
+  ### Get emails relevant to a project
+  Option A (automatic): if `.flowdeck/.crunchdeck/profile/PROFILE.md` exists, every filter already scores threads against your product profile and discards irrelevant ones. No extra setup.
+  Option B (manual): create a filter with a keyword or sender query, then set `BOT: send-to-crunchdeck` as a Default Task — matched cards are routed to the crunchdeck inbox for triage.
+
+  ### Get summaries of messages
+  - Per card: open any message card in `mail-inbox/` and move `summarize` into `## BOT`.
+  - Per filter (bulk): add `BOT: summarize` to the filter's `## Default Tasks` — every card created by that filter will auto-summarize when the filter runs.
+  - Combined with relevance: set both `BOT: send-to-crunchdeck` and `BOT: summarize` as default tasks.
+
+  ### Draft a new email
+  1. `flowdeck blueprint use emaildeck-compose start`
+  2. Fill in To / Subject / Body when prompted — a draft card is created in `drafts/`.
+  3. Edit `MESSAGE.md` if needed, then move `push-to-gmail` into `## BOT` to push it to Gmail.
+
+  ### Reply to a message
+  1. Open a message card in `mail-inbox/`.
+  2. Move `draft-reply` into `## BOT`. Add instructions after the `—` to guide the reply (e.g. `draft-reply — decline politely`), or leave it bare to let the bot draft from context.
+  3. The reply is saved to `drafts/` — open it, review or edit `MESSAGE.md`, then move `push-to-gmail` into `## BOT`.
 
   ## Structure
 
@@ -35,7 +55,7 @@
       EMAIL.md     — thread metadata
       TODO.md      — ## ACTIONS menu; move items to ## BOT or ## HUMAN to activate
   mail-archive/    — processed message cards (moved here by the archive action)
-  drafts/          — reply drafts staged for human review
+  drafts/          — outbound drafts staged for review before push to Gmail
   ```
 
 - [ ] Check if `.flowdeck/.creamdeck/CREAMDECK.md` exists:
@@ -92,10 +112,12 @@
 
   ## draft-reply
 
-  Compose a reply draft and save it to `drafts/`.
-  Include instructions on what the reply should say.
+  Compose a reply draft based on this thread and save it to `drafts/<slug>/MESSAGE.md`.
+  Instructions after the `—` are optional — omit them to let the bot draft from context, or add them to specify tone, content, or constraints (e.g. `decline politely`, `ask for a call next week`).
+  After the draft is saved, open `drafts/<slug>/TODO.md` and move `push-to-gmail` into `## BOT` to push it to Gmail.
 
-  **Trigger:** `- [ ] draft-reply — [your instructions here]`
+  **Trigger:** `- [ ] draft-reply` — bot drafts from thread context
+  **Trigger:** `- [ ] draft-reply — [instructions, e.g. "confirm the meeting" or "ask for the invoice"]`
 
   ---
 

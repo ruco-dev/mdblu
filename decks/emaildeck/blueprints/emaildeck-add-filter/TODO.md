@@ -56,12 +56,26 @@
   > _answer:_
 
 - [ ] Gmail query:
-  > _answer:_ (e.g. `from:newsletter@example.com`)
+  > _answer:_
+  >
+  > Common patterns:
+  > - Specific sender: `from:name@example.com`
+  > - All mail from a domain: `from:@company.com`
+  > - Subject keyword: `subject:invoice`
+  > - Relevant to a project (combine sender + keyword): `from:@client.com OR subject:ProjectName`
+  > - Unread only: `is:unread from:@domain.com`
 
 - [ ] Label to apply to matched threads:
   > _answer:_ (e.g. `emaildeck/newsletters`)
 
 - [ ] Default tasks for each message card — list them below, prefix with `BOT:` or `HUMAN:`:
   > _answer:_
+  >
+  > Common defaults:
+  > - Auto-summarize: `BOT: summarize`
+  > - Route to crunchdeck for project triage: `BOT: send-to-crunchdeck`
+  > - Auto-archive after processing: `- [ ] archive`
+  > - Flag junk reliably: `BOT: mark-to-delete`
+  > - Relevance + summary combo: `BOT: summarize` then `BOT: send-to-crunchdeck`
 
 #### COMMENTS
