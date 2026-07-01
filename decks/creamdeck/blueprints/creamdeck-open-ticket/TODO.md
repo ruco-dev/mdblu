@@ -22,7 +22,7 @@
 
   <!-- Move any item to ## BOT (bot executes) or ## HUMAN (you handle it) to activate. -->
 
-  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description. Auto-generate the ticket ID: read `Prefix` from the `## Ticket ID` table in `CREAMDECK.md`, count existing ticket subdirs for the sequence (zero-padded to 3 digits), and combine as `{PREFIX}{DDMMYYYY}{SEQ}` using today's date (e.g. `HCV29062026001`). Use this ID as the folder name and as `{{TICKET_ID}}` in the scaffolded `TICKET.md`.
+  - [ ] open-ticket — scaffold a new ticket card from `_energy-cards/TICKET.md.template`; ask for title, priority (high/medium/low), stage (default: New), linked contact slug, and description. Auto-generate the ticket ID: read `Prefix` from the `## Ticket ID` table in `CREAMDECK.md`, count existing ticket subdirs for the sequence (zero-padded to 3 digits), and combine as `{PREFIX}{DDMMYYYY}{SEQ}` using today's date (e.g. `HCV29062026001`). Use this ID as the folder name and as `{{TICKET_ID}}` in the scaffolded `TICKET.md`. If opened from an emaildeck email, record the source message path and write the new ticket ID back into that message's `EMAIL.md` `| Ticket |` field.
   - [ ] close-ticket — prompt for ticket slug; set Stage to Closed and fill Closed date in `TICKET.md`
 
   #### COMMENTS
@@ -36,7 +36,7 @@
 
 - [ ] Create `.flowdeck/.creamdeck/tickets/{{DATE}}-{{SLUG}}/`.
 
-- [ ] Scaffold `TICKET.md` from `_energy-cards/TICKET.md.template` — substitute `{{TICKET_TITLE}}`, `{{TICKET_ID}}`, `{{PRIORITY}}`, `{{STAGE}}` (default: New), `{{CONTACT}}`, `{{DATE}}` (today), `{{DESCRIPTION}}`.
+- [ ] Scaffold `TICKET.md` from `_energy-cards/TICKET.md.template` — substitute `{{TICKET_TITLE}}`, `{{TICKET_ID}}`, `{{PRIORITY}}`, `{{STAGE}}` (default: New), `{{CONTACT}}`, `{{DATE}}` (today), `{{DESCRIPTION}}`, `{{SOURCE_EMAIL}}` (the provided source message path, or `—` when no source was given).
 
 - [ ] Create `TODO.md` in `.flowdeck/.creamdeck/tickets/{{DATE}}-{{SLUG}}/`:
 
@@ -63,7 +63,9 @@
   #### COMMENTS
   ```
 
-- [ ] Commit: `git add .flowdeck/.creamdeck/tickets && git commit -m "deck: open ticket — {{TICKET_TITLE}}"`.
+- [ ] If a source emaildeck message was provided: resolve its `EMAIL.md` — use the given relative path directly, or search `.flowdeck/.emaildeck/filters/*/messages/*/EMAIL.md` for a card whose `Thread ID` field matches. Set that file's `| Ticket |` field value to `[{{TICKET_ID}}]({{relative path from the EMAIL.md to the new ticket folder}})`. If no source was provided, skip silently; if a source was provided but the `EMAIL.md` cannot be found, surface the unresolved reference under `## HUMAN`.
+
+- [ ] Commit: `git add .flowdeck/.creamdeck/tickets .flowdeck/.emaildeck && git commit -m "deck: open ticket — {{TICKET_TITLE}}"`.
 
 ## HUMAN
 
@@ -74,6 +76,9 @@
   > _answer:_ (default: medium)
 
 - [ ] Linked contact slug (from `contacts/`):
+  > _answer:_ (optional)
+
+- [ ] Source emaildeck message (relative path to its EMAIL.md, or thread ID):
   > _answer:_ (optional)
 
 - [ ] Description:
