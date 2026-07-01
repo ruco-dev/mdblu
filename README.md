@@ -55,30 +55,11 @@ All templates live in [`/templates`](templates/) and are open for contribution.
 
 ## Decks
 
-A **deck** is a named, installable collection of [flowdeck](https://github.com/ruco-dev/flowdeck) blueprints and energy cards for a specific domain. mdblu distributes decks under [`/decks`](decks/) — each deck is a folder with a `manifest.json`, its blueprints, and any domain-specific energy card templates.
-
-**Source vs. runtime:** deck definitions live in `mdblu/decks/` (this repo). When installed, flowdeck copies blueprints and energy cards into the target project's `.flowdeck/` directory. That runtime copy is gitignored and gets overwritten on reinstall — never edit it directly. To change a deck, edit the source in `mdblu/decks/<name>/` and re-run `flowdeck install`.
-
-Install a deck into any flowdeck project:
+Flowdeck domain-specific card collections (crunchdeck, emaildeck, gitdeck, and more) live in the [flowdeck](https://github.com/ruco-dev/flowdeck) repo. Install any deck into a project with:
 
 ```bash
-flowdeck install crunchdeck --local
+flowdeck install <deck-name> --local
 ```
-
-`--local` runs `flowdeck init` if needed, installs the deck's blueprints and energy cards, patches `.flowdeck/AGENT.md`, and runs the deck's init blueprint to scaffold its working directory — one command from blank to ready.
-
-| Deck | What it sets up |
-|---|---|
-| [`crunchdeck`](decks/crunchdeck/) | Product management under `.crunchdeck/` — PROFILE, BACKLOG, ROADMAP, ADR, inbox |
-| [`creamdeck`](decks/creamdeck/) | Contact and relationship management under `.creamdeck/` — contacts, creamdeck-inbox |
-| [`emaildeck`](decks/emaildeck/) | Gmail filter rules as flowdeck cards — fetch, label, and route findings to crunchdeck |
-| [`gitdeck`](decks/gitdeck/) | GitHub repo vigilance — watches owned, competitor, provider, consumer, and benchmark repos; routes findings to crunchdeck |
-| [`webdeck`](decks/webdeck/) | Web search signals — runs configured queries and routes findings to crunchdeck |
-| [`farmdeck`](decks/farmdeck/) | Domain and hosting asset tracker — monitors domain expiry, DNS, and hosting health |
-| [`calendardeck`](decks/calendardeck/) | Calendar and scheduling signals — tracks events, deadlines, and recurring commitments |
-| [`notedeck`](decks/notedeck/) | Freeform notes as flowdeck cards under `.notedeck/` |
-
-See [`decks/DECKS.md`](decks/DECKS.md) for the full index and instructions for contributing a new deck.
 
 ---
 
@@ -195,7 +176,7 @@ The agent will select the right template, fill every section from your prompt, s
 
 ## Contributing
 
-mdblu is intentionally open and collaborative. Templates and decks are plain Markdown — readable, forkable, improvable.
+mdblu is intentionally open and collaborative. Templates are plain Markdown — readable, forkable, improvable.
 
 **To contribute a new template or improve an existing one:**
 
@@ -205,12 +186,6 @@ mdblu is intentionally open and collaborative. Templates and decks are plain Mar
 4. Open a PR
 
 The rule: **every template change must be paired with a CLAUDE.md update.**
-
-**To contribute a new deck:**
-
-1. Add a `decks/<name>/` folder — see [`decks/DECKS.md`](decks/DECKS.md) for the required structure
-2. Add a row to the decks table in `decks/DECKS.md` and in this README
-3. Open a PR
 
 **AI-assisted contributions** — any agent connected to the MCP server can propose template improvements directly by using the `propose_update` prompt. It will open a PR only if the change clears the bar: durable improvement, structural gap, no task-specific bleed, minimal diff.
 
