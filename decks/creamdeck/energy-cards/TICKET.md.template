@@ -3,12 +3,13 @@
 | Field | Value |
 |-------|-------|
 | ID | {{TICKET_ID}} |
-| Status | Open |
 | Priority | {{PRIORITY}} |
 | Stage | {{STAGE}} |
 | Contact | {{CONTACT}} |
 | Opened | {{DATE}} |
 | Closed | — |
+| Hours Est. | |
+| Hours Real | |
 
 ## Description
 
