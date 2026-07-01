@@ -1,7 +1,0 @@
-# Interactions: {{NAME}}
-
-> Append-only log. Do not edit past entries.
-> Format: `| YYYY-MM-DD | type | notes |`
-
-| Date | Type | Notes |
-|------|------|-------|

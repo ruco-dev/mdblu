@@ -1,9 +1,0 @@
-{
-  "name": "notedeck",
-  "version": "0.1.1",
-  "agentMd": "AGENT.md",
-  "blueprints": [
-    "notedeck-init"
-  ],
-  "energyCards": []
-}
