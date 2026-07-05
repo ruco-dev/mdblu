@@ -67,7 +67,7 @@ Conventions you MUST follow:
   A [HUMAN] task is a mandatory checkpoint — it signals the agent to pause and wait.
 - Leave {{PLACEHOLDERS}} for content the filling agent will supply from context.
 - End with the standard footer (replace NAME with this template's name):
-    *Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/NAME.md.template`*
+    *Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/NAME.md.template`*
 - Remove all HTML comments from the final filled output.
 -->
 
@@ -122,7 +122,7 @@ Remove this comment block from the final output.]
 - [ ] [HUMAN]: {{TASK_2}}
 
 ---
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: \`templates/{{TEMPLATE_NAME}}.md.template\`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: \`templates/{{TEMPLATE_NAME}}.md.template\`*
 \`\`\`
 
 ## Contribution Checklist
@@ -142,4 +142,4 @@ Verify all items before submitting the PR. [BOT] items are machine-checkable.
 - [ ] [HUMAN]: Any new tags added to TAGS.md with definitions
 
 ---
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/TEMPLATE.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/TEMPLATE.md.template`*

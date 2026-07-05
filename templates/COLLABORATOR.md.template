@@ -79,4 +79,4 @@ Remove all HTML comment blocks (<!-- -->) from the final output.
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/COLLABORATOR.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/COLLABORATOR.md.template`*

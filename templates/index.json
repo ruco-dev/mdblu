@@ -1,0 +1,338 @@
+{
+  "manifestVersion": 1,
+  "generated": "2026-07-05T13:52:45.270Z",
+  "templates": [
+    {
+      "name": "ADR.md.template",
+      "title": "Architectural Decision Record",
+      "type": "documentation",
+      "tags": [
+        "documentation",
+        "architecture",
+        "decision"
+      ],
+      "sha256": "ce39702b4ed4e326805c044cb7b922263ebdbeba36f85834eca4925aa1f7150b",
+      "bytes": 1806
+    },
+    {
+      "name": "ARCHITECTURE.md.template",
+      "title": "Architecture Overview",
+      "type": "documentation",
+      "tags": [
+        "documentation",
+        "architecture",
+        "reference"
+      ],
+      "sha256": "11b8770de95af9d115d2de6e9bbf4ab0ffdce55659aecb435ba636fbfe750f53",
+      "bytes": 2220
+    },
+    {
+      "name": "AUDIT.md.template",
+      "title": "Project Audit: {{PROJECT_NAME}}",
+      "type": "documentation",
+      "tags": [
+        "documentation",
+        "retrospective",
+        "quality"
+      ],
+      "sha256": "10a77b8618ab507658e706c6b51b6200b63001da001fc23447c84da732f7049d",
+      "bytes": 4830
+    },
+    {
+      "name": "BOOTSTRAP.md.template",
+      "title": "Bootstrap Task List",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "task-management",
+        "scoping"
+      ],
+      "sha256": "5e0a5b2887228de162653c1bc76d2b01c8e63788c7645b63eae13e7a4fa33a56",
+      "bytes": 1552
+    },
+    {
+      "name": "CAROUSEL.md.template",
+      "title": "Carousel Content",
+      "type": "content",
+      "tags": [],
+      "sha256": "cc7669b07899daadf6cb535ba9e0228353dbc5f11a9fb7e31b4f25830d3d9315",
+      "bytes": 3359
+    },
+    {
+      "name": "CLAUDE.md.template",
+      "title": "Claude Agent Context",
+      "type": "implementation",
+      "tags": [
+        "agent-context",
+        "ai-workflow",
+        "reference"
+      ],
+      "sha256": "2513d88a3cfc7a22714a0fd8782a9250fe4318fd7546b6f58c45a72adce7c41c",
+      "bytes": 2114
+    },
+    {
+      "name": "CODEINDEX.md.template",
+      "title": "Code Index",
+      "type": "metadata",
+      "tags": [
+        "metadata",
+        "reference",
+        "developer-guide"
+      ],
+      "sha256": "24bcec852b52856e88abf379c8e8df585ffde817472420195971727f55e5eda0",
+      "bytes": 1136
+    },
+    {
+      "name": "CODING-NOTES.md.template",
+      "title": "Coding Notes",
+      "type": "implementation",
+      "tags": [
+        "implementation",
+        "conventions",
+        "ai-workflow"
+      ],
+      "sha256": "3cb6e0e50a8a31993cf0502279b837b34f59dfcc3d0fd09591dcf0ea47e1e5c5",
+      "bytes": 2009
+    },
+    {
+      "name": "COLLABORATOR.md.template",
+      "title": "{{DISPLAY_NAME}} — Collaborator Profile",
+      "type": "collaborator",
+      "tags": [],
+      "sha256": "5e7dc0ab94daeb3dd18ec2d2c7d420e8412d7189617b44f18781c03d5f6168c2",
+      "bytes": 2425
+    },
+    {
+      "name": "DEV.md.template",
+      "title": "Developer Guide",
+      "type": "documentation",
+      "tags": [
+        "documentation",
+        "developer-guide",
+        "reference"
+      ],
+      "sha256": "cd8e9f72efd94994c329b005d8abd77889048bec6c5d942233475239b56bd45f",
+      "bytes": 2136
+    },
+    {
+      "name": "GENERALINSIGHTS.md.template",
+      "title": "General Insights",
+      "type": "metadata",
+      "tags": [
+        "metadata",
+        "insights",
+        "ai-workflow"
+      ],
+      "sha256": "92f3f144f7ebb32a52eb10d808ee2661fdbee0f3a7fbff22c97291d8b84852b9",
+      "bytes": 1678
+    },
+    {
+      "name": "GH-PROJECT.md.template",
+      "title": "GitHub Project",
+      "type": "planning",
+      "tags": [
+        "task-management",
+        "planning",
+        "metadata"
+      ],
+      "sha256": "4652099a3cdd4b5cc87a9df8c4c0a965ca82bd124f8be8136f7adb37ad2c698d",
+      "bytes": 2973
+    },
+    {
+      "name": "HANDOFF.md.template",
+      "title": "Handoff Document",
+      "type": "post-implementation",
+      "tags": [
+        "handoff",
+        "documentation",
+        "reporting"
+      ],
+      "sha256": "4d1dda6b78fdf51086d008b73cfdbecd85880ae8aa45eedf4e22ff4c33bd6e94",
+      "bytes": 2642
+    },
+    {
+      "name": "MISSION-LOG.md.template",
+      "title": "Mission Log",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "execution",
+        "reporting",
+        "ai-workflow"
+      ],
+      "sha256": "f8c61671e31bc12f7b1c653083fb827b600eb90a13ace1bc07b1ba13bbb12200",
+      "bytes": 2690
+    },
+    {
+      "name": "MISSION-REPORT.md.template",
+      "title": "Mission Report",
+      "type": "post-implementation",
+      "tags": [
+        "reporting",
+        "retrospective",
+        "ai-workflow"
+      ],
+      "sha256": "9fb50dc2f8f3c75b5d88e44efcd535ca3ad9c36114758ca5aca11dbbc28fe0af",
+      "bytes": 2272
+    },
+    {
+      "name": "MISSION.md.template",
+      "title": "Mission Brief",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "scoping",
+        "ai-workflow"
+      ],
+      "sha256": "c211a47923aebf071ef08b611fee3118adedd3a6db81362020364a4b664f2576",
+      "bytes": 2283
+    },
+    {
+      "name": "OPEN-QUESTIONS.md.template",
+      "title": "Open Questions",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "scoping",
+        "ai-workflow"
+      ],
+      "sha256": "92b17ed58f34bc509908228a794e6a62729dcb87d58ceb6ecf7aa24d7966facf",
+      "bytes": 2651
+    },
+    {
+      "name": "PILL.md.template",
+      "title": "MCP Server Pill",
+      "type": "specification",
+      "tags": [
+        "planning",
+        "specification",
+        "ai-workflow"
+      ],
+      "sha256": "a899e0103ecd2c7ae172e7737645eba127379113e8378c8c496d2eccaae568ad",
+      "bytes": 2660
+    },
+    {
+      "name": "PLAYBOOK.md.template",
+      "title": "Operational Playbook",
+      "type": "documentation",
+      "tags": [
+        "documentation",
+        "runbook",
+        "reference"
+      ],
+      "sha256": "c66315d24d6766e076024505185181fe06f6229a871211d01e4d26a2630b3468",
+      "bytes": 1844
+    },
+    {
+      "name": "PROJECTINSIGHTS.md.template",
+      "title": "Project Insights",
+      "type": "metadata",
+      "tags": [
+        "metadata",
+        "insights",
+        "ai-workflow"
+      ],
+      "sha256": "f2bd432794c49589c741b3149193edc0b28df142927c76a2a7ce1a932f896d94",
+      "bytes": 1481
+    },
+    {
+      "name": "README.md.template",
+      "title": "README.md",
+      "type": "unknown",
+      "tags": [],
+      "sha256": "8201c76f7d432f7522c0651f2e28307d1b759bbc3473d3b965ecef65eff63d01",
+      "bytes": 7880
+    },
+    {
+      "name": "REPO.md.template",
+      "title": "Repository Overview",
+      "type": "metadata",
+      "tags": [
+        "metadata",
+        "reference"
+      ],
+      "sha256": "327f89e9850c30f757f675461081642d518574e2d4b9d28ef4ef7ebadb8c42d0",
+      "bytes": 1279
+    },
+    {
+      "name": "ROADMAP.md.template",
+      "title": "Project Roadmap",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "reference",
+        "documentation"
+      ],
+      "sha256": "004ac9a932a7bd2454e0bcf24df1118d6422b132d1765f51bd92794aa67a234e",
+      "bytes": 1842
+    },
+    {
+      "name": "SKILL.md.template",
+      "title": "{{SKILL_TITLE}}",
+      "type": "skill",
+      "tags": [
+        "{{TAGS}}"
+      ],
+      "sha256": "75d6e2233a10b35e1289f2eb5a71b7b1f7a86bd2e2d2a7051d9ad112a6f45f2c",
+      "bytes": 8013
+    },
+    {
+      "name": "SPEC.md.template",
+      "title": "Feature Specification",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "specification",
+        "scoping"
+      ],
+      "sha256": "66c4650d4246d541ce353fefdd185d8d86de0c28e184b06fc8ca257b6fc64006",
+      "bytes": 2238
+    },
+    {
+      "name": "STATS.md.template",
+      "title": "Package Stats Dashboard",
+      "type": "reporting",
+      "tags": [
+        "reporting",
+        "metadata",
+        "reference"
+      ],
+      "sha256": "a795666d9f0f645eb528fda8c8000e7739682d17b35cfb0f4317f8e557d4727d",
+      "bytes": 2795
+    },
+    {
+      "name": "STRUCTURE.md.template",
+      "title": "Codebase Structure",
+      "type": "documentation",
+      "tags": [
+        "documentation",
+        "architecture",
+        "reference"
+      ],
+      "sha256": "f45836bbd70f3d9caf7472a16ac308a99f3d52a3874638fa1b232b3a5c883ff5",
+      "bytes": 1934
+    },
+    {
+      "name": "TEMPLATE.md.template",
+      "title": "New Template: {{TEMPLATE_NAME}}",
+      "type": "reference",
+      "tags": [
+        "documentation",
+        "ai-workflow"
+      ],
+      "sha256": "510d65502951939a2596079b7e5084f792d09e705a5f106f3d344d77d2c89d32",
+      "bytes": 5063
+    },
+    {
+      "name": "TODO.md.template",
+      "title": "Task List",
+      "type": "planning",
+      "tags": [
+        "task-management",
+        "planning"
+      ],
+      "sha256": "13a822b11725683dfa5700726f222ff7fd1c4696f30927d9480a71ccbd3146eb",
+      "bytes": 1558
+    }
+  ]
+}

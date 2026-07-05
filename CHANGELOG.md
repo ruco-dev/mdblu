@@ -1,5 +1,39 @@
 # Changelog
 
+## [3.0.0] — 2026-07-05
+
+### Breaking Changes
+
+- **`get` writes to root `CLAUDE.md`:** `mdblu get` now appends `@.mdblu/CLAUDE.md` to the project root `CLAUDE.md` by default. Use `--no-claude-link` to opt out.
+- **`update` overwrite semantics changed:** `update` now skips locally edited or conflicted files instead of silently overwriting them. Use `--force` to overwrite.
+- **`update` now refreshes `CLAUDE.md`:** the pairing invariant is restored — `update` includes `.mdblu/CLAUDE.md` in the update set.
+
+### Features
+
+- **Manifest-driven fetching:** `list`, `get`, and `update` now fetch `templates/index.json` from `raw.githubusercontent.com` — no GitHub API, no rate limits, ever.
+- **`.mdblu/mdblu.lock`:** lockfile records `ref` + `sha256` per file. Pre-v3 scaffolds are adopted automatically on first run.
+- **`mdblu status [--json]`:** per-file state table (`ok` / `edited` / `outdated` / `conflict`).
+- **`mdblu diff <name>`:** unified diff of local vs upstream at the locked ref.
+- **`mdblu propose <file> [--when <text>]`:** validates conventions and opens a PR via the user's `gh` auth — no server, no bot credentials.
+- **`--ref <tag|sha>`:** pin any `get` or `update` to a specific release.
+- **`--offline` flag:** bypass network entirely, use templates bundled in the npm tarball.
+- **Parallel downloads:** `get` fetches all templates concurrently via `Promise.all`.
+- **sha256 integrity:** each fetched template is verified against the manifest before writing.
+- **Redirect depth cap:** redirect following is capped at 5 hops.
+- **Offline fallback:** network failure falls back to bundled templates with a warning.
+- **`scripts/build-manifest.js`:** generates `templates/index.json`; CI fails if stale.
+- **GitHub Action:** `.github/workflows/check-manifest.yml` enforces manifest freshness on every PR touching templates.
+- **`npm test` is now offline:** 40 unit tests with injected fetcher, zero network.
+
+### Fixes
+
+- Template footers: all 27 templates migrated from `ruco-ai/mdblu` to `ruco-dev/mdblu`.
+- `mdblu list` no longer prints stale `ruco-ai` org reference.
+- Interactive prompt copy corrected: "Enter comma-separated numbers" (was "space to toggle").
+- CLAUDE.md: phantom `scripts/gh-project-push.js` reference removed; `scripts/` section now documents `build-manifest.js`.
+- CLAUDE.md: `<!-- mdblu:propose:insert -->` anchor added for `mdblu propose` to target.
+- README: dead MCP endpoint removed; CLI-first story with all v3 commands.
+
 ## [2.1.1] — 2026-06-29
 
 ### Fixes

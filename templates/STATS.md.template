@@ -88,4 +88,4 @@ Skip packages with no meaningful change (< 5% DL delta, 0 star change).
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/STATS.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/STATS.md.template`*

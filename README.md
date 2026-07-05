@@ -120,54 +120,48 @@ Downloads the named templates into `.mdblu/templates/` and writes a `CLAUDE.md` 
 mdblu get --all
 ```
 
-**Update already-scaffolded templates:**
+**Update already-scaffolded templates** (skips locally edited files):
 
 ```bash
 mdblu update
 ```
 
----
-
-## MCP Server
-
-mdblu runs as an MCP server at `https://mdblu.ruco.dev/mcp`, so any MCP-compatible AI tool can pull templates on demand.
-
-The server reads templates and `CLAUDE.md` directly from this repository at request time — no redeploy needed when templates change.
-
-### Add to Claude Code
+**Pin to a specific release:**
 
 ```bash
-claude mcp add --transport http mdblu https://mdblu.ruco.dev/mcp
+mdblu get SPEC --ref v3.0.0
 ```
 
-### Add to Claude Desktop
+**Check what changed since you last scaffolded:**
 
-```json
-{
-  "mcpServers": {
-    "mdblu": {
-      "type": "http",
-      "url": "https://mdblu.ruco.dev/mcp"
-    }
-  }
-}
+```bash
+mdblu status
+mdblu diff SPEC
 ```
 
-### Available tools and prompts
+**Contribute a new or improved template:**
 
-| Name | Type | Description |
-|---|---|---|
-| `use_template` | tool | Fetch a template by name + return filling instructions with suggested filename |
-| `propose_template_update` | tool | Open a GitHub PR with an improved version of a template |
-| `scaffold_hook` | tool | Returns a PostToolUse hook config for automatic template improvement detection |
-| `use_doc` | prompt | Re-enter a workflow using a filled document as authoritative context |
-| `propose_update` | prompt | Critically evaluate and propose a template improvement |
+```bash
+mdblu propose my-new-template.md.template --when "Use when you need..."
+```
+
+---
+
+## Agent discovery
+
+`mdblu get` automatically appends one line to your project's root `CLAUDE.md`:
+
+```
+@.mdblu/CLAUDE.md
+```
+
+Claude Code loads this import at the start of every session, giving the agent the full template catalog and selection guidance without any manual setup. Use `--no-claude-link` to opt out.
 
 ---
 
 ## Usage
 
-Once connected, ask your AI agent to use a template by name:
+Ask your AI agent to use a template by name:
 
 > "Write a SPEC for the new notifications system."
 
@@ -175,7 +169,7 @@ Once connected, ask your AI agent to use a template by name:
 
 > "Generate a HANDOFF for what we built today."
 
-The agent will select the right template, fill every section from your prompt, strip the HTML comments, and return a clean, structured document.
+The agent selects the right template, fills every section from your prompt, strips the HTML instructions, and returns a clean structured document.
 
 ---
 
@@ -185,14 +179,21 @@ mdblu is intentionally open and collaborative. Templates are plain Markdown — 
 
 **To contribute a new template or improve an existing one:**
 
+```bash
+mdblu propose my-template.md.template --when "One-paragraph description of when to use it."
+```
+
+This validates conventions, forks the repo, and opens a PR under your own GitHub account — no server, no bot credentials.
+
+Or contribute manually:
+
 1. Fork the repo
 2. Add or edit the template in `/templates`
 3. Update `CLAUDE.md` — add or revise the entry that tells agents when and how to use the template
-4. Open a PR
+4. Run `node scripts/build-manifest.js` to regenerate `templates/index.json`
+5. Open a PR
 
-The rule: **every template change must be paired with a CLAUDE.md update.**
-
-**AI-assisted contributions** — any agent connected to the MCP server can propose template improvements directly by using the `propose_update` prompt. It will open a PR only if the change clears the bar: durable improvement, structural gap, no task-specific bleed, minimal diff.
+The rule: **every template change must be paired with a CLAUDE.md update and a manifest regeneration.**
 
 ---
 

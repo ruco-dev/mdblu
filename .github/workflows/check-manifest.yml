@@ -1,0 +1,28 @@
+name: Check manifest
+
+on:
+  push:
+    paths:
+      - 'templates/**'
+      - 'scripts/build-manifest.js'
+  pull_request:
+    paths:
+      - 'templates/**'
+      - 'scripts/build-manifest.js'
+
+jobs:
+  check-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Regenerate manifest
+        run: node scripts/build-manifest.js
+      - name: Fail if manifest is stale
+        run: |
+          if ! git diff --exit-code templates/index.json; then
+            echo "templates/index.json is stale — run: node scripts/build-manifest.js"
+            exit 1
+          fi
