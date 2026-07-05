@@ -48,6 +48,11 @@ They are interdependent: adding or updating a template always means updating CLA
 | `SKILL.md` | Document a reusable AI agent capability |
 | `SKILLS-README.md` | Index of skills in a domain subfolder |
 | `TODO.md` | Simple standalone task list |
+| `GH-PROJECT.md` | Define a GitHub Project with fields and items |
+| `ROADMAP.md` | Document planned milestones and features |
+| `STATS.md` | Capture recurring npm/GitHub metrics snapshots |
+| `AUDIT.md` | Structured codebase audit with S/M/L scoring |
+| `TEMPLATE.md` | Author a new mdblu template |
 
 All templates live in [`/templates`](templates/) and are open for contribution.
 
