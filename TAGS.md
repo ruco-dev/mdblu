@@ -21,6 +21,7 @@ This document defines all valid tags used in mdblu template frontmatter. Tags ar
 | `insights` | Templates for capturing accumulated knowledge, lessons, or patterns discovered over time |
 | `metadata` | Templates that store structured metadata about a project, session, or repository |
 | `planning` | Templates used in the planning or scoping phase before implementation begins |
+| `quality` | Templates for assessing codebase quality, finding defects, vulnerabilities, or fragilities, and producing actionable improvement recommendations |
 | `reference` | Templates intended as persistent reference material to be consulted during work |
 | `reporting` | Templates for summarizing outcomes, status, or results of completed work |
 | `retrospective` | Templates for reflecting on what was accomplished, what went wrong, and what to improve |
@@ -35,6 +36,7 @@ This document defines all valid tags used in mdblu template frontmatter. Tags ar
 
 | Template | Tags |
 |----------|------|
+| `AUDIT.md.template` | `documentation`, `retrospective`, `quality` |
 | `ADR.md.template` | `documentation`, `architecture`, `decision` |
 | `ARCHITECTURE.md.template` | `documentation`, `architecture`, `reference` |
 | `BOOTSTRAP.md.template` | `planning`, `task-management`, `scoping` |

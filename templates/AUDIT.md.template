@@ -1,0 +1,174 @@
+---
+title: "Project Audit: {{PROJECT_NAME}}"
+type: documentation
+tags: [documentation, retrospective, quality]
+---
+
+# Project Audit: {{PROJECT_NAME}}
+
+<!--
+INSTRUCTIONS FOR THE MODEL:
+Your output must be this document with every section filled in.
+
+This document is a structured audit of an existing codebase or project. Analyse the prompt
+(repository access, description, or codebase dump) and surface findings across five fixed
+categories. You MAY add extra categories if your analysis surfaces findings that fit none of
+the five (no "surprise-me" constraint — surface what you see).
+
+Rules:
+- Every finding must have a title, category, location, description, recommendation, and all
+  three sizing fields (priority, difficulty, risk — each S / M / L).
+- "S/M/L" definitions:
+    S — small: low impact / effort / risk — addressed in a single focused session
+    M — medium: moderate impact / effort / risk — requires planning or coordination
+    L — large: high impact / effort / risk — significant refactor, spike, or cross-team work
+- Do NOT leave a field blank. If a finding has no clear file location, write "project-wide".
+- Fill the Rollup table first (before the detailed findings) — it reads as the headline.
+- Omit empty categories. If no security issues exist, drop that category entirely.
+- Remove all HTML comments from the final output.
+- Do not add, remove, or reorder top-level sections.
+-->
+
+**Date:** {{DATE}}
+**Auditor:** {{AUDITOR}}
+**Scope:** {{SCOPE}}
+
+<!--
+SCOPE: describe what was audited — e.g. "full repository", "auth module", "API surface".
+AUDITOR: model or agent name, e.g. "claude-sonnet-5".
+-->
+
+---
+
+## Rollup
+
+<!--
+One row per finding. Sort by priority (L first), then risk (L first).
+The rollup must match the detailed findings exactly — no orphaned rows.
+-->
+
+| # | Title | Category | Priority | Difficulty | Risk |
+|---|-------|----------|----------|------------|------|
+| 1 |       |          |          |            |      |
+
+---
+
+## Findings
+
+<!--
+Repeat the finding block below for every finding. Group findings by category.
+Category headings: Improvement Opportunities / Weaknesses / Fragilities /
+Security Issues / Bad Code / [custom category if needed]
+
+Category boundaries:
+  Improvement Opportunity — works but could be better (performance, DX, maintainability)
+  Weakness              — structural or design gap that limits the system
+  Fragility             — likely to break under stress, edge cases, or future changes
+  Security Issue        — active or potential vulnerability (OWASP Top 10 baseline)
+  Bad Code              — readability, naming, logic errors, anti-patterns; not broken,
+                          but harmful to read or maintain
+  [other]               — anything the agent surfaces that fits none of the above;
+                          name the category explicitly
+-->
+
+### Improvement Opportunities
+
+#### {{FINDING_TITLE}}
+
+| Field | Value |
+|-------|-------|
+| Location | `{{FILE}}:{{LINE}}` |
+| Priority | S / M / L |
+| Difficulty | S / M / L |
+| Risk | S / M / L |
+
+**Description:** {{DESCRIPTION}}
+
+**Recommendation:** {{RECOMMENDATION}}
+
+---
+
+### Weaknesses
+
+#### {{FINDING_TITLE}}
+
+| Field | Value |
+|-------|-------|
+| Location | `{{FILE}}:{{LINE}}` |
+| Priority | S / M / L |
+| Difficulty | S / M / L |
+| Risk | S / M / L |
+
+**Description:** {{DESCRIPTION}}
+
+**Recommendation:** {{RECOMMENDATION}}
+
+---
+
+### Fragilities
+
+#### {{FINDING_TITLE}}
+
+| Field | Value |
+|-------|-------|
+| Location | `{{FILE}}:{{LINE}}` |
+| Priority | S / M / L |
+| Difficulty | S / M / L |
+| Risk | S / M / L |
+
+**Description:** {{DESCRIPTION}}
+
+**Recommendation:** {{RECOMMENDATION}}
+
+---
+
+### Security Issues
+
+#### {{FINDING_TITLE}}
+
+| Field | Value |
+|-------|-------|
+| Location | `{{FILE}}:{{LINE}}` |
+| Priority | S / M / L |
+| Difficulty | S / M / L |
+| Risk | S / M / L |
+
+**Description:** {{DESCRIPTION}}
+
+**Recommendation:** {{RECOMMENDATION}}
+
+---
+
+### Bad Code
+
+#### {{FINDING_TITLE}}
+
+| Field | Value |
+|-------|-------|
+| Location | `{{FILE}}:{{LINE}}` |
+| Priority | S / M / L |
+| Difficulty | S / M / L |
+| Risk | S / M / L |
+
+**Description:** {{DESCRIPTION}}
+
+**Recommendation:** {{RECOMMENDATION}}
+
+---
+
+## Top Recommendations
+
+<!--
+Pick the three highest-value actions — not necessarily the three highest-priority findings.
+Consider combined priority + difficulty + risk. Tag each [BOT] or [HUMAN].
+[BOT]   — an AI agent can implement this from the codebase alone
+[HUMAN] — requires human judgment, external coordination, or review before acting
+-->
+
+1. [BOT/HUMAN] **{{TITLE}}** — {{ONE_LINE_ACTION}}
+2. [BOT/HUMAN] **{{TITLE}}** — {{ONE_LINE_ACTION}}
+3. [BOT/HUMAN] **{{TITLE}}** — {{ONE_LINE_ACTION}}
+
+---
+
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/AUDIT.md.template`*
