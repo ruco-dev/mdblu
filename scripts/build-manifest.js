@@ -7,6 +7,7 @@ const crypto = require('crypto');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const TEMPLATES_DIR = path.join(REPO_ROOT, 'templates');
+const SKILLS_DIR = path.join(REPO_ROOT, 'skills');
 const MANIFEST_PATH = path.join(TEMPLATES_DIR, 'index.json');
 
 function sha256(content) {
@@ -25,6 +26,12 @@ function parseFrontmatter(content) {
   const typeM = yaml.match(/^type:\s*(.+?)\s*$/m);
   if (typeM) result.type = typeM[1].trim().replace(/^["']|["']$/g, '');
 
+  const descM = yaml.match(/^description:\s*"?(.+?)"?\s*$/m);
+  if (descM) result.description = descM[1].trim().replace(/^["']|["']$/g, '');
+
+  const useWhenM = yaml.match(/^use_when:\s*"?(.+?)"?\s*$/m);
+  if (useWhenM) result.use_when = useWhenM[1].trim().replace(/^["']|["']$/g, '');
+
   const tagsInline = yaml.match(/^tags:\s*\[(.+?)\]/m);
   if (tagsInline) {
     result.tags = tagsInline[1].split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
@@ -36,7 +43,48 @@ function parseFrontmatter(content) {
     }
   }
 
+  const relatedInline = yaml.match(/^related_skills:\s*\[(.+?)\]/m);
+  if (relatedInline) {
+    result.related_skills = relatedInline[1].split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+  } else {
+    const relatedBlock = yaml.match(/^related_skills:\s*\n((?:\s+-[^\n]+\n?)+)/m);
+    if (relatedBlock) {
+      result.related_skills = relatedBlock[1].trim().split('\n')
+        .map(s => s.replace(/^\s*-\s*/, '').trim().replace(/^["']|["']$/g, ''));
+    }
+  }
+
   return result;
+}
+
+function buildSkills() {
+  if (!fs.existsSync(SKILLS_DIR)) return [];
+  const skills = [];
+  function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else if (entry.name.endsWith('.md') && entry.name !== 'README.md') {
+        const content = fs.readFileSync(full, 'utf8');
+        const fm = parseFrontmatter(content);
+        const rel = path.relative(SKILLS_DIR, full);
+        skills.push({
+          name: rel,
+          title: fm.title || entry.name.replace('.md', ''),
+          type: fm.type || 'skill',
+          description: fm.description || '',
+          use_when: fm.use_when || '',
+          tags: fm.tags || [],
+          related_skills: fm.related_skills || [],
+          sha256: sha256(content),
+          bytes: Buffer.byteLength(content, 'utf8'),
+        });
+      }
+    }
+  }
+  walk(SKILLS_DIR);
+  return skills.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function buildManifest() {
@@ -57,14 +105,17 @@ function buildManifest() {
     };
   });
 
+  const skills = buildSkills();
+
   const manifest = {
     manifestVersion: 1,
     generated: new Date().toISOString(),
     templates,
+    skills,
   };
 
   fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n');
-  console.log(`manifest: wrote ${templates.length} entries → templates/index.json`);
+  console.log(`manifest: wrote ${templates.length} templates, ${skills.length} skills → templates/index.json`);
 }
 
 buildManifest();

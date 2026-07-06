@@ -10,9 +10,13 @@ This document defines all valid tags used in mdblu template frontmatter. Tags ar
 |-----|------------|
 | `agent-context` | Templates that establish AI agent context and operating instructions for a specific repository |
 | `agent-skill` | Templates for documenting reusable AI agent capabilities, trigger conditions, and interfaces |
+| `aeo` | Answer Engine Optimization — skills for improving AI/LLM visibility and featured-snippet placement |
+| `agents` | Skills for AI agent design, behavior, orchestration, and multi-agent coordination |
 | `ai-workflow` | Templates designed for or primarily consumed within AI-assisted development workflows |
 | `architecture` | Templates for documenting system or codebase structure, components, and design decisions |
 | `conventions` | Templates that capture coding standards, patterns, or project-level rules |
+| `conversion` | Skills for improving conversion rates, CTAs, landing pages, and funnel performance |
+| `cro` | Conversion Rate Optimization — skills for A/B testing, experimentation, and uplift analysis |
 | `decision` | Templates for recording architectural or technical decisions and their rationale |
 | `developer-guide` | Templates providing guidance for developers setting up or working within a project |
 | `documentation` | General reference or explanatory documentation not tied to a specific lifecycle phase |
@@ -27,6 +31,7 @@ This document defines all valid tags used in mdblu template frontmatter. Tags ar
 | `retrospective` | Templates for reflecting on what was accomplished, what went wrong, and what to improve |
 | `runbook` | Templates for step-by-step operational procedures, incident response, or deployment processes |
 | `scoping` | Templates that define the scope, objectives, constraints, or success criteria of a task |
+| `seo` | Search Engine Optimization — skills for organic ranking, technical SEO, and on-page signals |
 | `specification` | Templates for detailed technical or functional specifications before implementation |
 | `task-management` | Templates for creating, ordering, sequencing, or tracking tasks |
 

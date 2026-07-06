@@ -58,6 +58,27 @@ All templates live in [`/templates`](templates/) and are open for contribution.
 
 ---
 
+## Skills
+
+Skills are reusable guidance documents that agents apply at runtime — they change behavior rather than produce a document.
+
+| Domain | Contents |
+|--------|----------|
+| `skills/marketing/` | SEO, AEO, conversion, CRO, and content strategies |
+| `skills/agents/` | AI agent design, behavior, and orchestration guidance |
+
+Skills share the same manifest, contribution flow, and sha256 verification as templates.
+
+```bash
+mdblu skills get <name>           # installs to .mdblu/skills/<name>.md
+mdblu skills get <name> --claude  # installs to .claude/skills/<name>/SKILL.md
+mdblu skills get --all            # download all skills
+```
+
+Skills are licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+
+---
+
 ## Decks
 
 Flowdeck domain-specific card collections (crunchdeck, emaildeck, gitdeck, and more) live in the [flowdeck](https://github.com/ruco-dev/flowdeck) repo. Install any deck into a project with:
@@ -139,10 +160,20 @@ mdblu status
 mdblu diff SPEC
 ```
 
-**Contribute a new or improved template:**
+**Download skills:**
+
+```bash
+mdblu skills list
+mdblu skills get <name>           # writes to .mdblu/skills/<name>.md
+mdblu skills get <name> --claude  # writes to .claude/skills/<name>/SKILL.md
+mdblu skills get --all
+```
+
+**Contribute a new or improved template or skill:**
 
 ```bash
 mdblu propose my-new-template.md.template --when "Use when you need..."
+mdblu propose skills/marketing/my-skill.md
 ```
 
 ---

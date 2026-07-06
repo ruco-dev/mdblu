@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "generated": "2026-07-05T13:52:45.270Z",
+  "generated": "2026-07-06T04:57:05.453Z",
   "templates": [
     {
       "name": "ADR.md.template",
@@ -334,5 +334,6 @@
       "sha256": "13a822b11725683dfa5700726f222ff7fd1c4696f30927d9480a71ccbd3146eb",
       "bytes": 1558
     }
-  ]
+  ],
+  "skills": []
 }
