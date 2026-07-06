@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "generated": "2026-07-06T04:57:05.453Z",
+  "generated": "2026-07-06T06:35:30.896Z",
   "templates": [
     {
       "name": "ADR.md.template",
@@ -335,5 +335,316 @@
       "bytes": 1558
     }
   ],
-  "skills": []
+  "skills": [
+    {
+      "name": "agents/autonomous-knowledge.md",
+      "title": "Autonomous Knowledge Evolution",
+      "type": "skill",
+      "description": "Patterns for a knowledge base or intelligence layer that improves without continuous human input — scheduled incubation loops, domain watch, and insight-interview gating that reduce drift and hallucination.",
+      "use_when": "Use when building or operating a knowledge base, skill library, or intelligence layer that should improve without continuous human input — cron-driven analysis, pattern recognition across accumulated notes, or self-reinforcing feedback loops in AI agent / PKM systems.",
+      "tags": [
+        "agents",
+        "knowledge-base",
+        "automation",
+        "cron",
+        "pkm",
+        "self-improvement",
+        "incubation"
+      ],
+      "related_skills": [
+        "long-running-agents"
+      ],
+      "sha256": "13acd77bf0ae60ec9fa51950620df5f5db3cd099d73218e4a42a50038b0dffd1",
+      "bytes": 4063
+    },
+    {
+      "name": "agents/long-running-agents.md",
+      "title": "Long-Running Agent Sessions",
+      "type": "skill",
+      "description": "Patterns for multi-session agent work — scoping in weeks, backlog-depth health metrics, plan-ahead discipline, dual-agent review loops, and context-compression artifacts that let a fresh agent resume.",
+      "use_when": "Use when scoping, planning, or executing multi-session agent work — tasks that span more than one conversation, multi-week implementation runs, or any context where the agent will exhaust context limits before the work is done.",
+      "tags": [
+        "agents",
+        "orchestration",
+        "context-management",
+        "multi-session",
+        "backlog",
+        "review-loop"
+      ],
+      "related_skills": [
+        "autonomous-knowledge"
+      ],
+      "sha256": "647220ab6009673c1b88ba179eac75d9557fff2775aa411c549af02e6c9a5903",
+      "bytes": 4583
+    },
+    {
+      "name": "marketing/aeo-ai-visibility.md",
+      "title": "AEO & AI Visibility Strategy",
+      "type": "skill",
+      "description": "Structures and signals content to be cited by AI answer systems — ChatGPT, Gemini, Perplexity, and AI Overviews — by making it extractable, authoritative, and platform-compliant.",
+      "use_when": "Use when content is ranking but not appearing in AI-generated answers, when building brand visibility in AI search, or when creating content whose primary goal is citation rather than ranking.",
+      "tags": [
+        "aeo",
+        "ai-visibility",
+        "seo",
+        "answer-engine",
+        "citations",
+        "structured-data",
+        "entity-authority"
+      ],
+      "related_skills": [
+        "topic-expansion-topical-authority",
+        "competitor-question-ownership",
+        "strategic-content-architecture"
+      ],
+      "sha256": "5f69cb427b9eba401524a36fbcabb3ddb17646b2f858174029b2cd59e65b0e67",
+      "bytes": 20015
+    },
+    {
+      "name": "marketing/clarity-cta-optimization.md",
+      "title": "CTA Clarity Optimization",
+      "type": "skill",
+      "description": "Rewrites vague calls-to-action into explicit, destination-specific labels that reduce decision friction and improve conversion rates.",
+      "use_when": "Use when a CTA uses generic verbs (learn, submit, explore, go), omits the destination, or is underperforming at a conversion point.",
+      "tags": [
+        "conversion",
+        "cta",
+        "micro-copy",
+        "ux",
+        "landing-page"
+      ],
+      "related_skills": [
+        "conversion-first-content",
+        "engagement-trust-signals"
+      ],
+      "sha256": "821cc580e2355dd8c9725296dc8b6595eb0aaf239aa615d75d279409521f3152",
+      "bytes": 6793
+    },
+    {
+      "name": "marketing/competitor-question-ownership.md",
+      "title": "Competitor Question Ownership",
+      "type": "skill",
+      "description": "Identifies competitor weaknesses that map to answerable questions and creates FAQ content that intercepts AI-generated answers at buyer evaluation moments, injecting your brand into comparison conversations.",
+      "use_when": "Use when building a competitive content strategy, targeting evaluation-stage buyers who are researching alternatives, or when competitors dominate AI-generated answers in your category.",
+      "tags": [
+        "seo",
+        "aeo",
+        "competitive-content",
+        "faq",
+        "comparison-pages",
+        "switching-intent",
+        "ai-interception"
+      ],
+      "related_skills": [
+        "aeo-ai-visibility",
+        "topic-expansion-topical-authority"
+      ],
+      "sha256": "c3b33402c7604cdc55ce6d4a7bdc2f51ab4a45106f922fb98c336b6462a64284",
+      "bytes": 12680
+    },
+    {
+      "name": "marketing/concise-prompting.md",
+      "title": "Concise Prompting — Token-Efficient AI Communication",
+      "type": "skill",
+      "description": "Strips non-informational content from LLM interactions — pleasantries, re-statements, hedging, trailing summaries — to reduce token usage ~65% without losing technical accuracy.",
+      "use_when": "Use when authoring skills, writing CLAUDE.md instructions, building prompts for agent loops, or whenever token efficiency matters and verbose AI responses are a friction or cost concern.",
+      "tags": [
+        "prompting",
+        "token-efficiency",
+        "meta-skill",
+        "agent-loops",
+        "communication",
+        "claude-code"
+      ],
+      "related_skills": [],
+      "sha256": "44c618302477e0a3227830e8a70f185bab011d6338392e2477fceec08635885b",
+      "bytes": 7793
+    },
+    {
+      "name": "marketing/content-digest.md",
+      "title": "Newsletter Digest",
+      "type": "skill",
+      "description": "Fetches unread newsletters from Gmail, distils project-relevant signals, and presents a triage digest with immediate-action options.",
+      "use_when": "Use when the agent is asked to process unread newsletters and surface insights relevant to active projects.",
+      "tags": [
+        "content-ingestion",
+        "gmail",
+        "digest",
+        "triage",
+        "ai-workflow"
+      ],
+      "related_skills": [],
+      "sha256": "b05fcbb0e61ceaf8d54424d63a479406c4d6a91c756c006986794d4f6e85623c",
+      "bytes": 9842
+    },
+    {
+      "name": "marketing/conversion-first-content.md",
+      "title": "Conversion-First Content & UX Design",
+      "type": "skill",
+      "description": "Restructures pages and content flows to lead with emotional engagement before asking for action, reducing drop-off on high-consideration journeys.",
+      "use_when": "Use when a page has high-intent traffic but low conversion, users drop off before reaching the CTA, or forms and configurators are placed too early in the flow.",
+      "tags": [
+        "conversion",
+        "ux",
+        "landing-page",
+        "emotional-design",
+        "progressive-disclosure",
+        "funnel"
+      ],
+      "related_skills": [
+        "clarity-cta-optimization",
+        "engagement-trust-signals"
+      ],
+      "sha256": "a01ee06e3656173e5d8f4a2969cf1043fddfcdcad44cb29ce3619f4884b76d1c",
+      "bytes": 9921
+    },
+    {
+      "name": "marketing/engagement-trust-signals.md",
+      "title": "Engagement & Trust Signals Optimization",
+      "type": "skill",
+      "description": "Audits and improves the behavioral and credibility signals that search engines and AI systems use to assess content quality — dwell time, interaction depth, author authority, schema trust signals, and content freshness.",
+      "use_when": "Use when pages have high impressions or traffic but low engagement, when rankings stagnate despite content updates, or when content lacks the trust signals needed for AI citation or featured snippet selection.",
+      "tags": [
+        "seo",
+        "engagement",
+        "trust-signals",
+        "e-e-a-t",
+        "content-freshness",
+        "behavioral-seo",
+        "schema"
+      ],
+      "related_skills": [
+        "aeo-ai-visibility",
+        "conversion-first-content"
+      ],
+      "sha256": "af981d374015b9be9a3c2d3c132e89d541981759228432b8bf1dc037a3795667",
+      "bytes": 13457
+    },
+    {
+      "name": "marketing/keyword-research.md",
+      "title": "Keyword Research & Semantic Clustering",
+      "type": "skill",
+      "description": "Transforms raw SERP data (organic results, People Also Ask, related searches) into prioritised keyword clusters mapped to search intent and content types.",
+      "use_when": "Use when planning content for a new site or page, auditing keyword gaps, or mapping a topic to content opportunities — especially when SERP data is available from serper-search.",
+      "tags": [
+        "seo",
+        "keyword-research",
+        "content-strategy",
+        "serp",
+        "semantic-clustering"
+      ],
+      "related_skills": [
+        "topic-expansion-topical-authority",
+        "strategic-content-architecture",
+        "aeo-ai-visibility"
+      ],
+      "sha256": "0a8d78eb110316ec5c3cb7c376e95457456b57dd3d68d32fe6077144c29c5145",
+      "bytes": 10965
+    },
+    {
+      "name": "marketing/mcp-enterprise-infra.md",
+      "title": "MCP Enterprise Infrastructure Patterns",
+      "type": "skill",
+      "description": "Deployment architectures for MCP servers in enterprise and regulated environments — tunnels, self-hosted sandboxes, perimeter control, and air-gap patterns.",
+      "use_when": "Use when designing MCP server deployment for enterprise clients, when a customer requires data to stay within their perimeter, or when building multi-tenant MCP infrastructure that must not route data through third-party-controlled infra.",
+      "tags": [
+        "mcp",
+        "enterprise",
+        "infrastructure",
+        "security",
+        "deployment",
+        "tunnels",
+        "sandboxes",
+        "perimeter"
+      ],
+      "related_skills": [],
+      "sha256": "38dcef701e604af0b011065b4b45d00483ddf830ce5a8dc96b1d487d54744cf0",
+      "bytes": 8661
+    },
+    {
+      "name": "marketing/social-funnel.md",
+      "title": "Social-First Funnel — Collapsed Discovery and Conversion",
+      "type": "skill",
+      "description": "Structures content for social-first platforms where discovery, consideration, and purchase happen in the same content moment — replacing the sequential SEO funnel with a collapsed single-experience model.",
+      "use_when": "Use when creating content for TikTok, Instagram Reels, YouTube Shorts, or any platform where social-first traffic dominates. Also use when generating landing pages for social traffic sources in sitegrow, or when the audience skews mobile-social rather than search-intent.",
+      "tags": [
+        "content-strategy",
+        "social",
+        "tiktok",
+        "funnel",
+        "conversion",
+        "sitegrow",
+        "landing-page"
+      ],
+      "related_skills": [
+        "conversion-first-content",
+        "strategic-content-architecture",
+        "aeo-ai-visibility"
+      ],
+      "sha256": "0c4a245c9418b4887db6c05d42c4820a35c374edb0ccb966b2377a2815d35e0c",
+      "bytes": 10509
+    },
+    {
+      "name": "marketing/socialmedia-utm.md",
+      "title": "Social Media UTM & Organic Post Builder",
+      "type": "skill",
+      "description": "Generates fully parameterized UTM tracking links for organic social posts and writes platform-specific copy — a complete workflow from UTM schema to per-platform captions and campaign calendars.",
+      "use_when": "Use when creating, planning, or managing organic social media content with UTM tracking — building UTM URLs (utm_source / utm_medium=social_organic), writing platform captions (Instagram/Facebook/LinkedIn/TikTok/Pinterest/YouTube/Twitter/X), or producing a content calendar with trackable links.",
+      "tags": [
+        "social",
+        "utm",
+        "tracking",
+        "organic-social",
+        "content-calendar",
+        "marketing",
+        "sitegrow"
+      ],
+      "related_skills": [
+        "social-funnel",
+        "conversion-first-content"
+      ],
+      "sha256": "632388e86871589c60a7d4aaa75d8e1d10dd5f4e5fa6b30bb9a3430d629b8134",
+      "bytes": 15686
+    },
+    {
+      "name": "marketing/strategic-content-architecture.md",
+      "title": "Strategic Content Architecture",
+      "type": "skill",
+      "description": "Designs pillar-cluster content hierarchies that eliminate cannibalization, close coverage gaps, and compound domain authority across SEO and AI retrieval systems.",
+      "use_when": "Use when planning a new content site, auditing an existing site for gaps or cannibalization, or when content is not ranking despite production volume.",
+      "tags": [
+        "seo",
+        "content-architecture",
+        "pillar-cluster",
+        "internal-linking",
+        "information-architecture"
+      ],
+      "related_skills": [
+        "topic-expansion-topical-authority",
+        "aeo-ai-visibility"
+      ],
+      "sha256": "c6a4f1b07fc069289702205899c1ce9200c88991c0494e3bc9954800ee8e70b3",
+      "bytes": 8423
+    },
+    {
+      "name": "marketing/topic-expansion-topical-authority.md",
+      "title": "Topic Expansion & Topical Authority",
+      "type": "skill",
+      "description": "Decomposes a seed topic into a structured ecosystem of content angles across all intent types, enabling a domain to become the recognized authority on a subject in both search and AI answer systems.",
+      "use_when": "Use when expanding content from a single keyword or topic, planning an editorial calendar, or when a domain lacks the coverage depth needed to rank or get cited on a subject.",
+      "tags": [
+        "seo",
+        "topical-authority",
+        "content-strategy",
+        "topic-clusters",
+        "editorial-planning"
+      ],
+      "related_skills": [
+        "strategic-content-architecture",
+        "aeo-ai-visibility"
+      ],
+      "sha256": "5198c54c79c911f036bf4557dec29ef90259da0fb7a0b8b33ed5de57dac00bb5",
+      "bytes": 9664
+    }
+  ]
 }
