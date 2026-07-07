@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
 # Skills
 
 Skills are reusable guidance documents that an AI agent reads and applies at runtime.
@@ -44,4 +45,4 @@ Skill frontmatter must include: `title`, `type: skill`, `description`, `use_when
 
 ## License
 
-Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+Content licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).

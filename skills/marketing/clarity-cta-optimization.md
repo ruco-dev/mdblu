@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "CTA Clarity Optimization"
 type: skill
 description: "Rewrites vague calls-to-action into explicit, destination-specific labels that reduce decision friction and improve conversion rates."

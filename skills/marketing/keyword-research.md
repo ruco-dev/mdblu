@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Keyword Research & Semantic Clustering"
 type: skill
 description: "Transforms raw SERP data (organic results, People Also Ask, related searches) into prioritised keyword clusters mapped to search intent and content types."

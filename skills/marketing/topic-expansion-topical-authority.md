@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Topic Expansion & Topical Authority"
 type: skill
 description: "Decomposes a seed topic into a structured ecosystem of content angles across all intent types, enabling a domain to become the recognized authority on a subject in both search and AI answer systems."

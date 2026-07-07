@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Social Media UTM & Organic Post Builder"
 type: skill
 description: "Generates fully parameterized UTM tracking links for organic social posts and writes platform-specific copy — a complete workflow from UTM schema to per-platform captions and campaign calendars."

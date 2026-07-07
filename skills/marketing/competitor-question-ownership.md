@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Competitor Question Ownership"
 type: skill
 description: "Identifies competitor weaknesses that map to answerable questions and creates FAQ content that intercepts AI-generated answers at buyer evaluation moments, injecting your brand into comparison conversations."

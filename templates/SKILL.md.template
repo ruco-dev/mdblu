@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "{{SKILL_TITLE}}"
 type: skill
 description: "{{ONE_LINE_DESCRIPTION}}"

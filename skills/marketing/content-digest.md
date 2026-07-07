@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Newsletter Digest"
 type: skill
 description: "Fetches unread newsletters from Gmail, distils project-relevant signals, and presents a triage digest with immediate-action options."
