@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "generated": "2026-07-11T08:10:22.841Z",
+  "generated": "2026-07-11T08:10:32.683Z",
   "templates": [
     {
       "name": "ADR.md.template",
@@ -519,6 +519,30 @@
       ],
       "sha256": "e989af572fb8e81a2fe074e05f74e166c3870ab448d66f8703267cb24b30118c",
       "bytes": 13479
+    },
+    {
+      "name": "marketing/instagram-carousel.md",
+      "title": "Instagram Carousel Architecture",
+      "type": "skill",
+      "description": "Designs the slide-by-slide structure of a static Instagram carousel — cover hook, progressive-disclosure middle, payoff, and CTA slide — with one-idea-per-slide copy written to fixed char budgets.",
+      "use_when": "Use when planning or writing a static multi-slide Instagram (or LinkedIn) carousel — sequencing slides, writing on-image copy under per-slide character limits, or designing a cover that earns the swipe. NOT for video/Reels (use social-funnel) or caption/hashtag/UTM work (use socialmedia-utm).",
+      "tags": [
+        "instagram",
+        "carousel",
+        "social",
+        "content-strategy",
+        "static-content",
+        "engagement",
+        "save-share"
+      ],
+      "related_skills": [
+        "socialmedia-utm",
+        "social-funnel",
+        "clarity-cta-optimization",
+        "conversion-first-content"
+      ],
+      "sha256": "95101530105c586b6d78f165ee6a52b99c84dafa34657b04fd6b58144839f21c",
+      "bytes": 12284
     },
     {
       "name": "marketing/keyword-research.md",
