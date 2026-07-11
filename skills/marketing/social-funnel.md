@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Social-First Funnel — Collapsed Discovery and Conversion"
 type: skill
 description: "Structures content for social-first platforms where discovery, consideration, and purchase happen in the same content moment — replacing the sequential SEO funnel with a collapsed single-experience model."

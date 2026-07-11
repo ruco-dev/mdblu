@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Strategic Content Architecture"
 type: skill
 description: "Designs pillar-cluster content hierarchies that eliminate cannibalization, close coverage gaps, and compound domain authority across SEO and AI retrieval systems."

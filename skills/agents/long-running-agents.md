@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Long-Running Agent Sessions"
 type: skill
 description: "Patterns for multi-session agent work — scoping in weeks, backlog-depth health metrics, plan-ahead discipline, dual-agent review loops, and context-compression artifacts that let a fresh agent resume."

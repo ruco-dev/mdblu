@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "AEO & AI Visibility Strategy"
 type: skill
 description: "Structures and signals content to be cited by AI answer systems — ChatGPT, Gemini, Perplexity, and AI Overviews — by making it extractable, authoritative, and platform-compliant."

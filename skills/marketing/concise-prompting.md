@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Concise Prompting — Token-Efficient AI Communication"
 type: skill
 description: "Strips non-informational content from LLM interactions — pleasantries, re-statements, hedging, trailing summaries — to reduce token usage ~65% without losing technical accuracy."

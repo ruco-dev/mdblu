@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Engagement & Trust Signals Optimization"
 type: skill
 description: "Audits and improves the behavioral and credibility signals that search engines and AI systems use to assess content quality — dwell time, interaction depth, author authority, schema trust signals, and content freshness."

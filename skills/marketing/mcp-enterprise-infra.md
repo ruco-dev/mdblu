@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "MCP Enterprise Infrastructure Patterns"
 type: skill
 description: "Deployment architectures for MCP servers in enterprise and regulated environments — tunnels, self-hosted sandboxes, perimeter control, and air-gap patterns."

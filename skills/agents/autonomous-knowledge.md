@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Autonomous Knowledge Evolution"
 type: skill
 description: "Patterns for a knowledge base or intelligence layer that improves without continuous human input — scheduled incubation loops, domain watch, and insight-interview gating that reduce drift and hallucination."

@@ -75,7 +75,7 @@ mdblu skills get <name> --claude  # installs to .claude/skills/<name>/SKILL.md
 mdblu skills get --all            # download all skills
 ```
 
-Skills are licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+Skills are licensed under [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/). Templates are too.
 
 ---
 
@@ -239,4 +239,8 @@ The rule: **every template change must be paired with a CLAUDE.md update and a m
 
 ## License
 
-MIT
+**Runtime** (CLI, `bin/`, `scripts/`): [Apache-2.0](LICENSE)
+
+**Content** (`skills/`, `templates/`): [CC-BY-SA-4.0](LICENSE-CC-BY-SA-4.0)
+
+Derivatives of the templates or skills must be distributed under the same CC-BY-SA-4.0 license.

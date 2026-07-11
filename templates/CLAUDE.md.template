@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Claude Agent Context"
 type: implementation
 tags: [agent-context, ai-workflow, reference]

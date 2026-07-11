@@ -1,4 +1,5 @@
 ---
+license: CC-BY-SA-4.0
 title: "Conversion-First Content & UX Design"
 type: skill
 description: "Restructures pages and content flows to lead with emotional engagement before asking for action, reducing drop-off on high-consideration journeys."
