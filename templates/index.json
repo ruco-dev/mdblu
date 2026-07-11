@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "generated": "2026-07-06T06:35:30.896Z",
+  "generated": "2026-07-11T08:10:22.841Z",
   "templates": [
     {
       "name": "ADR.md.template",
@@ -11,8 +11,8 @@
         "architecture",
         "decision"
       ],
-      "sha256": "ce39702b4ed4e326805c044cb7b922263ebdbeba36f85834eca4925aa1f7150b",
-      "bytes": 1806
+      "sha256": "6accbda30bceee6ff439e79ccbbdca699bf76703442e8d8a656fd9c972cbc306",
+      "bytes": 1828
     },
     {
       "name": "ARCHITECTURE.md.template",
@@ -23,8 +23,8 @@
         "architecture",
         "reference"
       ],
-      "sha256": "11b8770de95af9d115d2de6e9bbf4ab0ffdce55659aecb435ba636fbfe750f53",
-      "bytes": 2220
+      "sha256": "ae758f85eecaa9e199515b752e98d5358993095f7800434b42dfad35e321516a",
+      "bytes": 2242
     },
     {
       "name": "AUDIT.md.template",
@@ -35,8 +35,8 @@
         "retrospective",
         "quality"
       ],
-      "sha256": "10a77b8618ab507658e706c6b51b6200b63001da001fc23447c84da732f7049d",
-      "bytes": 4830
+      "sha256": "d58e72d07c043b6642e3e2987b733593fb46cd3456a9d8076caf8ea560e23c57",
+      "bytes": 4852
     },
     {
       "name": "BOOTSTRAP.md.template",
@@ -47,16 +47,16 @@
         "task-management",
         "scoping"
       ],
-      "sha256": "5e0a5b2887228de162653c1bc76d2b01c8e63788c7645b63eae13e7a4fa33a56",
-      "bytes": 1552
+      "sha256": "ab47a5d8236c90d3020418e826e8eaf078be0ac0d868cea95e90eb5245d6f65f",
+      "bytes": 1574
     },
     {
       "name": "CAROUSEL.md.template",
       "title": "Carousel Content",
       "type": "content",
       "tags": [],
-      "sha256": "cc7669b07899daadf6cb535ba9e0228353dbc5f11a9fb7e31b4f25830d3d9315",
-      "bytes": 3359
+      "sha256": "30d3fd74ee10ae6537f7640b2c48e95bbb626d7de19c292bb0c851114a38b586",
+      "bytes": 3381
     },
     {
       "name": "CLAUDE.md.template",
@@ -67,8 +67,8 @@
         "ai-workflow",
         "reference"
       ],
-      "sha256": "2513d88a3cfc7a22714a0fd8782a9250fe4318fd7546b6f58c45a72adce7c41c",
-      "bytes": 2114
+      "sha256": "30e71dede3395560193a06c0f0342e456f79d6f65e419d407630077b9b1118ee",
+      "bytes": 2136
     },
     {
       "name": "CODEINDEX.md.template",
@@ -79,8 +79,8 @@
         "reference",
         "developer-guide"
       ],
-      "sha256": "24bcec852b52856e88abf379c8e8df585ffde817472420195971727f55e5eda0",
-      "bytes": 1136
+      "sha256": "740afc5603bbb7f614b53c5fd5ff5d0337d46cc7cad2623ada675299f01d5dab",
+      "bytes": 1158
     },
     {
       "name": "CODING-NOTES.md.template",
@@ -91,16 +91,16 @@
         "conventions",
         "ai-workflow"
       ],
-      "sha256": "3cb6e0e50a8a31993cf0502279b837b34f59dfcc3d0fd09591dcf0ea47e1e5c5",
-      "bytes": 2009
+      "sha256": "bcf536ddd9f4a166e426b93747b8ebe5740c7f3d82a45a6a626abd74c5a7ef7f",
+      "bytes": 2031
     },
     {
       "name": "COLLABORATOR.md.template",
       "title": "{{DISPLAY_NAME}} — Collaborator Profile",
       "type": "collaborator",
       "tags": [],
-      "sha256": "5e7dc0ab94daeb3dd18ec2d2c7d420e8412d7189617b44f18781c03d5f6168c2",
-      "bytes": 2425
+      "sha256": "97196f6fa9f6bbeb75242b3d59ebf2596abde08b959d87619ec24e2c6927e62c",
+      "bytes": 2447
     },
     {
       "name": "DEV.md.template",
@@ -111,8 +111,8 @@
         "developer-guide",
         "reference"
       ],
-      "sha256": "cd8e9f72efd94994c329b005d8abd77889048bec6c5d942233475239b56bd45f",
-      "bytes": 2136
+      "sha256": "a2275f57c18427e74ea2be1f413dc48c95dde5a18660ab87ea76e7611deb10cd",
+      "bytes": 2158
     },
     {
       "name": "GENERALINSIGHTS.md.template",
@@ -123,8 +123,8 @@
         "insights",
         "ai-workflow"
       ],
-      "sha256": "92f3f144f7ebb32a52eb10d808ee2661fdbee0f3a7fbff22c97291d8b84852b9",
-      "bytes": 1678
+      "sha256": "172deab36db7032c04cebc556952255fc288d174af57415c491ce7682c0369f1",
+      "bytes": 1700
     },
     {
       "name": "GH-PROJECT.md.template",
@@ -135,8 +135,8 @@
         "planning",
         "metadata"
       ],
-      "sha256": "4652099a3cdd4b5cc87a9df8c4c0a965ca82bd124f8be8136f7adb37ad2c698d",
-      "bytes": 2973
+      "sha256": "148793e7e785d51ce7dd451713001c1e459d28d6d72c3b0342839d47624f0f83",
+      "bytes": 2995
     },
     {
       "name": "HANDOFF.md.template",
@@ -147,8 +147,8 @@
         "documentation",
         "reporting"
       ],
-      "sha256": "4d1dda6b78fdf51086d008b73cfdbecd85880ae8aa45eedf4e22ff4c33bd6e94",
-      "bytes": 2642
+      "sha256": "79e52d0ffe14bc30753456692f0adb91610950b644a969648e3e8a43a6b45763",
+      "bytes": 2664
     },
     {
       "name": "MISSION-LOG.md.template",
@@ -160,8 +160,8 @@
         "reporting",
         "ai-workflow"
       ],
-      "sha256": "f8c61671e31bc12f7b1c653083fb827b600eb90a13ace1bc07b1ba13bbb12200",
-      "bytes": 2690
+      "sha256": "32707a8d2faf51b62289dd9abd76becf776ae18cd1a08b0ecf8b06c7e5e95e7c",
+      "bytes": 2712
     },
     {
       "name": "MISSION-REPORT.md.template",
@@ -172,8 +172,8 @@
         "retrospective",
         "ai-workflow"
       ],
-      "sha256": "9fb50dc2f8f3c75b5d88e44efcd535ca3ad9c36114758ca5aca11dbbc28fe0af",
-      "bytes": 2272
+      "sha256": "bf394b0112e382a8a8d6d625eeb9492326d75d7f88c77303375b944e2b163c16",
+      "bytes": 2294
     },
     {
       "name": "MISSION.md.template",
@@ -184,8 +184,8 @@
         "scoping",
         "ai-workflow"
       ],
-      "sha256": "c211a47923aebf071ef08b611fee3118adedd3a6db81362020364a4b664f2576",
-      "bytes": 2283
+      "sha256": "6bebcc93f478555a903d930e578cdd67ebc650441a302f90489af8cf3015ee28",
+      "bytes": 2305
     },
     {
       "name": "OPEN-QUESTIONS.md.template",
@@ -196,8 +196,8 @@
         "scoping",
         "ai-workflow"
       ],
-      "sha256": "92b17ed58f34bc509908228a794e6a62729dcb87d58ceb6ecf7aa24d7966facf",
-      "bytes": 2651
+      "sha256": "565961ae8be9d40a53b8d8565ef399c760125e06119bd0c9e61949e39d79ae97",
+      "bytes": 2673
     },
     {
       "name": "PILL.md.template",
@@ -208,8 +208,8 @@
         "specification",
         "ai-workflow"
       ],
-      "sha256": "a899e0103ecd2c7ae172e7737645eba127379113e8378c8c496d2eccaae568ad",
-      "bytes": 2660
+      "sha256": "eabdc28c128bd63dd9cef27053a8756c0dba4bffb6513143029d938f8e06c264",
+      "bytes": 2682
     },
     {
       "name": "PLAYBOOK.md.template",
@@ -220,8 +220,8 @@
         "runbook",
         "reference"
       ],
-      "sha256": "c66315d24d6766e076024505185181fe06f6229a871211d01e4d26a2630b3468",
-      "bytes": 1844
+      "sha256": "89189c1ad0300340ea36779b53ea38ebbc06780d39526aaacaffb5732d35bb19",
+      "bytes": 1866
     },
     {
       "name": "PROJECTINSIGHTS.md.template",
@@ -232,16 +232,16 @@
         "insights",
         "ai-workflow"
       ],
-      "sha256": "f2bd432794c49589c741b3149193edc0b28df142927c76a2a7ce1a932f896d94",
-      "bytes": 1481
+      "sha256": "4c65be8d6de2d23511fffa013dc533a28385dc8f75f35084bf99db53ca8e76ec",
+      "bytes": 1503
     },
     {
       "name": "README.md.template",
       "title": "README.md",
       "type": "unknown",
       "tags": [],
-      "sha256": "8201c76f7d432f7522c0651f2e28307d1b759bbc3473d3b965ecef65eff63d01",
-      "bytes": 7880
+      "sha256": "ae3a383cf25161cfac09242266725a7518fad3104c6bbe52fd8627bc9bc90e54",
+      "bytes": 7927
     },
     {
       "name": "REPO.md.template",
@@ -251,8 +251,8 @@
         "metadata",
         "reference"
       ],
-      "sha256": "327f89e9850c30f757f675461081642d518574e2d4b9d28ef4ef7ebadb8c42d0",
-      "bytes": 1279
+      "sha256": "5b7fd840fc3940abf541910e89ac6f99503ab0a026cb60bf92fea9168c767b6a",
+      "bytes": 1301
     },
     {
       "name": "ROADMAP.md.template",
@@ -263,8 +263,8 @@
         "reference",
         "documentation"
       ],
-      "sha256": "004ac9a932a7bd2454e0bcf24df1118d6422b132d1765f51bd92794aa67a234e",
-      "bytes": 1842
+      "sha256": "17b52eddf5a4ab86e26c4d113c0a247c99c25239c0c262ceb4c856e502183ed4",
+      "bytes": 1864
     },
     {
       "name": "SKILL.md.template",
@@ -273,8 +273,8 @@
       "tags": [
         "{{TAGS}}"
       ],
-      "sha256": "75d6e2233a10b35e1289f2eb5a71b7b1f7a86bd2e2d2a7051d9ad112a6f45f2c",
-      "bytes": 8013
+      "sha256": "fa432ec3fa7c2ae70ee1d0c5fdb696985cd286dcdaf25c66cb87606e45e968bc",
+      "bytes": 8035
     },
     {
       "name": "SPEC.md.template",
@@ -285,8 +285,8 @@
         "specification",
         "scoping"
       ],
-      "sha256": "66c4650d4246d541ce353fefdd185d8d86de0c28e184b06fc8ca257b6fc64006",
-      "bytes": 2238
+      "sha256": "bb9877dfa41510985b38a48657b22cc91be6bff0f3021ee2e2d1b38e471dec48",
+      "bytes": 2260
     },
     {
       "name": "STATS.md.template",
@@ -297,8 +297,8 @@
         "metadata",
         "reference"
       ],
-      "sha256": "a795666d9f0f645eb528fda8c8000e7739682d17b35cfb0f4317f8e557d4727d",
-      "bytes": 2795
+      "sha256": "ca254f1394d4257c3db1fbc5dadb16cf68a9ee6a8fd4295dfeb96c6dd4974549",
+      "bytes": 2817
     },
     {
       "name": "STRUCTURE.md.template",
@@ -309,8 +309,8 @@
         "architecture",
         "reference"
       ],
-      "sha256": "f45836bbd70f3d9caf7472a16ac308a99f3d52a3874638fa1b232b3a5c883ff5",
-      "bytes": 1934
+      "sha256": "d2245201bc4cd0bbc4cb74fbc0331edbb66bdaa7fb1856dc64b15dbfd7066803",
+      "bytes": 1956
     },
     {
       "name": "TEMPLATE.md.template",
@@ -320,8 +320,8 @@
         "documentation",
         "ai-workflow"
       ],
-      "sha256": "510d65502951939a2596079b7e5084f792d09e705a5f106f3d344d77d2c89d32",
-      "bytes": 5063
+      "sha256": "a1f27a50e147a287c18b4b4045aa82f17d1d3abf9948c56b607dc620ca715f46",
+      "bytes": 5085
     },
     {
       "name": "TODO.md.template",
@@ -331,8 +331,8 @@
         "task-management",
         "planning"
       ],
-      "sha256": "13a822b11725683dfa5700726f222ff7fd1c4696f30927d9480a71ccbd3146eb",
-      "bytes": 1558
+      "sha256": "148be4db9777e08784e9e7d66d6f15f75d0cb8d3081c764869d39804f618b6c3",
+      "bytes": 1580
     }
   ],
   "skills": [
@@ -354,8 +354,8 @@
       "related_skills": [
         "long-running-agents"
       ],
-      "sha256": "13acd77bf0ae60ec9fa51950620df5f5db3cd099d73218e4a42a50038b0dffd1",
-      "bytes": 4063
+      "sha256": "de905bf66e4ac911d870f1ab755c4c381c756f30b0ee58748a1665a88c474c3c",
+      "bytes": 4085
     },
     {
       "name": "agents/long-running-agents.md",
@@ -374,8 +374,8 @@
       "related_skills": [
         "autonomous-knowledge"
       ],
-      "sha256": "647220ab6009673c1b88ba179eac75d9557fff2775aa411c549af02e6c9a5903",
-      "bytes": 4583
+      "sha256": "b268670ef15176c3523cb49ceaa2b11ea28f7079eb021c4225a19cc1d72648e0",
+      "bytes": 4605
     },
     {
       "name": "marketing/aeo-ai-visibility.md",
@@ -397,8 +397,8 @@
         "competitor-question-ownership",
         "strategic-content-architecture"
       ],
-      "sha256": "5f69cb427b9eba401524a36fbcabb3ddb17646b2f858174029b2cd59e65b0e67",
-      "bytes": 20015
+      "sha256": "144f86e14693b3065d616caed6b5d609a01401f47908824fbb9859c6ade7c42b",
+      "bytes": 20037
     },
     {
       "name": "marketing/clarity-cta-optimization.md",
@@ -417,8 +417,8 @@
         "conversion-first-content",
         "engagement-trust-signals"
       ],
-      "sha256": "821cc580e2355dd8c9725296dc8b6595eb0aaf239aa615d75d279409521f3152",
-      "bytes": 6793
+      "sha256": "1ee5c9c3a63a25b011fd7cbd55042ebdc2df02344af2bbac7060b6ddc9716dc2",
+      "bytes": 6815
     },
     {
       "name": "marketing/competitor-question-ownership.md",
@@ -439,8 +439,8 @@
         "aeo-ai-visibility",
         "topic-expansion-topical-authority"
       ],
-      "sha256": "c3b33402c7604cdc55ce6d4a7bdc2f51ab4a45106f922fb98c336b6462a64284",
-      "bytes": 12680
+      "sha256": "04bb0f2ca3b0e2909fe78796e12fa33be586e90e8a42971d5dbefe93bca6aa59",
+      "bytes": 12702
     },
     {
       "name": "marketing/concise-prompting.md",
@@ -457,8 +457,8 @@
         "claude-code"
       ],
       "related_skills": [],
-      "sha256": "44c618302477e0a3227830e8a70f185bab011d6338392e2477fceec08635885b",
-      "bytes": 7793
+      "sha256": "fb300db1b74a574529c72c7137c433d9a23e6e401294d762ae9ffd82b3189247",
+      "bytes": 7815
     },
     {
       "name": "marketing/content-digest.md",
@@ -474,8 +474,8 @@
         "ai-workflow"
       ],
       "related_skills": [],
-      "sha256": "b05fcbb0e61ceaf8d54424d63a479406c4d6a91c756c006986794d4f6e85623c",
-      "bytes": 9842
+      "sha256": "ed95dedfbeab482d64c7beb7aa8573f2f2e7e1c569b2f12c70e9ed76ce03a6a6",
+      "bytes": 9864
     },
     {
       "name": "marketing/conversion-first-content.md",
@@ -495,8 +495,8 @@
         "clarity-cta-optimization",
         "engagement-trust-signals"
       ],
-      "sha256": "a01ee06e3656173e5d8f4a2969cf1043fddfcdcad44cb29ce3619f4884b76d1c",
-      "bytes": 9921
+      "sha256": "43c88ba6e38ece61f0010aadb4eb3dcc298a2b298998791581fbc93772e6a63c",
+      "bytes": 9943
     },
     {
       "name": "marketing/engagement-trust-signals.md",
@@ -517,8 +517,8 @@
         "aeo-ai-visibility",
         "conversion-first-content"
       ],
-      "sha256": "af981d374015b9be9a3c2d3c132e89d541981759228432b8bf1dc037a3795667",
-      "bytes": 13457
+      "sha256": "e989af572fb8e81a2fe074e05f74e166c3870ab448d66f8703267cb24b30118c",
+      "bytes": 13479
     },
     {
       "name": "marketing/keyword-research.md",
@@ -538,8 +538,8 @@
         "strategic-content-architecture",
         "aeo-ai-visibility"
       ],
-      "sha256": "0a8d78eb110316ec5c3cb7c376e95457456b57dd3d68d32fe6077144c29c5145",
-      "bytes": 10965
+      "sha256": "dee70b33a152bd6df1fba74b96dcdd25c3708564ff19d22d77ed8456f11f9abe",
+      "bytes": 10987
     },
     {
       "name": "marketing/mcp-enterprise-infra.md",
@@ -558,8 +558,8 @@
         "perimeter"
       ],
       "related_skills": [],
-      "sha256": "38dcef701e604af0b011065b4b45d00483ddf830ce5a8dc96b1d487d54744cf0",
-      "bytes": 8661
+      "sha256": "46d179b152865d1b6087a30fc55bb5912b55ff234000feae8099acbeff721f67",
+      "bytes": 8683
     },
     {
       "name": "marketing/social-funnel.md",
@@ -581,8 +581,8 @@
         "strategic-content-architecture",
         "aeo-ai-visibility"
       ],
-      "sha256": "0c4a245c9418b4887db6c05d42c4820a35c374edb0ccb966b2377a2815d35e0c",
-      "bytes": 10509
+      "sha256": "3491823b55f5d748b5e95bff3dcd8002cd123dddfdc96c191b87c6a4e607cf90",
+      "bytes": 10531
     },
     {
       "name": "marketing/socialmedia-utm.md",
@@ -603,8 +603,8 @@
         "social-funnel",
         "conversion-first-content"
       ],
-      "sha256": "632388e86871589c60a7d4aaa75d8e1d10dd5f4e5fa6b30bb9a3430d629b8134",
-      "bytes": 15686
+      "sha256": "9236033b74ef73d5e7a40653a180fb76ffbe09519be8a4b38c9bd2cdabe6c242",
+      "bytes": 15708
     },
     {
       "name": "marketing/strategic-content-architecture.md",
@@ -623,8 +623,8 @@
         "topic-expansion-topical-authority",
         "aeo-ai-visibility"
       ],
-      "sha256": "c6a4f1b07fc069289702205899c1ce9200c88991c0494e3bc9954800ee8e70b3",
-      "bytes": 8423
+      "sha256": "2a5764829fdce1e4bbdb5d1d30d0eec833733eabd87a7996b2abd39c01c820b7",
+      "bytes": 8445
     },
     {
       "name": "marketing/topic-expansion-topical-authority.md",
@@ -643,8 +643,8 @@
         "strategic-content-architecture",
         "aeo-ai-visibility"
       ],
-      "sha256": "5198c54c79c911f036bf4557dec29ef90259da0fb7a0b8b33ed5de57dac00bb5",
-      "bytes": 9664
+      "sha256": "833cd399f206f19c49b5828361635894669e076da88434e01680b5e058321f2b",
+      "bytes": 9686
     }
   ]
 }
