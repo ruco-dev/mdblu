@@ -137,4 +137,4 @@ The second most common failure: configuring sandboxes with container-level isola
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

@@ -109,7 +109,6 @@ function buildManifest() {
 
   const manifest = {
     manifestVersion: 1,
-    generated: new Date().toISOString(),
     templates,
     skills,
   };

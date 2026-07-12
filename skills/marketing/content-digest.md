@@ -203,4 +203,4 @@ Output (digest excerpt):
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu)*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu)*

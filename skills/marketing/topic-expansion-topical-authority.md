@@ -182,4 +182,4 @@ Topical authority is not about volume — it's about coverage completeness. A do
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

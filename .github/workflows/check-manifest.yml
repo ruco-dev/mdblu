@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - 'templates/**'
+      - 'skills/**'
       - 'scripts/build-manifest.js'
   pull_request:
     paths:
       - 'templates/**'
+      - 'skills/**'
       - 'scripts/build-manifest.js'
 
 jobs:

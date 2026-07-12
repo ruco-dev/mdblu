@@ -140,4 +140,4 @@ If the CTA copy is already explicit and specific but conversion is still low, th
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

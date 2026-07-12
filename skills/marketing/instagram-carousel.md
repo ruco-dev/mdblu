@@ -196,4 +196,4 @@ This skill is deliberately narrow: it owns **slide architecture and on-image cop
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

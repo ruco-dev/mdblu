@@ -198,4 +198,4 @@ Set a review cadence for all competitor FAQ pages. Competitors update their prod
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

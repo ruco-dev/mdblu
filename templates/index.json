@@ -1,6 +1,5 @@
 {
   "manifestVersion": 1,
-  "generated": "2026-07-11T08:52:24.396Z",
   "templates": [
     {
       "name": "ADR.md.template",
@@ -397,8 +396,8 @@
         "competitor-question-ownership",
         "strategic-content-architecture"
       ],
-      "sha256": "144f86e14693b3065d616caed6b5d609a01401f47908824fbb9859c6ade7c42b",
-      "bytes": 20037
+      "sha256": "b3ae5013fe730b20776f755b6d8432b5d6ee7519ae55a8f0eed1a2d783295841",
+      "bytes": 20038
     },
     {
       "name": "marketing/clarity-cta-optimization.md",
@@ -417,8 +416,8 @@
         "conversion-first-content",
         "engagement-trust-signals"
       ],
-      "sha256": "1ee5c9c3a63a25b011fd7cbd55042ebdc2df02344af2bbac7060b6ddc9716dc2",
-      "bytes": 6815
+      "sha256": "094eb26506291a5d5d5e6eabaa19a79755ca45b7efbfdca7dbbaca6f3045e9bb",
+      "bytes": 6816
     },
     {
       "name": "marketing/competitor-question-ownership.md",
@@ -439,8 +438,8 @@
         "aeo-ai-visibility",
         "topic-expansion-topical-authority"
       ],
-      "sha256": "04bb0f2ca3b0e2909fe78796e12fa33be586e90e8a42971d5dbefe93bca6aa59",
-      "bytes": 12702
+      "sha256": "c9203144fd82933fddf550fe56147c8cddc74ec8e4a3adae9af2d54ff165869c",
+      "bytes": 12703
     },
     {
       "name": "marketing/concise-prompting.md",
@@ -457,8 +456,8 @@
         "claude-code"
       ],
       "related_skills": [],
-      "sha256": "fb300db1b74a574529c72c7137c433d9a23e6e401294d762ae9ffd82b3189247",
-      "bytes": 7815
+      "sha256": "79b769719dd5b6f90723409ebcb097a325834f67e8d476b4a55003d13e545cd1",
+      "bytes": 7816
     },
     {
       "name": "marketing/content-digest.md",
@@ -474,8 +473,8 @@
         "ai-workflow"
       ],
       "related_skills": [],
-      "sha256": "ed95dedfbeab482d64c7beb7aa8573f2f2e7e1c569b2f12c70e9ed76ce03a6a6",
-      "bytes": 9864
+      "sha256": "54d0e45e795504a0e3034be94ce44bdb4df63679a4881a8174ced02f8942a50f",
+      "bytes": 9865
     },
     {
       "name": "marketing/conversion-first-content.md",
@@ -495,8 +494,8 @@
         "clarity-cta-optimization",
         "engagement-trust-signals"
       ],
-      "sha256": "43c88ba6e38ece61f0010aadb4eb3dcc298a2b298998791581fbc93772e6a63c",
-      "bytes": 9943
+      "sha256": "3d93035a76c4d57f195cf694b9666e5924c80c1e58e898d2a46481d512fb23f8",
+      "bytes": 9944
     },
     {
       "name": "marketing/engagement-trust-signals.md",
@@ -517,8 +516,8 @@
         "aeo-ai-visibility",
         "conversion-first-content"
       ],
-      "sha256": "e989af572fb8e81a2fe074e05f74e166c3870ab448d66f8703267cb24b30118c",
-      "bytes": 13479
+      "sha256": "b47d27187cf984018744b874c02bc74a508b1fc6ea3843e31fa60dd79d2026f2",
+      "bytes": 13480
     },
     {
       "name": "marketing/instagram-carousel.md",
@@ -541,8 +540,8 @@
         "clarity-cta-optimization",
         "conversion-first-content"
       ],
-      "sha256": "95101530105c586b6d78f165ee6a52b99c84dafa34657b04fd6b58144839f21c",
-      "bytes": 12284
+      "sha256": "87d0894b94f85ef77763b7341298a046cb21011c6c63cfbd30e4d594170514db",
+      "bytes": 12285
     },
     {
       "name": "marketing/keyword-research.md",
@@ -562,8 +561,8 @@
         "strategic-content-architecture",
         "aeo-ai-visibility"
       ],
-      "sha256": "dee70b33a152bd6df1fba74b96dcdd25c3708564ff19d22d77ed8456f11f9abe",
-      "bytes": 10987
+      "sha256": "129f863e4d877ee691480787b7ae4da19a581976e6f883f8a12b3271d72019ec",
+      "bytes": 10988
     },
     {
       "name": "marketing/mcp-enterprise-infra.md",
@@ -582,8 +581,8 @@
         "perimeter"
       ],
       "related_skills": [],
-      "sha256": "46d179b152865d1b6087a30fc55bb5912b55ff234000feae8099acbeff721f67",
-      "bytes": 8683
+      "sha256": "c072cb76e963eb3c5bde08add259c643b27871afd833251753a85e90480dae74",
+      "bytes": 8684
     },
     {
       "name": "marketing/social-funnel.md",
@@ -605,8 +604,8 @@
         "strategic-content-architecture",
         "aeo-ai-visibility"
       ],
-      "sha256": "3491823b55f5d748b5e95bff3dcd8002cd123dddfdc96c191b87c6a4e607cf90",
-      "bytes": 10531
+      "sha256": "de9b8f6332265850c7e9acc0b389bd543d984ab97e1757f48f329ad97ae7b937",
+      "bytes": 10532
     },
     {
       "name": "marketing/socialmedia-utm.md",
@@ -647,8 +646,8 @@
         "topic-expansion-topical-authority",
         "aeo-ai-visibility"
       ],
-      "sha256": "2a5764829fdce1e4bbdb5d1d30d0eec833733eabd87a7996b2abd39c01c820b7",
-      "bytes": 8445
+      "sha256": "6462c666654ce737f60d6eadb7e138d04ad34e572bdd2f80acd17b0a919e78eb",
+      "bytes": 8446
     },
     {
       "name": "marketing/topic-expansion-topical-authority.md",
@@ -667,8 +666,8 @@
         "strategic-content-architecture",
         "aeo-ai-visibility"
       ],
-      "sha256": "833cd399f206f19c49b5828361635894669e076da88434e01680b5e058321f2b",
-      "bytes": 9686
+      "sha256": "1d0228e288ecc942df93fd87b5666a8673cccf83c5f32dc598142c72bf383aa2",
+      "bytes": 9687
     }
   ]
 }

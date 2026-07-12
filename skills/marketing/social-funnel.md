@@ -192,4 +192,4 @@ This skill is complementary to AEO (for SEO-first content) and CRO (for general 
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

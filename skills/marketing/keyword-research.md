@@ -212,4 +212,4 @@ Volume numbers are not produced by this skill. Serper.dev returns SERP compositi
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

@@ -183,4 +183,4 @@ Compression compounds in agent loops. A 65% reduction on a 200-token system prom
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*

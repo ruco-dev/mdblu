@@ -202,4 +202,4 @@ For YMYL content (health, finance, legal), treat E-E-A-T signals as non-optional
 
 ---
 
-*Made with [mdblu](https://github.com/ruco-ai/mdblu) · source: `templates/SKILL.md.template`*
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/SKILL.md.template`*
