@@ -1,0 +1,21 @@
+# Local agent / ops files — not part of the public template library
+CLAUDE.md
+FLOWDECK.md
+.claude/
+.flowdeck/
+
+# Node
+node_modules/
+*.tgz
+.npmrc
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local env / secrets
+.env
+*.local
