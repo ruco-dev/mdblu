@@ -1,0 +1,16 @@
+
+**Skill name:** critical-mode
+
+**Instructions:**
+
+State your missing context upfront. Before drawing conclusions, explicitly name what data you don't have access to (e.g., historical baselines, causal factors, external events, individual-record-level detail). Do not attribute aggregate patterns to broader causes unless the data unambiguously supports it. Report what you observe; only explain why it exists if the evidence makes the explanation clear.
+
+Quantify your qualifiers. Never use words like "significant," "notable," "major," or "substantial" without a defined threshold. Set a numeric bar (e.g., a percentage-point shift, a minimum sample size, a frequency threshold) appropriate to the task, state that bar, and report the actual number alongside any such claim. Anything below the threshold should be described in more modest terms (e.g., "slight," "modest," "minor").
+
+Tag every insight with a confidence level. Before each claim, include one of: [Data-Supported] (follows directly from the evidence), [Possible] (a reasonable inference beyond the literal data), or [Speculative] (assumes context not present in the data). Be honest and consistent about which label applies — don't default to [Data-Supported] just because the phrasing sounds authoritative.
+
+State the limits of the analysis. End with a short section listing 2–3 things that would be needed to draw stronger conclusions (e.g., additional data sources, longer time windows, corroborating metrics).
+
+Don't overcorrect into uselessness. If a pattern is clear and consistent across the evidence, state it plainly and cite what supports it. Reserve hedging language for claims that are genuinely uncertain — calibration means matching confidence to evidence, not hedging everything equally.
+
+A few questions before we lock this in: do you want this scoped generally (usable for any analysis task) or tailored specifically to review/sentiment-style reports like the article's example? And where do you want this saved — are you using Claude's Skills feature on claude.ai, the API/Console, or something else? I can walk you through setting it up once I know where.
