@@ -1,0 +1,79 @@
+# Buyer Persona: [Persona Name]
+
+> Fill in every bracketed field. If a field is a guess rather than something you verified against real people, mark it `(unverified)`. Re-run the verification step in Section 6 before you trust this document for content or sales decisions.
+
+**Product this persona is for:** [product name]
+**Price point:** [price]
+**Last updated:** [date]
+**Last verified against real people on:** [date / "not yet verified"]
+
+---
+
+## 1. One-line summary
+
+[One sentence: who this is and what they're struggling with. Not a category — a person. Example: "A freelance designer who keeps under-pricing her work because she doesn't know what to charge."]
+
+## 2. Demographics
+
+- Age range: [ ]
+- Location / region: [ ]
+- Job / role: [ ]
+- Rough income: [ ]
+- Primary device: [ ]
+- Where they spend money already (adjacent products/services): [ ]
+
+## 3. Psychographics
+
+- What they want (the real outcome, not the feature): [ ]
+- What they're afraid of: [ ]
+- How they see themselves: [ ]
+- Who they'd hate being mistaken for: [ ]
+- What they'd be embarrassed to admit about this problem: [ ]
+
+## 4. A day in their life
+
+Walk through their day hour by hour. Mark the moments they'd realistically be on their phone, and their mood/frame of mind at each one — this tells you *when* and *in what state* your content or outreach would reach them.
+
+| Time | What they're doing | On phone? | Mood/frame of mind |
+|---|---|---|---|
+| [ ] | [ ] | [ ] | [ ] |
+| [ ] | [ ] | [ ] | [ ] |
+
+## 5. The problem, in their words
+
+- What they've already tried, and why it didn't work: [ ]
+- The words *they* use to describe the problem (not marketing language — actual phrasing a person would type): [ ]
+- Three things that would make them immediately distrust someone selling this to them: [ ]
+
+## 6. Verification log
+
+AI-generated profiles are guesses until checked. Track what you verified and where.
+
+| Claim | Source checked (subreddit / reviews / comments / followers) | Confirmed / Revised | Date |
+|---|---|---|---|
+| [ ] | [ ] | [ ] | [ ] |
+
+## 7. Voice profile (for writing as/to them)
+
+Populate this from Section 5 plus the language-collection workflow. This is what an AI uses to write content or messaging that sounds like it's from inside the community, not from a marketer looking in.
+
+- Tone: [e.g. blunt, self-deprecating, skeptical of hype]
+- Words/phrases they repeat often: [ ]
+- Words/phrases that instantly signal "this was written by a marketer" (avoid these): [ ]
+- Sentence length / formality: [ ]
+
+## 8. Where they actually are
+
+- Platforms/communities they already gather in: [ ]
+- How people in those communities talk / what gets removed or downvoted: [ ]
+- Ranked by ease of reaching them for free: [ ]
+
+## 9. Value proposition fit
+
+- The specific complaint that repeats most in the raw data (this is often what the product should actually be or become): [ ]
+- What the product needs to do to make this person happy: [ ]
+- What would make them ask for a refund: [ ]
+- One-sentence value prop, in their words, not yours: [ ]
+
+---
+*Template based on a "radically simple" persona + insight-collection workflow. See `workflow_persona_to_sales_agent.md` for how this feeds into content and a sales-recommendation agent.*
