@@ -52,6 +52,7 @@ They are interdependent: adding or updating a template always means updating CLA
 | `ROADMAP.md` | Document planned milestones and features |
 | `STATS.md` | Capture recurring npm/GitHub metrics snapshots |
 | `AUDIT.md` | Structured codebase audit with S/M/L scoring |
+| `BUYER-PERSONA.md` | Generate a complete buyer persona from a product description |
 | `TEMPLATE.md` | Author a new mdblu template |
 
 All templates live in [`/templates`](templates/) and are open for contribution.
