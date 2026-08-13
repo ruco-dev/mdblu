@@ -50,6 +50,18 @@
       "bytes": 1574
     },
     {
+      "name": "BUYER-PERSONA.md.template",
+      "title": "Buyer Persona",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "reference",
+        "documentation"
+      ],
+      "sha256": "9e64fb9a131593cd9607c055648df0875e860cb4aec1e0e88e6a290af312c27d",
+      "bytes": 5054
+    },
+    {
       "name": "CAROUSEL.md.template",
       "title": "Carousel Content",
       "type": "content",
