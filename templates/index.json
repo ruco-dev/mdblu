@@ -56,10 +56,10 @@
       "tags": [
         "planning",
         "reference",
-        "documentation"
+        "persona"
       ],
-      "sha256": "9e64fb9a131593cd9607c055648df0875e860cb4aec1e0e88e6a290af312c27d",
-      "bytes": 5054
+      "sha256": "69d5274d273051afa1067a23ae9da7b36bce62cb0aff95fd742edec6e5eccd78",
+      "bytes": 5048
     },
     {
       "name": "CAROUSEL.md.template",
@@ -132,10 +132,10 @@
       "tags": [
         "planning",
         "reference",
-        "documentation"
+        "persona"
       ],
-      "sha256": "b684314a202ae68fe4cc99ba284bc1a61e6a663458148f0b6693383bb33176f5",
-      "bytes": 5906
+      "sha256": "730034c97199b7665fc1972f775625e37d2fd10981f721c2da646c234133924a",
+      "bytes": 5900
     },
     {
       "name": "GENERALINSIGHTS.md.template",
@@ -180,10 +180,10 @@
       "tags": [
         "planning",
         "reference",
-        "documentation"
+        "persona"
       ],
-      "sha256": "406fdcf216f864d1678fbd9a3074fee848812022b89b684389d41aa7ecff038f",
-      "bytes": 6672
+      "sha256": "8bafaf9426d23d389e6f5cd0bd735d8877142df219b81418342229fca580e421",
+      "bytes": 6666
     },
     {
       "name": "INVESTOR-PERSONA.md.template",
@@ -192,10 +192,10 @@
       "tags": [
         "planning",
         "reference",
-        "documentation"
+        "persona"
       ],
-      "sha256": "e29505a8be0bbad6ac1fd8d371651a4c1d98a0ca9bcbe94a10394d91586afe56",
-      "bytes": 6504
+      "sha256": "3dc46dba7372de51a95428040dc66a4f4150136505552da9f034b1e4dfee95b6",
+      "bytes": 6498
     },
     {
       "name": "MISSION-LOG.md.template",
@@ -388,10 +388,10 @@
       "tags": [
         "planning",
         "reference",
-        "documentation"
+        "persona"
       ],
-      "sha256": "1ec2331be0217007667a0b9ce398415c758b1e6cc7f0c9f6a9d837ee7beb9b1a",
-      "bytes": 6000
+      "sha256": "78b2f56107af864b77c2d9904c201ffab6b18f0f6a4713b96f9d7494105eb556",
+      "bytes": 5994
     }
   ],
   "skills": [
