@@ -1,0 +1,127 @@
+---
+license: CC-BY-SA-4.0
+title: "Investor Persona"
+type: planning
+tags: [planning, reference, documentation]
+---
+
+# Investor Persona: {{PROJECT_NAME}}
+
+**Company / offering:** {{PROJECT_NAME}}
+**Date:** {{DATE}}
+**Author:** {{AUTHOR}}
+
+---
+
+<!--
+INSTRUCTIONS FOR THE MODEL:
+Your output must be this document with every section filled in. Do not write prose, summaries, or commentary outside the template structure.
+The prompt below describes a company, stage, and raise, and the ideal investor to approach. Use it to generate a complete, specific investor persona — a single representative person, not a fund category. The audience for this document is the founding team preparing to run a fundraise.
+
+Rules:
+- Write as if describing one real human being. Use "she", "he", or "they" consistently once you pick a pronoun. Give them a first name.
+- One-line summary: a single sentence naming who this investor is and what thesis this raise maps onto. Not a fund stage — a person with a specific bet they're trying to make.
+- Demographics: fill every field with a specific value. Do not write "varies" or leave cells blank. Include fund stage, check size range, portfolio thesis, and how they source deals (inbound / warm intro / cold outreach / community).
+- Psychographics: answers must be concrete and specific to this persona. No generic VC-speak. Focus on what this investor is actually afraid of (downside risk, fund math, LP optics) and what signals genuinely excite them.
+- Day in their life: generate as many rows as needed (typically 6–10). Show what their week actually looks like — the volume of deals they see, the pattern-matching happening, and the moment a founder or deck would actually get their real attention.
+- The criteria, in their words: use the actual language this investor would use in a rejection email, a podcast appearance, or a tweet thread — not sanitized pitch-deck language. What do they say they fund, and what do they say behind closed doors?
+- Verification log: seed this with 4–6 specific, falsifiable claims you made above that the team should check against real sources (fund website, podcast appearances, Crunchbase portfolio, Twitter/X threads, LP letters). Each row gets a specific claim, not a generic category.
+- Voice profile: pull directly from the language patterns you wrote in Section 5. Consistent with the persona, not invented independently.
+- Where they actually are: name specific events, podcasts, Slack communities, or platforms — not categories like "VC networks".
+- Investment fit: the repeating signal or red flag in row 1 must come directly from Section 5, not be invented here.
+- Remove all HTML comments from the final output.
+- Do not add, remove, or reorder sections.
+- Do not leave generic placeholder text or empty cells.
+-->
+
+## Overview
+
+> {{PROMPT}}
+
+---
+
+## 1. One-line summary
+
+<!-- One sentence: who this investor is and what thesis this raise maps onto. Not a fund stage — a person with a specific bet. -->
+
+## 2. Demographics
+
+<!-- Fill every field with a specific value for this persona. -->
+
+- **Name (representative):**
+- **Age:**
+- **Location / region:**
+- **Fund name and stage (pre-seed / seed / Series A / etc.):**
+- **Typical check size:**
+- **Portfolio thesis (what they say they're betting on):**
+- **Number of deals per year:**
+- **How they source (inbound, warm intro, cold outreach, community):**
+- **Lead or follow (do they typically lead rounds or co-invest):**
+
+## 3. Psychographics
+
+<!-- Concrete and specific — not generic VC-speak. -->
+
+- **What they're actually optimizing for (fund math, LP optics, personal thesis, pattern match):**
+- **What they're most afraid of (the downside scenario that keeps them from pulling the trigger):**
+- **How they see themselves in the ecosystem:**
+- **Who they'd hate being compared to (the "tourist investor" or "tourist thesis" they distance from):**
+- **What they'd be embarrassed to admit about how they make decisions:**
+
+## 4. A day in their life
+
+<!-- Walk through a typical week at the moments that matter. Show the volume of deals, the pattern-matching happening, and the specific moment a deck or intro would cut through. Generate as many rows as needed (typically 6–10). -->
+
+| Time / Day | What they're doing | Deal-related? | State of mind / attention level |
+|------------|--------------------|--------------|---------------------------------|
+
+## 5. The criteria, in their words
+
+<!-- Use the actual language this investor would use in a rejection email, a podcast appearance, or a tweet thread — not sanitized pitch language. What do they say they fund, and what do they say behind closed doors? -->
+
+- **What they've passed on before that they now wish they hadn't (and why they passed):**
+- **The words *they* use to describe a fundable company at this stage:**
+- **Three things that would make them send a polite no after 20 minutes:**
+  1.
+  2.
+  3.
+
+## 6. Verification log
+
+<!-- Seed this with 4–6 specific, falsifiable claims from the sections above. The team checks each one against a real source (fund website, podcast appearances, Crunchbase portfolio data, public tweets). Mark "Confirmed" or revise the claim based on what they find. -->
+
+| Claim (from this document) | Where to check | Confirmed / Revised | Date checked |
+|----------------------------|----------------|---------------------|--------------|
+
+## 7. Voice profile
+
+<!-- Pull from Section 5 — consistent with this persona, not independently invented. -->
+
+- **Tone:**
+- **Phrases they repeat on podcasts or in written pieces:**
+- **Phrases in pitch decks that signal "doesn't understand how VC works" (avoid):**
+- **Sentence length / formality:**
+
+## 8. Where they actually are
+
+<!-- Name specific events, podcasts, Slack/Discord communities, newsletters, or platforms — not categories. -->
+
+- **Platforms / communities / events:**
+- **How people there talk / what gets ignored or signals naivety:**
+- **Ranked by ease of getting a warm introduction:**
+  1.
+  2.
+  3.
+
+## 9. Investment fit
+
+<!-- The repeating signal or red flag in row 1 must come directly from Section 5. -->
+
+- **The specific signal or red flag that repeats most in the raw data:**
+- **What the company must demonstrate to be fundable in their eyes:**
+- **What would make them pass after a second meeting:**
+- **One-sentence pitch for this investor, in their own framing:**
+
+---
+
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/INVESTOR-PERSONA.md.template`*

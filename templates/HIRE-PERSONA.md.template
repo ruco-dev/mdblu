@@ -1,0 +1,128 @@
+---
+license: CC-BY-SA-4.0
+title: "Hire Persona"
+type: planning
+tags: [planning, reference, documentation]
+---
+
+# Hire Persona: {{PROJECT_NAME}}
+
+**Role / team:** {{PROJECT_NAME}}
+**Date:** {{DATE}}
+**Author:** {{AUTHOR}}
+
+---
+
+<!--
+INSTRUCTIONS FOR THE MODEL:
+Your output must be this document with every section filled in. Do not write prose, summaries, or commentary outside the template structure.
+The prompt below describes a role, team, and company, and the ideal candidate for an open position. Use it to generate a complete, specific hire persona — a single representative person, not a recruiter's job description. The audience for this document is the hiring manager and team preparing to find, attract, and evaluate this person.
+
+The persona is candidate-centered: written from the perspective of understanding how the ideal hire thinks, what they want, and what would make them accept or reject an offer — not a checklist of requirements.
+
+Rules:
+- Write as if describing one real human being. Use "she", "he", or "they" consistently once you pick a pronoun. Give them a first name.
+- One-line summary: a single sentence naming who this person is and what career move they're ready for. Not a job title — a person at a specific inflection point.
+- Demographics: fill every field with a specific value. Do not write "varies" or leave cells blank. Include current employer type (startup / enterprise / agency / freelance), years of experience, and tech/tool stack they already know well.
+- Psychographics: answers must be concrete and specific to this persona. No generic HR language.
+- Day in their life: generate as many rows as needed (typically 6–10). Show what their current job actually looks like — the moments they feel underused, frustrated, or ready for something bigger. This is where the opening for your offer lives.
+- What they type and say: use the actual language this person would type into a LinkedIn search, post on Blind, or say in a peer conversation — not polished job-board copy. Aspirations and dealbreakers, not pain points.
+- Verification log: seed this with 4–6 specific, falsifiable claims you made above that the hiring team should check against real sources (Glassdoor, Blind, Levels.fyi, LinkedIn bios, past candidate interviews). Each row gets a specific claim, not a generic category.
+- Voice profile: pull directly from the language patterns you wrote in Section 5. Consistent with the persona, not invented independently.
+- Where they actually are: name specific platforms, Slack communities, Discord servers, or conferences — not categories like "professional networks".
+- Role fit: the repeating aspiration or dealbreaker in row 1 must come directly from Section 5, not be invented here.
+- Remove all HTML comments from the final output.
+- Do not add, remove, or reorder sections.
+- Do not leave generic placeholder text or empty cells.
+-->
+
+## Overview
+
+> {{PROMPT}}
+
+---
+
+## 1. One-line summary
+
+<!-- One sentence: who this person is and what career move they're positioned to make. Not a job title — a person at an inflection point. -->
+
+## 2. Demographics
+
+<!-- Fill every field with a specific value for this persona. -->
+
+- **Name (representative):**
+- **Age:**
+- **Location / region (and remote / on-site preference):**
+- **Current role and employer type (startup / enterprise / agency / freelance):**
+- **Years of experience (overall and in this specialty):**
+- **Current compensation range (total comp):**
+- **Tech / tool stack they know well:**
+- **Education or certifications (if relevant to this role):**
+
+## 3. Psychographics
+
+<!-- Concrete and specific — not generic HR language. -->
+
+- **What they actually want from their next job (the real outcome, not the job title):**
+- **What would make them ghost after the first interview:**
+- **How they see themselves professionally:**
+- **Who they'd hate being managed like (the "junior dev" or "individual contributor" label they've outgrown):**
+- **What they'd be embarrassed to admit about why they're looking:**
+
+## 4. A day in their current job
+
+<!-- Walk through their current workday at the moments that matter — where they feel wasted, constrained, or ready for something more. Show the opening where your role and offer would land. Generate as many rows as needed (typically 6–10). -->
+
+| Time | What they're doing | Feeling engaged? | What they wish they were doing instead |
+|------|--------------------|------------------|----------------------------------------|
+
+## 5. What they type and say
+
+<!-- Use the actual language this person would type into a LinkedIn search bar, post on Blind, or say to a recruiter on a call — not polished job-board copy. Aspirations and dealbreakers, not problem statements. -->
+
+- **What they've applied to before that didn't work out, and the specific reason:**
+- **The words *they* use to describe the role or environment they're looking for:**
+- **Three things that would make them decline an offer or disengage mid-process:**
+  1.
+  2.
+  3.
+
+## 6. Verification log
+
+<!-- Seed this with 4–6 specific, falsifiable claims from the sections above. The hiring team checks each one against a real source (Glassdoor reviews, Blind threads, Levels.fyi compensation data, LinkedIn bios, past candidate interviews). Mark "Confirmed" or revise the claim based on what they find. -->
+
+| Claim (from this document) | Where to check | Confirmed / Revised | Date checked |
+|----------------------------|----------------|---------------------|--------------|
+
+## 7. Voice profile
+
+<!-- Pull from Section 5 — consistent with this persona, not independently invented. -->
+
+- **Tone:**
+- **Phrases they use when talking about work or career:**
+- **Phrases in job postings that instantly signal a bad culture fit (avoid):**
+- **Sentence length / formality:**
+
+## 8. Where they actually are
+
+<!-- Name specific platforms, Slack/Discord communities, newsletters, or conferences — not categories like "professional networks". -->
+
+- **Platforms / communities:**
+- **How people there talk / what gets flagged or dismissed:**
+- **Ranked by ease of reaching them as a candidate:**
+  1.
+  2.
+  3.
+
+## 9. Role fit
+
+<!-- The repeating aspiration or dealbreaker in row 1 must come directly from Section 5. -->
+
+- **The specific aspiration or dealbreaker that repeats most in the raw data:**
+- **What the role and environment must offer to make this person say yes:**
+- **What would make them accept the offer and then quietly start looking again in 90 days:**
+- **One-sentence role pitch, in their words:**
+
+---
+
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/HIRE-PERSONA.md.template`*

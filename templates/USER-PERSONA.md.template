@@ -1,0 +1,128 @@
+---
+license: CC-BY-SA-4.0
+title: "User Persona"
+type: planning
+tags: [planning, reference, documentation]
+---
+
+# User Persona: {{PROJECT_NAME}}
+
+**Product / tool:** {{PROJECT_NAME}}
+**Date:** {{DATE}}
+**Author:** {{AUTHOR}}
+
+---
+
+<!--
+INSTRUCTIONS FOR THE MODEL:
+Your output must be this document with every section filled in. Do not write prose, summaries, or commentary outside the template structure.
+The prompt below describes a product or tool and the person who actually operates it day-to-day. Use it to generate a complete, specific user persona — a single representative person, not a demographic category.
+
+Note: a user persona profiles the person who *uses* the product, which may differ from the person who *buys* it. Focus on workflow, daily context, and hands-on experience — not purchase decision or budget ownership.
+
+Rules:
+- Write as if describing one real human being. Use "she", "he", or "they" consistently once you pick a pronoun. Give them a first name.
+- One-line summary: a single sentence naming who this person is and what they use the product to accomplish. Not a job title — a person with a workflow problem.
+- Demographics: fill every field with a specific value. Do not write "varies" or leave cells blank. Include their technical environment (OS, device, key tools they already use).
+- Psychographics: answers must be concrete and specific to this persona. No generic marketing language.
+- Day in their life: generate as many rows as needed to tell a coherent story (typically 6–10). Center the rows around the actual moments they open or need this product — the before, during, and after of a typical task.
+- The friction, in their words: use the actual language this person would type into a support ticket, a Reddit post, or a product review — not polished copy.
+- Verification log: seed this with 4–6 specific, falsifiable claims you made above that the human should check against real sources (app store reviews, G2/Capterra, subreddits, support ticket themes, user interviews). Each row gets a specific claim, not a generic category.
+- Voice profile: pull directly from the language patterns you wrote in Section 5. Consistent with the persona, not invented independently.
+- Where they actually are: name specific platforms, subreddits, Slack communities, or forums — not categories like "online communities".
+- Workflow fit: the repeating complaint in row 1 must come directly from Section 5, not be invented here.
+- Remove all HTML comments from the final output.
+- Do not add, remove, or reorder sections.
+- Do not leave generic placeholder text or empty cells.
+-->
+
+## Overview
+
+> {{PROMPT}}
+
+---
+
+## 1. One-line summary
+
+<!-- One sentence: who this is and what they use the product to accomplish. Not a category — a person with a task. -->
+
+## 2. Demographics
+
+<!-- Fill every field with a specific value for this persona. -->
+
+- **Name (representative):**
+- **Age:**
+- **Location / region:**
+- **Job / role:**
+- **Rough income:**
+- **Primary device / OS:**
+- **Technical environment (key tools already in their stack):**
+- **How often they use this product (daily, weekly, per project):**
+
+## 3. Psychographics
+
+<!-- Concrete and specific — not generic marketing language. -->
+
+- **What they actually want from the product (the real outcome, not the feature list):**
+- **What makes them close the tab and go back to their old way:**
+- **How they see themselves as an operator / professional:**
+- **Who they'd hate being grouped with (the "novice user" they don't identify as):**
+- **What they'd be embarrassed to admit about how they're using it:**
+
+## 4. A day in their life
+
+<!-- Walk through their workday at the moments that matter. Show exactly when and in what context they reach for this tool — the trigger, the task, and the state they're in. Generate as many rows as needed (typically 6–10). -->
+
+| Time | What they're doing | Using the product? | Mood / what they need right now |
+|------|--------------------|--------------------|---------------------------------|
+
+## 5. The friction, in their words
+
+<!-- Use the actual language this person would type in a support ticket, a forum post, or an app store review — not polished copy. -->
+
+- **What they were using before, and the specific moment they decided to switch:**
+- **The words *they* use to describe the friction they still feel:**
+- **Three things that would make them immediately switch to a competitor:**
+  1.
+  2.
+  3.
+
+## 6. Verification log
+
+<!-- Seed this with 4–6 specific, falsifiable claims from the sections above. The human checks each one against a real source (app store reviews, G2/Capterra, product subreddits, support tickets). Mark "Confirmed" or revise the claim based on what they find. -->
+
+| Claim (from this document) | Where to check | Confirmed / Revised | Date checked |
+|----------------------------|----------------|---------------------|--------------|
+
+## 7. Voice profile
+
+<!-- Pull from Section 5 — consistent with this persona, not independently invented. -->
+
+- **Tone:**
+- **Phrases they repeat in reviews or forum posts:**
+- **Phrases that instantly signal "wrote by the product team" (avoid in docs/UI copy):**
+- **Sentence length / formality:**
+
+## 8. Where they actually are
+
+<!-- Name specific platforms, subreddits, Slack/Discord servers, or communities — not categories. -->
+
+- **Platforms / communities:**
+- **How people there talk / what gets removed or downvoted:**
+- **Ranked by ease of reaching them for feedback or testing:**
+  1.
+  2.
+  3.
+
+## 9. Workflow fit
+
+<!-- The repeating complaint in row 1 must come directly from Section 5. -->
+
+- **The specific friction point that repeats most in the raw data:**
+- **What the product must do to fit cleanly into their existing workflow:**
+- **What would make them file a bug report or ask for a refund:**
+- **One-sentence value prop, in their words:**
+
+---
+
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/USER-PERSONA.md.template`*

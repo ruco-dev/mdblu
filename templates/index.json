@@ -126,6 +126,18 @@
       "bytes": 2158
     },
     {
+      "name": "FOLLOWER-PERSONA.md.template",
+      "title": "Follower Persona",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "reference",
+        "documentation"
+      ],
+      "sha256": "b684314a202ae68fe4cc99ba284bc1a61e6a663458148f0b6693383bb33176f5",
+      "bytes": 5906
+    },
+    {
       "name": "GENERALINSIGHTS.md.template",
       "title": "General Insights",
       "type": "metadata",
@@ -160,6 +172,30 @@
       ],
       "sha256": "79e52d0ffe14bc30753456692f0adb91610950b644a969648e3e8a43a6b45763",
       "bytes": 2664
+    },
+    {
+      "name": "HIRE-PERSONA.md.template",
+      "title": "Hire Persona",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "reference",
+        "documentation"
+      ],
+      "sha256": "406fdcf216f864d1678fbd9a3074fee848812022b89b684389d41aa7ecff038f",
+      "bytes": 6672
+    },
+    {
+      "name": "INVESTOR-PERSONA.md.template",
+      "title": "Investor Persona",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "reference",
+        "documentation"
+      ],
+      "sha256": "e29505a8be0bbad6ac1fd8d371651a4c1d98a0ca9bcbe94a10394d91586afe56",
+      "bytes": 6504
     },
     {
       "name": "MISSION-LOG.md.template",
@@ -344,6 +380,18 @@
       ],
       "sha256": "148be4db9777e08784e9e7d66d6f15f75d0cb8d3081c764869d39804f618b6c3",
       "bytes": 1580
+    },
+    {
+      "name": "USER-PERSONA.md.template",
+      "title": "User Persona",
+      "type": "planning",
+      "tags": [
+        "planning",
+        "reference",
+        "documentation"
+      ],
+      "sha256": "1ec2331be0217007667a0b9ce398415c758b1e6cc7f0c9f6a9d837ee7beb9b1a",
+      "bytes": 6000
     }
   ],
   "skills": [

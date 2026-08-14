@@ -1,0 +1,127 @@
+---
+license: CC-BY-SA-4.0
+title: "Follower Persona"
+type: planning
+tags: [planning, reference, documentation]
+---
+
+# Follower Persona: {{PROJECT_NAME}}
+
+**Brand / channel:** {{PROJECT_NAME}}
+**Date:** {{DATE}}
+**Author:** {{AUTHOR}}
+
+---
+
+<!--
+INSTRUCTIONS FOR THE MODEL:
+Your output must be this document with every section filled in. Do not write prose, summaries, or commentary outside the template structure.
+The prompt below describes a brand, creator, or product and the audience that follows it online. Use it to generate a complete, specific follower persona — a single representative person, not an audience segment.
+
+Rules:
+- Write as if describing one real human being. Use "she", "he", or "they" consistently once you pick a pronoun. Give them a first name.
+- One-line summary: a single sentence naming who this person is and what draws them to this type of content. Not a demographic label — a person with a reason to follow.
+- Demographics: fill every field with a specific value. Do not write "varies" or leave cells blank. Include platform-specific habits (follower count they personally follow, how many accounts, weekly hours consuming this type of content).
+- Psychographics: answers must be concrete and specific to this persona. No generic marketing language.
+- Day in their life: generate as many rows as needed to tell a coherent story (typically 6–10). Focus on the moments they reach for their phone, open the app, and choose what to engage with. Show the window where your content competes for their attention.
+- The pull, in their words: use actual language this person would type in a comment, reply, or DM — not polished copy. Section 5 for a follower is about what draws them in and what makes them hit unfollow.
+- Verification log: seed this with 4–6 specific, falsifiable claims you made above that the human should check against real sources (comment sections, reply threads, creator Discord servers, platform analytics communities). Each row gets a specific claim, not a generic category.
+- Voice profile: pull directly from the language patterns you wrote in Section 5. Consistent with the persona, not invented independently.
+- Where they actually are: name specific platforms, subreddits, Discord servers, or communities — not categories like "social media".
+- Content and community fit: the repeating comment type in row 1 must come directly from Section 5, not be invented here.
+- Remove all HTML comments from the final output.
+- Do not add, remove, or reorder sections.
+- Do not leave generic placeholder text or empty cells.
+-->
+
+## Overview
+
+> {{PROMPT}}
+
+---
+
+## 1. One-line summary
+
+<!-- One sentence: who this is and what pulls them toward this type of content. Not a category — a person. -->
+
+## 2. Demographics
+
+<!-- Fill every field with a specific value for this persona. -->
+
+- **Name (representative):**
+- **Age:**
+- **Location / region:**
+- **Job / role:**
+- **Rough income:**
+- **Primary device:**
+- **Platforms they actively use (ranked by time spent):**
+- **Accounts / creators they follow (approximate count per platform):**
+- **Estimated hours per week consuming this type of content:**
+
+## 3. Psychographics
+
+<!-- Concrete and specific — not generic marketing language. -->
+
+- **What they're actually looking for when they follow someone (the real need, not the niche):**
+- **What makes them unfollow or mute without explanation:**
+- **How they see themselves as an audience member:**
+- **Who they'd hate being grouped with by an algorithm:**
+- **What they'd be embarrassed to admit about how much time they spend here:**
+
+## 4. A day in their life
+
+<!-- Walk through their day at the moments that matter. Show when, where, and in what state of mind they open the app and make content choices. Generate as many rows as needed (typically 6–10). -->
+
+| Time | What they're doing | On phone? | Mood / what they open first |
+|------|--------------------|-----------|------------------------------|
+
+## 5. The pull, in their words
+
+<!-- Use the actual language this person would type in a comment, a DM, or a reply thread — not polished copy. -->
+
+- **What they've followed before that disappointed them, and why:**
+- **The words *they* use to describe content they love:**
+- **Three things that would make them immediately unfollow or report:**
+  1.
+  2.
+  3.
+
+## 6. Verification log
+
+<!-- Seed this with 4–6 specific, falsifiable claims from the sections above. The human checks each one against a real source (comment sections, reply threads, Discord servers, creator analytics communities). Mark "Confirmed" or revise the claim based on what they find. -->
+
+| Claim (from this document) | Where to check | Confirmed / Revised | Date checked |
+|----------------------------|----------------|---------------------|--------------|
+
+## 7. Voice profile
+
+<!-- Pull from Section 5 — consistent with this persona, not independently invented. -->
+
+- **Tone:**
+- **Phrases they repeat often in comments or replies:**
+- **Phrases that instantly signal "brand account" or "influencer" (avoid):**
+- **Sentence length / formality:**
+
+## 8. Where they actually are
+
+<!-- Name specific platforms, subreddits, Discord servers, or creator communities — not categories. -->
+
+- **Platforms / communities:**
+- **How people there talk / what gets removed or downvoted:**
+- **Ranked by ease of reaching them organically:**
+  1.
+  2.
+  3.
+
+## 9. Content and community fit
+
+<!-- The repeating comment type in row 1 must come directly from Section 5. -->
+
+- **The specific comment or reaction type that repeats most in the raw data:**
+- **What the content must consistently do to keep this person subscribed:**
+- **What would make them feel the brand "sold out" or lost the plot:**
+- **One-sentence content promise, in their words:**
+
+---
+
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/FOLLOWER-PERSONA.md.template`*

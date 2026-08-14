@@ -43,6 +43,10 @@ This document defines all valid tags used in mdblu template frontmatter. Tags ar
 |----------|------|
 | `AUDIT.md.template` | `documentation`, `retrospective`, `quality` |
 | `BUYER-PERSONA.md.template` | `planning`, `reference`, `documentation` |
+| `FOLLOWER-PERSONA.md.template` | `planning`, `reference`, `documentation` |
+| `HIRE-PERSONA.md.template` | `planning`, `reference`, `documentation` |
+| `INVESTOR-PERSONA.md.template` | `planning`, `reference`, `documentation` |
+| `USER-PERSONA.md.template` | `planning`, `reference`, `documentation` |
 | `ADR.md.template` | `documentation`, `architecture`, `decision` |
 | `ARCHITECTURE.md.template` | `documentation`, `architecture`, `reference` |
 | `BOOTSTRAP.md.template` | `planning`, `task-management`, `scoping` |

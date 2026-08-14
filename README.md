@@ -53,6 +53,10 @@ They are interdependent: adding or updating a template always means updating CLA
 | `STATS.md` | Capture recurring npm/GitHub metrics snapshots |
 | `AUDIT.md` | Structured codebase audit with S/M/L scoring |
 | `BUYER-PERSONA.md` | Generate a complete buyer persona from a product description |
+| `FOLLOWER-PERSONA.md` | Profile a brand's online content audience and advocacy drivers |
+| `USER-PERSONA.md` | Profile the daily operator of a product (distinct from the buyer) |
+| `HIRE-PERSONA.md` | Profile the ideal candidate for an open role (candidate-centered) |
+| `INVESTOR-PERSONA.md` | Profile the ideal investor for a fundraise |
 | `TEMPLATE.md` | Author a new mdblu template |
 
 All templates live in [`/templates`](templates/) and are open for contribution.
