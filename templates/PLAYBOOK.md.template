@@ -1,101 +1,279 @@
 ---
 license: CC-BY-SA-4.0
-title: "Operational Playbook"
-type: documentation
-tags: [documentation, runbook, reference]
+name: "{{PLAYBOOK_TITLE}}"
+type: playbook
+description: "{{ONE_LINE_DESCRIPTION}}"
+use_when: "{{ONE_SENTENCE_TRIGGER}}"
+tags: [{{TAGS}}]
+skills: [{{SKILLS}}]
 ---
 
-# Playbook: {{PROJECT_NAME}}
+<!--
+═══════════════════════════════════════════════════════════════
+PLAYBOOK TEMPLATE — HUMAN + AGENT WORKFLOW
+═══════════════════════════════════════════════════════════════
+
+A PLAYBOOK describes a repeatable, outcome-oriented workflow.
+
+Unlike a skill, which describes a reusable capability, a playbook
+combines capabilities and context to accomplish a specific outcome.
+
+A playbook may coordinate:
+
+  HUMAN
+    Work requiring human action, judgment, communication,
+    responsibility, or real-world interaction.
+
+  AGENT
+    Work an AI agent can perform using an available SKILL.md.
+
+  HUMAN + AGENT
+    Collaborative work where the agent assists and the human
+    remains an active participant or decision-maker.
+
+Skills should be referenced rather than duplicated.
+
+  HUMAN.md
+    Describes HOW a human performs a reusable capability.
+
+  SKILL.md
+    Describes HOW an agent performs a reusable capability.
+
+  PLAYBOOK.md
+    Describes WHEN, WHY, IN WHAT ORDER, and IN WHAT CONTEXT
+    those capabilities are applied.
+
+───────────────────────────────────────────────────────────────
+AUTHORING PRINCIPLES
+───────────────────────────────────────────────────────────────
+
+1. Start with the outcome.
+
+2. Break the workflow into meaningful activities.
+
+3. Assign each activity to:
+   - HUMAN
+   - AGENT
+   - HUMAN + AGENT
+
+4. Identify reusable HUMAN and AGENT skills.
+
+5. Reference those skills instead of reproducing their instructions.
+
+6. Put organization-specific context, constraints, approvals,
+   thresholds, responsibilities, and policies in the playbook.
+
+7. Tell the participant what happens next.
+
+8. Describe what to do when an activity fails.
+
+9. Define verification and completion criteria.
+
+10. Include escalation only where responsibility must pass to
+    another person, role, or process.
+
+───────────────────────────────────────────────────────────────
+MODEL INSTRUCTIONS (remove this block from final output)
+───────────────────────────────────────────────────────────────
+
+- Fill every applicable section.
+- Replace ALL {{PLACEHOLDERS}}, including frontmatter.
+- Remove all HTML comment blocks from the final output.
+- Do not duplicate instructions already provided by referenced skills.
+- Assign every workflow step to HUMAN, AGENT, or HUMAN + AGENT.
+- Reference HUMAN.md capabilities for reusable human work.
+- Reference SKILL.md capabilities for reusable agent work.
+- Keep organization-specific rules and context in the playbook.
+- Use "What to do next" for progression.
+- Use "If this fails" for recovery.
+- Do not require shell commands unless the actual workflow requires them.
+- Do not invent approvals, policies, roles, or thresholds.
+═══════════════════════════════════════════════════════════════
+-->
+
+# Playbook: {{PLAYBOOK_TITLE}}
 
 **Date:** {{DATE}}
 **Author:** {{AUTHOR}}
 
 ---
 
-<!--
-INSTRUCTIONS FOR THE MODEL:
-Your output must be this document with every section filled in. Do not write prose, summaries, or commentary outside the template structure.
-The prompt below describes an operational procedure, incident response, or repeatable process. Use it to populate each section.
-- Scope: real scenarios this playbook covers.
-- Prerequisites: real access, tools, and permissions needed.
-- Runbook: actual steps with real commands derived from the prompt.
-- Rollback: how to undo the procedure if it goes wrong.
-- Common Issues: failure modes likely given the procedure described.
-- Remove HTML comments from the final output.
-- Do not leave placeholder text, "...", or generic step names.
-- Do not add, remove, or reorder sections.
--->
+## Outcome
 
-## Purpose
-
-> {{PROMPT}}
+> {{DESIRED_OUTCOME}}
 
 ---
 
-## Scope
+## When to Use This Playbook
 
-This playbook covers:
+Use this playbook when:
 
--
--
+- {{USE_CASE_1}}
+- {{USE_CASE_2}}
 
-## Prerequisites
+Do not use this playbook when:
 
-- [ ] TODO:
-- [ ] TODO:
+- {{EXCLUSION_1}}
 
-## Runbook
+---
 
-### Step 1: Preparation
+## Skills Used
 
-```bash
-```
+### Human Skills
 
-**Expected output:**
+- `{{HUMAN_SKILL_1}}` — {{HUMAN_SKILL_1_PURPOSE}}
+- `{{HUMAN_SKILL_2}}` — {{HUMAN_SKILL_2_PURPOSE}}
 
-**If it fails:**
+### Agent Skills
 
-### Step 2: Execution
+- `{{AGENT_SKILL_1}}` — {{AGENT_SKILL_1_PURPOSE}}
+- `{{AGENT_SKILL_2}}` — {{AGENT_SKILL_2_PURPOSE}}
 
-```bash
-```
+---
 
-**Expected output:**
+## Preparation
 
-**If it fails:**
+Before starting:
 
-### Step 3: Verification
+- [ ] {{PREREQUISITE_1}}
+- [ ] {{PREREQUISITE_2}}
+- [ ] {{PREREQUISITE_3}}
 
-```bash
-```
+---
 
-**Expected output:**
+## Workflow
 
-## Rollback Procedure
+### Step 1: {{STEP_1_TITLE}}
 
-1.
-2.
+**Performed by:** {{HUMAN | AGENT | HUMAN + AGENT}}
 
-```bash
-```
+**Uses skills:**
+- `{{SKILL_REFERENCE}}`
+
+#### Context
+
+{{STEP_1_CONTEXT}}
+
+#### Activity
+
+{{STEP_1_ACTIVITY}}
+
+#### Expected result
+
+{{STEP_1_EXPECTED_RESULT}}
+
+#### What to do next
+
+{{STEP_1_NEXT}}
+
+#### If this fails
+
+{{STEP_1_FAILURE}}
+
+---
+
+### Step 2: {{STEP_2_TITLE}}
+
+**Performed by:** {{HUMAN | AGENT | HUMAN + AGENT}}
+
+**Uses skills:**
+- `{{SKILL_REFERENCE}}`
+
+#### Context
+
+{{STEP_2_CONTEXT}}
+
+#### Activity
+
+{{STEP_2_ACTIVITY}}
+
+#### Expected result
+
+{{STEP_2_EXPECTED_RESULT}}
+
+#### What to do next
+
+{{STEP_2_NEXT}}
+
+#### If this fails
+
+{{STEP_2_FAILURE}}
+
+---
+
+### Step 3: {{STEP_3_TITLE}}
+
+**Performed by:** {{HUMAN | AGENT | HUMAN + AGENT}}
+
+**Uses skills:**
+- `{{SKILL_REFERENCE}}`
+
+#### Context
+
+{{STEP_3_CONTEXT}}
+
+#### Activity
+
+{{STEP_3_ACTIVITY}}
+
+#### Expected result
+
+{{STEP_3_EXPECTED_RESULT}}
+
+#### What to do next
+
+{{STEP_3_NEXT}}
+
+#### If this fails
+
+{{STEP_3_FAILURE}}
+
+---
+
+## Verification
+
+Confirm that:
+
+- [ ] {{VERIFICATION_1}}
+- [ ] {{VERIFICATION_2}}
+- [ ] {{VERIFICATION_3}}
+
+---
 
 ## Escalation
 
-| Condition | Action | Contact |
-|-----------|--------|---------|
-|           |        |         |
+| Situation | Escalate to | Action |
+|-----------|-------------|--------|
+| {{ESCALATION_CONDITION_1}} | {{ROLE_1}} | {{ESCALATION_ACTION_1}} |
+| {{ESCALATION_CONDITION_2}} | {{ROLE_2}} | {{ESCALATION_ACTION_2}} |
 
-## Post-Run Checklist
+---
 
-- [ ] TODO: Confirm system is healthy
-- [ ] TODO: Update incident log
-- [ ] TODO: Notify stakeholders
+## Completion
 
-## Common Issues
+The playbook is complete when:
 
-| Symptom | Cause | Resolution |
-|---------|-------|------------|
-|         |       |            |
+- [ ] {{COMPLETION_CRITERION_1}}
+- [ ] {{COMPLETION_CRITERION_2}}
+- [ ] {{COMPLETION_CRITERION_3}}
+
+---
+
+## Common Problems
+
+### {{PROBLEM_1_TITLE}}
+
+{{PROBLEM_1_GUIDANCE}}
+
+### {{PROBLEM_2_TITLE}}
+
+{{PROBLEM_2_GUIDANCE}}
+
+---
+
+## Notes
+
+{{NOTES}}
 
 ---
 

@@ -1,0 +1,287 @@
+---
+license: CC-BY-SA-4.0
+name: "{{SKILL_TITLE}}"
+type: human-skill
+description: "{{ONE_LINE_DESCRIPTION}}"
+use_when: "{{ONE_SENTENCE_TRIGGER}}"
+category: "{{CATEGORY}}"
+tags: [{{TAGS}}]
+requires: [{{REQUIRED_SKILLS}}]
+related_skills: [{{RELATED_SKILLS}}]
+---
+
+<!--
+═══════════════════════════════════════════════════════════════
+HUMAN SKILL TEMPLATE — GUIDE FOR HUMANS AND AI AGENTS
+═══════════════════════════════════════════════════════════════
+
+A HUMAN skill describes a reusable capability performed by a person.
+
+It must be useful to two audiences simultaneously:
+
+  1. A HUMAN applying or learning the skill
+     → reads the full document and follows its principles and steps.
+
+  2. AN AI AGENT assisting that human
+     → reads the document to explain, guide, coach, or suggest
+       what the human should do next.
+
+HUMAN.md describes a capability, not an organization-specific
+workflow. Context-specific sequences belong in PLAYBOOK.md.
+
+A HUMAN skill should answer:
+
+  - What capability does this teach?
+  - When should it be used?
+  - What does the person need to understand?
+  - What should the person actually do?
+  - What should they do next?
+  - What should they do when something fails?
+  - How do they know they have succeeded?
+
+───────────────────────────────────────────────────────────────
+FRONTMATTER FIELD GUIDE
+───────────────────────────────────────────────────────────────
+
+title
+  Clear name for the human capability.
+
+  Good: "Negotiation"
+  Good: "Active Listening"
+  Bad:  "Negotiating With Our Suppliers"
+
+description
+  One sentence describing what the human becomes able to do.
+
+use_when
+  One sentence describing situations where this capability is useful.
+
+category
+  Broad skill family used for discovery and taxonomy.
+
+  Examples:
+  communication
+  thinking
+  leadership
+  marketing
+  commercial
+  execution
+  learning
+
+tags
+  More specific concepts associated with the skill.
+
+requires
+  HUMAN skills that provide capabilities normally needed before
+  this skill can be applied effectively.
+
+related_skills
+  HUMAN skills that are frequently useful alongside this one.
+
+Use skill paths or identifiers consistently when the repository
+provides them.
+
+───────────────────────────────────────────────────────────────
+BODY WRITING GUIDE
+───────────────────────────────────────────────────────────────
+
+Overview
+  Briefly explain the capability and the outcome it enables.
+
+Key Principles
+  Capture concepts, mental models, heuristics, and rules that the
+  person needs in order to apply the skill correctly.
+
+  Do not turn every piece of knowledge into an artificial action.
+
+Preparation
+  What should the person know, have, decide, or prepare before
+  applying the skill?
+
+Steps
+  Describe practical application of the capability.
+
+  Prefer observable actions:
+
+    Good: "Write down the three outcomes you would accept."
+    Bad:  "Understand your acceptable outcomes."
+
+What to do next
+  Tell the person how to progress after completing the step.
+
+  Use natural human language. Do not express progression using
+  programming constructs such as IF/ELSE.
+
+If this fails
+  Explain recovery when the expected result cannot be achieved.
+
+  This section is optional when there is no meaningful failure
+  condition.
+
+Completion
+  Define observable evidence that the capability has been applied
+  successfully.
+
+Common Problems
+  Describe frequent mistakes or misunderstandings and how the
+  person can correct them.
+
+Related Skills
+  Explain important relationships already represented in the
+  frontmatter.
+
+───────────────────────────────────────────────────────────────
+MODEL INSTRUCTIONS (remove this block from final output)
+───────────────────────────────────────────────────────────────
+
+- Fill every applicable section.
+- Remove sections explicitly marked optional when they add no value.
+- Replace ALL {{PLACEHOLDERS}}, including frontmatter.
+- Remove all HTML comment blocks from the final output.
+- Do not invent organization-specific policies or procedures.
+- Do not turn HUMAN.md into a summary or reference article.
+- Keep conceptual knowledge when it is necessary to perform the skill.
+- Prefer practical, observable actions over vague instructions.
+- Use "What to do next" for progression.
+- Use "If this fails" for recovery.
+- Do not introduce programming-style IF/ELSE logic.
+- Reference other HUMAN skills instead of duplicating them.
+═══════════════════════════════════════════════════════════════
+-->
+
+# Human Skill: {{SKILL_TITLE}}
+
+**Date:** {{DATE}}
+**Author:** {{AUTHOR}}
+
+---
+
+## Overview
+
+> {{ONE_LINE_DESCRIPTION}}
+
+{{SKILL_OVERVIEW}}
+
+---
+
+## When to Use This Skill
+
+Use this skill when:
+
+- {{USE_CASE_1}}
+- {{USE_CASE_2}}
+- {{USE_CASE_3}}
+
+---
+
+## Key Principles
+
+### {{PRINCIPLE_1_TITLE}}
+
+{{PRINCIPLE_1_DESCRIPTION}}
+
+### {{PRINCIPLE_2_TITLE}}
+
+{{PRINCIPLE_2_DESCRIPTION}}
+
+### {{PRINCIPLE_3_TITLE}}
+
+{{PRINCIPLE_3_DESCRIPTION}}
+
+---
+
+## Preparation
+
+Before applying this skill:
+
+- [ ] {{PREPARATION_ITEM_1}}
+- [ ] {{PREPARATION_ITEM_2}}
+- [ ] {{PREPARATION_ITEM_3}}
+
+---
+
+## Steps
+
+### 1. {{STEP_1_TITLE}}
+
+{{STEP_1_DESCRIPTION}}
+
+#### What to do next
+
+{{STEP_1_NEXT}}
+
+#### If this fails
+
+{{STEP_1_FAILURE}}
+
+### 2. {{STEP_2_TITLE}}
+
+{{STEP_2_DESCRIPTION}}
+
+#### What to do next
+
+{{STEP_2_NEXT}}
+
+#### If this fails
+
+{{STEP_2_FAILURE}}
+
+### 3. {{STEP_3_TITLE}}
+
+{{STEP_3_DESCRIPTION}}
+
+#### What to do next
+
+{{STEP_3_NEXT}}
+
+#### If this fails
+
+{{STEP_3_FAILURE}}
+
+---
+
+## Completion
+
+The skill has been successfully applied when:
+
+- [ ] {{COMPLETION_CRITERION_1}}
+- [ ] {{COMPLETION_CRITERION_2}}
+- [ ] {{COMPLETION_CRITERION_3}}
+
+---
+
+## Common Problems
+
+### {{PROBLEM_1_TITLE}}
+
+{{PROBLEM_1_GUIDANCE}}
+
+### {{PROBLEM_2_TITLE}}
+
+{{PROBLEM_2_GUIDANCE}}
+
+---
+
+## Related Skills
+
+### Requires
+
+- **{{REQUIRED_SKILL_1}}** — {{REQUIRED_SKILL_1_REASON}}
+
+### Works Well With
+
+- **{{RELATED_SKILL_1}}** — {{RELATED_SKILL_1_REASON}}
+- **{{RELATED_SKILL_2}}** — {{RELATED_SKILL_2_REASON}}
+
+---
+
+## Notes
+
+{{NOTES}}
+
+---
+
+*Provided by [mdblu](https://github.com/ruco-dev/mdblu)*
+
+---
+*Made with [mdblu](https://github.com/ruco-dev/mdblu) · source: `templates/HUMAN.md.template`*
